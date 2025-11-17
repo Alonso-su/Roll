@@ -1,0 +1,30 @@
+{{- $movieDate := time .star_time -}}
+{{- $now := now -}}
+{{- $daysDiff := div (sub $now.Unix $movieDate.Unix) 86400 -}}
+{{- $currentYear := $now.Year -}}
+{{- $movieYear := $movieDate.Year -}}
+
+{{- if le $daysDiff 30 -}}
+  {{- /* 一个月内显示相对时间 */ -}}
+  {{- if eq $daysDiff 0 -}}
+    今天观看
+  {{- else if eq $daysDiff 1 -}}
+    昨天观看
+  {{- else if le $daysDiff 7 -}}
+    {{ $daysDiff }} 天前观看
+  {{- else if le $daysDiff 14 -}}
+    1 周前观看
+  {{- else if le $daysDiff 21 -}}
+    2 周前观看
+  {{- else if le $daysDiff 28 -}}
+    3 周前观看
+  {{- else -}}
+    1 个月前观看
+  {{- end -}}
+{{- else if eq $currentYear $movieYear -}}
+  {{- /* 超过一个月但在本年，显示月日 */ -}}
+  {{ $movieDate.Format "1月2日" }} 观看
+{{- else -}}
+  {{- /* 往年显示年月日 */ -}}
+  {{ $movieDate.Format "2006年1月2日" }} 观看
+{{- end -}}

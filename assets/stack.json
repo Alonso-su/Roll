@@ -1,0 +1,211 @@
+{
+    "hardware": [
+        {
+            "image": "/stack/hardware/applewatch.webp",
+            "title": "Apple Watch Series 5",
+            "info": "主要就是运动时佩戴当作数据记录，日常很少佩戴了。",
+            "type": "手表",
+            "article": "",
+            "Wishlist": "false",
+            "link": "https://www.apple.com/watch/"
+        },
+        {
+            "image": "/stack/hardware/iphone11pro.webp",
+            "title": "iPhone 11 Pro",
+            "info": "使用最久的一款手机，目前依然很流畅。近几年的新款，手感太差，可能因为穷。",
+            "type": "手机",
+            "article": "",
+            "Wishlist": "false",
+            "link": "https://www.apple.com/iphone-11-pro/"
+        },
+        {
+            "image": "/stack/hardware/U27U2DP.webp",
+            "title": "U27U2DP Ultra",
+            "info": "Studio Display 平替，色彩表现方面可圈可点。",
+            "type": "显示器",
+            "article": "",
+            "Wishlist": "false",
+            "link": "https://www.apple.com/iphone-11-pro/"
+        },
+        {
+            "image": "/stack/hardware/airPods.webp",
+            "title": "AirPods Pro (第二代)",
+            "info": "主要用来通勤路上听歌，音质不错，续航给力。",
+            "type": "耳机",
+            "article": "",
+            "Wishlist": "false",
+            "link": "https://www.apple.com/airpods-pro/"
+        },
+        {
+            "image": "/stack/hardware/WH-1000XM4.webp",
+            "title": "WH-1000XM4",
+            "info": "索尼大法好，音质不错，续航给力。",
+            "type": "耳机",
+            "article": "",
+            "Wishlist": "false",
+            "link": "https://www.sony.com/wh-1000xm4"
+        },
+        {
+            "image": "/stack/hardware/Sonos-One-SL.webp",
+            "title": "One SL",
+            "info": "HomePod 的完美平替，音质没得说。",
+            "type": "音箱",
+            "article": "",
+            "Wishlist": "false",
+            "link": "https://www.sonos.com/sonos-one-sl"
+        },
+        {
+            "image": "/stack/hardware/M11.webp",
+            "title": "Leica M11",
+            "info": "Leica 的旗舰相机，色彩表现方面可圈可点。",
+            "type": "相机",
+            "article": "",
+            "Wishlist": "true",
+            "link": "https://leica-camera.com/en-int/photography/cameras/m/m11-black"
+        },
+        {
+            "image": "/stack/hardware/Mavic4pro.webp",
+            "title": "Mavic 4 pro",
+            "info": "大疆的旗舰无人机，画质不错，续航给力。",
+            "type": "无人机",
+            "article": "",
+            "Wishlist": "true",
+            "link": "https://www.dji.com/cn/mavic-4-pro?site=brandsite&from=homepage"
+        },
+        {
+            "image": "/stack/hardware/MX-Mechanical.webp",
+            "title": "MX Mechanical",
+            "info": "用过的连接最稳定的机械键盘，快速切换很方便。",
+            "type": "键盘",
+            "article": "",
+            "Wishlist": "false",
+            "link": "https://www.logitech.com/en-us/products/keyboards/mx-mechanical-keyboard.910-005466.html"
+        },
+        {
+            "image": "/stack/hardware/mihome.webp",
+            "title": "小米全自动智能门锁",
+            "info": "唯一的优点就是性价比高，其他方面一般。",
+            "type": "门锁",
+            "article": "",
+            "Wishlist": "false",
+            "link": "https://www.mi.com/lock"
+        }
+    ],
+    "categories": [
+        {
+            "name": "Design",
+            "apps": [
+                {
+                    "image": "/stack/app/figma.avif",
+                    "title": "Figma",
+                    "info": "一款基于云的设计工具。",
+                    "macos": "PC",
+                    "free": "免费",
+                    "recommended": true,
+                    "link": "https://www.figma.com/"
+                },
+                {
+                    "image": "/stack/app/ai.avif",
+                    "title": "illustrator",
+                    "info": "Adobe 的矢量软件。",
+                    "recommended": false,
+                    "link": "https://www.adobe.com/hk_zh/products/illustrator.html"
+                },
+                {
+                    "image": "/stack/app/ps.avif",
+                    "title": "Photoshop",
+                    "info": "Adobe提供的强大图像处理软件。",
+                    "recommended": false,
+                    "link": "https://www.adobe.com/hk_zh/products/photoshop.html"
+                },
+                {
+                    "image": "/stack/app/rive.avif",
+                    "title": "Rive",
+                    "info": "一个交互式的动画制作工具。",
+                    "recommended": false,
+                    "link": "https://rive.app/"
+                }
+            ]
+        },
+        {
+            "name": "Development & Tools",
+            "apps": [
+                {
+                    "image": "/stack/app/vscode.avif",
+                    "title": "Visual Studio Code",
+                    "info": "微软的代码编辑软件。",
+                    "recommended": false,
+                    "link": "https://www.figma.com/"
+                },
+                {
+                    "image": "/stack/app/copilot.avif",
+                    "title": "Copilot",
+                    "info": "Github 的 AI 助手。",
+                    "recommended": true,
+                    "link": "https://www.adobe.com/hk_zh/products/illustrator.html"
+                },
+                {
+                    "image": "/stack/app/chrome.avif",
+                    "title": "Google Chrome",
+                    "info": "Google 的浏览器，插件丰富。",
+                    "recommended": false,
+                    "link": "https://www.google.com/chrome/"
+                },
+                {
+                    "image": "/stack/app/bitwarden.avif",
+                    "title": "Bitwarden",
+                    "info": "密码管理工具，免费开源。",
+                    "recommended": false,
+                    "link": "https://github.com/dani-garcia/vaultwarden"
+                },
+                {
+                    "image": "/stack/app/obsidian.avif",
+                    "title": "Obsidian",
+                    "info": "知识管理笔记类软件。",
+                    "recommended": false,
+                    "link": "https://obsidian.md/"
+                }
+            ]
+        },
+        {
+            "name": "Entertainment",
+            "apps": [
+                {
+                    "image": "/stack/app/applemusic.avif",
+                    "title": "Apple Music",
+                    "info": "Apple 的音乐软件。",
+                    "recommended": false,
+                    "link": "https://music.apple.com/"
+                },
+                {
+                    "image": "/stack/app/netease_music.avif",
+                    "title": "Netease Music",
+                    "info": "网易的音乐软件。",
+                    "recommended": false,
+                    "link": "https://music.163.com/"
+                },
+                {
+                    "image": "/stack/app/youtube.avif",
+                    "title": "Youtube",
+                    "info": "Google 的视频软件。",
+                    "recommended": false,
+                    "link": "https://youtube.com"
+                },
+                {
+                    "image": "/stack/app/netflix.avif",
+                    "title": "Netflix",
+                    "info": "海外流媒体视频软件。",
+                    "recommended": true,
+                    "link": "https://netflix.com/"
+                },
+                {
+                    "image": "/stack/app/telegram.avif",
+                    "title": "Telegram",
+                    "info": "著名的跨平台即时通讯软件。",
+                    "recommended": false,
+                    "link": "https://telegram.org/"
+                }
+            ]
+        }
+    ]
+} 

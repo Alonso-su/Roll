@@ -1,0 +1,466 @@
+{{ define "main" }}
+<!-- Page Title with Lines and Last Updated -->
+{{ $albumsData := resources.Get "album.json" }}
+{{ $lastUpdatedText := "" }}
+{{ if $albumsData }}
+    {{ $albums := $albumsData | transform.Unmarshal }}
+    {{ with $albums }}
+        {{ $latestPhoto := index (sort .photos "date" "desc") 0 }}
+        {{ with $latestPhoto }}
+            {{ $latestTime := time .date }}
+            {{ $diffSeconds := sub now.Unix $latestTime.Unix }}
+            {{ $days := div $diffSeconds 86400 }}
+            {{ $hours := div $diffSeconds 3600 }}
+            {{ $minutes := div $diffSeconds 60 }}
+            
+            {{ if lt $diffSeconds 60 }}
+                {{ $lastUpdatedText = "just now" }}
+            {{ else if lt $diffSeconds 3600 }}
+                {{ $lastUpdatedText = printf "%d minutes ago" $minutes }}
+            {{ else if lt $diffSeconds 86400 }}
+                {{ $lastUpdatedText = printf "%d hours ago" $hours }}
+            {{ else if lt $days 2 }}
+                {{ $lastUpdatedText = "yesterday" }}
+            {{ else if lt $days 7 }}
+                {{ $lastUpdatedText = printf "%d days ago" $days }}
+            {{ else if lt $days 30 }}
+                {{ $weeks := math.Ceil (div $days 7) | int }}
+                {{ $lastUpdatedText = printf "%d weeks ago" $weeks }}
+            {{ else if lt $days 365 }}
+                {{ $months := math.Floor (div $days 30) | int }}
+                {{ $lastUpdatedText = printf "%d months ago" $months }}
+            {{ else }}
+                {{ $lastUpdatedText = $latestTime.Format "Jan 2, 2006" }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+<!-- Custom Album Heading with Last Updated -->
+<div style="margin: 0.5rem 0;">
+  {{ partial "line.html" . }}
+  <h2 style="padding: 1rem; font-size: 0.75rem; text-transform: uppercase; font-family: var(--font-mono); margin: 0;">
+    <span style="color: var(--color-muted); margin-right: 0.5rem;" aria-hidden="true">01 /</span>
+    ALBUM{{ if $lastUpdatedText }} <span style="color: var(--color-muted); text-transform: none;">(<i class="ri-refresh-line" style="font-size: 0.75rem; margin-right: 0.25rem;"></i>{{ $lastUpdatedText }})</span>{{ end }}
+  </h2>
+  {{ partial "line.html" . }}
+</div>
+
+<!-- 使用主题自带的ViewImage组件 -->
+{{ $viewImageJS := resources.Get "js/view-image.min.js" }}
+{{ if $viewImageJS }}
+<script src="{{ $viewImageJS.RelPermalink }}"></script>
+{{ end }}
+
+<!-- 修复ViewImage在相册overlay中的z-index层级问题 -->
+<style>
+.view-image {
+    z-index: 1100 !important;
+}
+</style>
+
+<section class="p-4">
+    <!-- Page Description -->
+    <div class="album-description mb-6">
+        <div class="text-muted">
+            {{ if .Description }}{{ .Description | markdownify }}{{ else }}记录生活中的美好瞬间{{ end }}
+        </div>
+    </div>
+    
+    <!-- Content from markdown -->
+    {{ if .Content }}
+        <div class="album-content prose mt-6">
+            {{ .Content }}
+        </div>
+    {{ end }}
+</section>
+
+<div style="margin: 0.5rem 0;">
+    {{ partial "line.html" . }}
+</div>
+
+<div class="album-container p-4">
+    <!-- 新的卡片式布局 -->
+    <div class="album-categories">
+        {{ $albumsData := resources.Get "album.json" }}
+        {{ if $albumsData }}
+            {{ $albums := $albumsData | transform.Unmarshal }}
+            {{ with $albums }}
+                {{/* 按分类整理照片 - 修复方法 */}}
+                {{ $dailyPhotos := slice }}
+                {{ $landscapePhotos := slice }}
+                {{ $portraitPhotos := slice }}
+                {{ $foodPhotos := slice }}
+                {{ $travelPhotos := slice }}
+                
+                {{ range .photos }}
+                    {{ if eq .category "daily" }}
+                        {{ $dailyPhotos = $dailyPhotos | append (dict "url" .url "title" .title "date" .date) }}
+                    {{ else if eq .category "landscape" }}
+                        {{ $landscapePhotos = $landscapePhotos | append (dict "url" .url "title" .title "date" .date) }}
+                    {{ else if eq .category "portrait" }}
+                        {{ $portraitPhotos = $portraitPhotos | append (dict "url" .url "title" .title "date" .date) }}
+                    {{ else if eq .category "food" }}
+                        {{ $foodPhotos = $foodPhotos | append (dict "url" .url "title" .title "date" .date) }}
+                    {{ else if eq .category "travel" }}
+                        {{ $travelPhotos = $travelPhotos | append (dict "url" .url "title" .title "date" .date) }}
+                    {{ end }}
+                {{ end }}
+                
+                <div class="category-cards">
+                    {{/* 日常分类 */}}
+                    {{ $dailyLatest := dict }}
+                    {{ if gt (len $dailyPhotos) 0 }}
+                        {{ $dailyLatest = index (sort $dailyPhotos "date" "desc") 0 }}
+                    {{ end }}
+                    <div class="category-card" data-category="daily">
+                        <div class="card-image">
+                            {{ if $dailyLatest.url }}
+                                <img src="{{ $dailyLatest.url }}" alt="Daily">
+                            {{ else }}
+                                <img src="/images/categories/daily.jpg" alt="Daily">
+                            {{ end }}
+                            <div class="card-album-title">DAILY</div>
+                        </div>
+                    </div>
+                    
+                    {{/* 风景分类 */}}
+                    {{ $landscapeLatest := dict }}
+                    {{ if gt (len $landscapePhotos) 0 }}
+                        {{ $landscapeLatest = index (sort $landscapePhotos "date" "desc") 0 }}
+                    {{ end }}
+                    <div class="category-card" data-category="landscape">
+                        <div class="card-image">
+                            {{ if $landscapeLatest.url }}
+                                <img src="{{ $landscapeLatest.url }}" alt="Landscape">
+                            {{ else }}
+                                <img src="/images/categories/landscape.jpg" alt="Landscape">
+                            {{ end }}
+                            <div class="card-album-title">LANDSCAPE</div>
+                        </div>
+                    </div>
+                    
+                    {{/* 人物分类 */}}
+                    {{ $portraitLatest := dict }}
+                    {{ if gt (len $portraitPhotos) 0 }}
+                        {{ $portraitLatest = index (sort $portraitPhotos "date" "desc") 0 }}
+                    {{ end }}
+                    <div class="category-card" data-category="portrait">
+                        <div class="card-image">
+                            {{ if $portraitLatest.url }}
+                                <img src="{{ $portraitLatest.url }}" alt="Portrait">
+                            {{ else }}
+                                <img src="/images/categories/portrait.jpg" alt="Portrait">
+                            {{ end }}
+                            <div class="card-album-title">PORTRAIT</div>
+                        </div>
+                    </div>
+                    
+                    {{/* 美食分类 */}}
+                    {{ $foodLatest := dict }}
+                    {{ if gt (len $foodPhotos) 0 }}
+                        {{ $foodLatest = index (sort $foodPhotos "date" "desc") 0 }}
+                    {{ end }}
+                    <div class="category-card" data-category="food">
+                        <div class="card-image">
+                            {{ if $foodLatest.url }}
+                                <img src="{{ $foodLatest.url }}" alt="Food">
+                            {{ else }}
+                                <img src="/images/categories/food.jpg" alt="Food">
+                            {{ end }}
+                            <div class="card-album-title">FOOD</div>
+                        </div>
+                    </div>
+                    
+                    {{/* 旅行分类 */}}
+                    {{ $travelLatest := dict }}
+                    {{ if gt (len $travelPhotos) 0 }}
+                        {{ $travelLatest = index (sort $travelPhotos "date" "desc") 0 }}
+                    {{ end }}
+                    <div class="category-card" data-category="travel">
+                        <div class="card-image">
+                            {{ if $travelLatest.url }}
+                                <img src="{{ $travelLatest.url }}" alt="Travel">
+                            {{ else }}
+                                <img src="/images/categories/travel.jpg" alt="Travel">
+                            {{ end }}
+                            <div class="card-album-title">TRAVEL</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 悬浮层相册内容 -->
+                <div class="overlay-gallery" id="overlayGallery">
+                    <div class="overlay-header">
+                        <h2 id="galleryTitle">相册</h2>
+                        <button class="close-btn">&times;</button>
+                    </div>
+                    <div class="year-archive" id="yearArchive">
+                        <!-- 这里将通过 JavaScript 动态填充年份 -->
+                    </div>
+                    <div class="masonry-grid" id="categoryPhotos" view-image>
+                        <!-- 这里将通过 JavaScript 动态填充内容 -->
+                    </div>
+                </div>
+            {{ end }}
+        {{ else }}
+            <div class="no-photos">
+                <p>album.json not found in assets directory</p>
+                <p>Looking for file at: assets/album.json</p>
+            </div>
+        {{ end }}
+    </div>
+</div>
+
+{{ if $albumsData }}
+    {{ $albums := $albumsData | transform.Unmarshal }}
+    <script type="application/json" id="albums-data">{{ $albums | jsonify | safeJS }}</script>
+{{ end }}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 从 JSON 脚本标签获取数据
+    var albumsData = null;
+    var dataScript = document.getElementById('albums-data');
+    if (dataScript) {
+        try {
+            albumsData = JSON.parse(dataScript.textContent);
+        } catch (e) {
+            console.error('Failed to parse albums data:', e);
+        }
+    }
+    
+    // 按分类整理照片
+    var albumsByCategory = {};
+    if (albumsData && albumsData.photos) {
+        albumsData.photos.forEach(function(photo) {
+            if (!albumsByCategory[photo.category]) {
+                albumsByCategory[photo.category] = [];
+            }
+            albumsByCategory[photo.category].push(photo);
+        });
+    }
+    
+    var categoryCards = document.querySelectorAll('.category-card');
+    var overlayGallery = document.getElementById('overlayGallery');
+    var closeBtn = document.querySelector('.close-btn');
+    var galleryTitle = document.getElementById('galleryTitle');
+    var categoryPhotos = document.getElementById('categoryPhotos');
+    var yearArchive = document.getElementById('yearArchive');
+
+    // 渲染年份列表
+    function renderYearList(photos) {
+        var years = photos.map(function(photo) {
+            return new Date(photo.date).getFullYear();
+        }).filter(function(year, index, arr) {
+            return arr.indexOf(year) === index;
+        }).sort(function(a, b) {
+            return b - a;
+        });
+
+        var yearList = document.createElement('div');
+        yearList.className = 'year-list';
+        
+        // 添加"全部"选项
+        var allItem = document.createElement('div');
+        allItem.className = 'year-item active';
+        allItem.textContent = '全部';
+        allItem.addEventListener('click', function() {
+            var yearItems = document.querySelectorAll('.year-item');
+            for (var i = 0; i < yearItems.length; i++) {
+                yearItems[i].classList.remove('active');
+            }
+            allItem.classList.add('active');
+            renderPhotos(photos);
+        });
+        yearList.appendChild(allItem);
+        
+        // 添加年份选项
+        years.forEach(function(year) {
+            var yearItem = document.createElement('div');
+            yearItem.className = 'year-item';
+            yearItem.textContent = year;
+            yearItem.addEventListener('click', function() {
+                var yearItems = document.querySelectorAll('.year-item');
+                for (var i = 0; i < yearItems.length; i++) {
+                    yearItems[i].classList.remove('active');
+                }
+                yearItem.classList.add('active');
+                
+                var yearPhotos = photos.filter(function(photo) {
+                    return new Date(photo.date).getFullYear() === year;
+                });
+                renderPhotos(yearPhotos);
+            });
+            yearList.appendChild(yearItem);
+        });
+
+        yearArchive.innerHTML = '';
+        yearArchive.appendChild(yearList);
+        
+        // 默认显示所有照片
+        renderPhotos(photos);
+    }
+
+    // 渲染照片
+    function renderPhotos(photos) {
+        categoryPhotos.innerHTML = '';
+        
+        // 按日期降序排序照片
+        photos.sort(function(a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+        
+        // 创建一个文档片段来提高性能
+        var fragment = document.createDocumentFragment();
+        
+        photos.forEach(function(photo) {
+            var photoDiv = document.createElement('div');
+            photoDiv.className = 'masonry-item';
+            
+            var figure = document.createElement('figure');
+            
+            // 创建图片链接
+            var link = document.createElement('a');
+            link.href = photo.url;
+            
+            // 创建图片元素
+            var img = document.createElement('img');
+            img.src = photo.url;
+            img.alt = photo.title || '';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            
+            // 添加渐进式加载效果
+            img.onload = function() {
+                img.classList.add('loaded');
+                photoDiv.style.opacity = '1';
+            };
+            
+            // 创建照片信息
+            var photoInfo = document.createElement('div');
+            photoInfo.className = 'photo-info';
+            
+            if (photo.title) {
+                var title = document.createElement('h3');
+                title.textContent = photo.title;
+                photoInfo.appendChild(title);
+            }
+            
+            var dateText = document.createElement('p');
+            dateText.className = 'date';
+            
+            // 计算时间差
+            var photoTime = new Date(photo.date);
+            var now = new Date();
+            var diffTime = Math.abs(now - photoTime);
+            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            // 格式化日期显示
+            var dateDisplay;
+            if (diffDays === 0) {
+                dateDisplay = '今天';
+            } else if (diffDays === 1) {
+                dateDisplay = '昨天';
+            } else if (diffDays < 7) {
+                dateDisplay = diffDays + '天前';
+            } else if (diffDays < 30) {
+                dateDisplay = Math.floor(diffDays / 7) + '周前';
+            } else if (diffDays < 365) {
+                dateDisplay = Math.floor(diffDays / 30) + '个月前';
+            } else {
+                dateDisplay = photoTime.toLocaleDateString('zh-CN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+            
+            dateText.textContent = dateDisplay;
+            photoInfo.appendChild(dateText);
+            
+            link.appendChild(img);
+            figure.appendChild(link);
+            figure.appendChild(photoInfo);
+            photoDiv.appendChild(figure);
+            fragment.appendChild(photoDiv);
+        });
+        
+        categoryPhotos.appendChild(fragment);
+        
+        // 添加滚动动画
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+        
+        // 观察所有照片项
+        var masonryItems = document.querySelectorAll('.masonry-item');
+        for (var i = 0; i < masonryItems.length; i++) {
+            observer.observe(masonryItems[i]);
+        }
+        
+        // 初始化ViewImage
+        if (typeof window.ViewImage !== 'undefined') {
+            window.ViewImage.init('#categoryPhotos img');
+        }
+    }
+
+    // 点击卡片显示相册
+    categoryCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+            var category = card.dataset.category;
+            var photos = albumsByCategory[category] || [];
+            
+            // 设置标题
+            galleryTitle.textContent = category.toUpperCase();
+            
+            // 显示相册
+            overlayGallery.style.display = 'block';
+            setTimeout(function() {
+                overlayGallery.classList.add('show');
+            }, 10);
+            
+            // 禁止背景滚动
+            document.body.style.overflow = 'hidden';
+            
+            // 渲染年份列表和照片
+            renderYearList(photos);
+        });
+    });
+
+    // 关闭相册
+    function closeGallery() {
+        overlayGallery.classList.remove('show');
+        setTimeout(function() {
+            overlayGallery.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+
+    // 关闭按钮事件
+    closeBtn.addEventListener('click', closeGallery);
+
+    // 点击背景关闭
+    overlayGallery.addEventListener('click', function(e) {
+        if (e.target === overlayGallery) {
+            closeGallery();
+        }
+    });
+
+    // ESC 键关闭
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlayGallery.style.display === 'block') {
+            closeGallery();
+        }
+    });
+});
+</script>
+
+{{ end }}

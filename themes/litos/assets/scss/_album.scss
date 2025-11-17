@@ -1,0 +1,454 @@
+/* Album Page Styles - 相册页面样式 */
+
+/* 为album页面扩展容器宽度 */
+.album-container.p-4 {
+    max-width: 80rem;
+    padding: 1rem;
+    margin: 0 auto;
+    
+    @media (max-width: 1280px) {
+        max-width: 70rem;
+    }
+    
+    @media (max-width: 1024px) {
+        max-width: 60rem;
+    }
+    
+    @media (max-width: 768px) {
+        max-width: 56rem;
+    }
+}
+
+/* Album页面描述样式 - 与其他页面保持一致 */
+.album-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    
+    .text-muted {
+        color: var(--color-muted);
+    }
+}
+
+.album-content {
+    // 继承prose样式，与stack页面保持一致
+}
+
+/* 为album页面的分割线添加适当间距 */
+.album-container .line-divider {
+    margin: 2rem 0;
+}
+
+
+
+/* 工具类 */
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.text-muted {
+    color: var(--color-muted);
+}
+
+.last-updated {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.9em;
+    font-style: oblique;
+    color: var(--color-primary);
+    background: var(--color-card);
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-align: left;
+    position: relative;
+    left: 0;
+    border: 1px solid var(--color-border);
+}
+
+/* 确保 Markdown 内容正确渲染 */
+.post-description p {
+    margin: 0.5em 0;
+    position: relative;
+    z-index: 2;
+    color: var(--color-foreground);
+}
+
+.post-description a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.post-description a:hover {
+    text-decoration: underline;
+}
+
+.post-description strong, 
+.post-description b {
+    font-weight: 600;
+}
+
+.post-description em, 
+.post-description i {
+    font-style: italic;
+}
+
+/* 从 _album.scss 复制的样式 */
+.album-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: filter 0.3s ease;
+}
+
+/* 当相册打开时，为主内容添加模糊效果 */
+.album-container.blur {
+    filter: blur(8px);
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.album-categories {
+    width: 100%;
+    padding: 0;
+}
+
+.category-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    /* 添加悬停时其他卡片的模糊效果 */
+    &:has(.category-card:hover) .category-card:not(:hover) {
+        filter: blur(5px);
+        transition: filter 0.3s ease;
+    }
+}
+
+.category-card {
+    position: relative;
+    cursor: pointer;
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    border: 1px solid var(--color-border);
+
+    &:hover {
+        filter: blur(0) !important;
+        border-color: var(--color-primary);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 让卡片依次出现 */
+.category-cards .category-card:nth-child(1) { animation-delay: 0.1s; }
+.category-cards .category-card:nth-child(2) { animation-delay: 0.2s; }
+.category-cards .category-card:nth-child(3) { animation-delay: 0.3s; }
+.category-cards .category-card:nth-child(4) { animation-delay: 0.4s; }
+.category-cards .category-card:nth-child(5) { animation-delay: 0.5s; }
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 120px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    filter: blur(0);
+}
+
+.card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    z-index: 1;
+}
+
+.category-card:hover .card-image img {
+    filter: blur(3px);
+}
+
+.category-card:hover .card-image::after {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.card-album-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    color: rgba(255, 255, 255, 1);
+    padding: 10px;
+    font-size: 1.8rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    filter: blur(2px);
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    z-index: 2;
+}
+
+.category-card:hover .card-album-title {
+    filter: blur(0);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 悬浮层样式 */
+.overlay-gallery {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.overlay-gallery.show {
+    opacity: 1;
+}
+
+.overlay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* 年份归档样式 */
+.year-archive {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.year-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.year-item {
+    padding: 5px 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.year-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.year-item.active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 瀑布流样式 */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    
+    @media (max-width: 1600px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.masonry-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.5s ease;
+    
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    figure {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 0;
+        background: var(--color-card);
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            filter: blur(10px);
+            transform: scale(1.1);
+        }
+        
+        img.loaded {
+            opacity: 1;
+            filter: blur(0);
+            transform: scale(1);
+        }
+        
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+            
+            .photo-info {
+                opacity: 1;
+            }
+        }
+    }
+    
+    .photo-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 8px;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        
+        h3 {
+            margin: 0 0 3px 0;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .date {
+            margin: 0;
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+    }
+}
+
+.loading-placeholder {
+    background: linear-gradient(90deg, var(--color-card) 25%, var(--color-border) 50%, var(--color-card) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+    .category-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .card-album-title {
+        font-size: 1.2rem;
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-cards {
+        grid-template-columns: 1fr;
+        padding: 0.8rem 0;
+    }
+}
+
+/* 暗色模式适配 */
+.dark {
+    .loading-placeholder {
+        background: linear-gradient(90deg, #2a2a2a 25%, #333333 50%, #2a2a2a 75%);
+    }
+}
+
+/* 无照片提示 */
+.no-photos {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--color-muted);
+    
+    p {
+        margin: 0.5rem 0;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+    }
+}

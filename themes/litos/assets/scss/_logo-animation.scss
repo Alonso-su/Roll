@@ -1,0 +1,125 @@
+// Logo Animation Styles - 参考mizar-main实现
+
+.logo-section {
+  .logo-link {
+    display: inline-block;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .logo-svg {
+    display: block;
+    
+    // 确保SVG路径可以被动画化
+    .logo-path-mask {
+      transition: opacity 0.6s ease-out, stroke-dashoffset 1.5s ease-out;
+      
+      // 初始状态
+      opacity: 1;
+      
+      // 确保路径可见
+      stroke: currentColor;
+      stroke-width: 28;
+      stroke-miterlimit: 10;
+      fill: none;
+    }
+  }
+}
+
+// 滚动时的动画状态
+.logo-scrolled {
+  .logo-path-mask {
+    opacity: 0;
+  }
+  
+  .logo-link {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+// 加载动画状态
+.logo-loading {
+  .logo-path-mask {
+    stroke-dasharray: 1000; // 这个值会被JavaScript动态设置
+    stroke-dashoffset: 1000; // 这个值会被JavaScript动态设置
+  }
+}
+
+// 脉冲动画关键帧
+@keyframes logo-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.logo-pulse {
+  .logo-path-mask {
+    animation: logo-pulse 0.8s ease-in-out;
+  }
+}
+
+// 响应式调整
+@media (max-width: 768px) {
+  .logo-section {
+    .logo-svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-section {
+    .logo-svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+
+// 深色模式适配
+.dark {
+  .logo-section {
+    .logo-path-mask {
+      stroke: var(--color-foreground);
+    }
+  }
+}
+
+// 减少动画的用户偏好设置
+@media (prefers-reduced-motion: reduce) {
+  .logo-section {
+    .logo-link,
+    .logo-svg,
+    .logo-path-mask {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+// 高对比度模式支持
+@media (prefers-contrast: high) {
+  .logo-section {
+    .logo-path-mask {
+      stroke-width: 32;
+    }
+  }
+}
+
+// 打印样式
+@media print {
+  .logo-section {
+    .logo-path-mask {
+      opacity: 1 !important;
+      stroke-dasharray: none !important;
+      stroke-dashoffset: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,569 @@
+// Roll Page Styles - 友情链接页面样式
+
+.roll-container {
+  max-width: 100%;
+}
+
+/* 隐藏友链卡片的外部链接图标 */
+.friend-link .external-link-icon,
+.no-external-icon .external-link-icon,
+[data-no-redirect] .external-link-icon {
+  display: none !important;
+}
+
+.roll-description {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.friends-section {
+  margin-top: 2rem;
+}
+
+.friends-group {
+  margin-bottom: 3rem;
+}
+
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.friend-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+  
+  &:hover {
+    border-color: var(--color-primary);
+  }
+}
+
+.friend-link {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.friend-avatar {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+}
+
+.friend-card:hover .friend-avatar img {
+  transform: scale(1.1);
+}
+
+.friend-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.friend-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+
+.friend-intro {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.3;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.roll-content {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 2rem 0;
+  
+  /* 标题样式 */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-foreground);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.375rem; }
+  h3 { font-size: 1.125rem; }
+  h4 { font-size: 1rem; }
+  h5 { font-size: 0.9rem; }
+  h6 { font-size: 0.8rem; }
+  
+  /* 段落样式 */
+  p {
+    color: var(--color-foreground);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  /* 链接样式 */
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  /* 列表样式 */
+  ul, ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    color: var(--color-foreground);
+    
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+  }
+  
+  /* 代码样式 */
+  code {
+    background: var(--color-background);
+    color: var(--color-primary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: var(--font-mono);
+  }
+  
+  pre {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    
+    code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+  }
+  
+  /* 表格样式 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-foreground);
+    }
+    
+    th {
+      font-weight: 600;
+      background: var(--color-background);
+    }
+    
+    tr:hover {
+      background: var(--color-background);
+    }
+  }
+  
+  /* 水平分割线 */
+  hr {
+    border: none;
+    height: 1px;
+    background: var(--color-border);
+    margin: 2rem 0;
+  }
+  
+  /* 强调样式 */
+  strong, b {
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+  
+  em, i {
+    font-style: italic;
+    color: var(--color-foreground);
+  }
+  
+  /* 删除线样式 */
+  del, s {
+    text-decoration: line-through;
+    color: var(--color-muted);
+  }
+}
+
+// 防止初始加载时的闪烁
+.friends-grid {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.roll-search {
+  max-width: 400px;
+  margin: 0 auto;
+  
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    background: var(--color-card);
+    color: var(--color-foreground);
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    
+    &::placeholder {
+      color: var(--color-muted);
+    }
+  }
+}
+
+// 友链状态指示器（可选功能）
+.friend-status {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #28a745; // 在线状态
+  
+  &.offline {
+    background: #dc3545; // 离线状态
+  }
+  
+  &.unknown {
+    background: #ffc107; // 未知状态
+  }
+}
+
+// 友链分组标题的特殊样式
+.friends-group-title {
+  position: relative;
+  font-size: 1.25rem !important;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 50px;
+    height: 2px;
+    background: var(--color-primary);
+  }
+  
+  // 响应式字号
+  @media (max-width: 768px) {
+    font-size: 1.1rem !important;
+  }
+}
+
+// 友链卡片的特殊效果
+.friend-card {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// 友链统计信息（可选）
+.roll-stats {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  
+  .stat-item {
+    display: inline-block;
+    margin: 0 1rem;
+    
+    .stat-number {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      text-transform: uppercase;
+    }
+  }
+}
+
+// 友链申请表单样式（如果需要）
+.roll-apply-form {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: 2rem;
+  margin-top: 2rem;
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--color-foreground);
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 0;
+      background: var(--color-background);
+      color: var(--color-foreground);
+      font-size: 0.9rem;
+      
+      &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+  
+  .form-submit {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+      opacity: 0.9;
+    }
+    
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .friends-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .friend-link {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .friend-avatar {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .friend-name {
+    font-size: 0.95rem;
+  }
+  
+  .friend-intro {
+    font-size: 0.8rem;
+  }
+
+  .roll-stats {
+    .stat-item {
+      display: block;
+      margin: 0.5rem 0;
+    }
+  }
+  
+  .roll-apply-form {
+    padding: 1.5rem;
+  }
+}
+
+// 深色模式适配
+@media (prefers-color-scheme: dark) {
+  /* 移除了悬停阴影效果 */
+}
+
+// 加载动画
+.friend-card, .org-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.friend-card:nth-child(1) { animation-delay: 0.1s; }
+.friend-card:nth-child(2) { animation-delay: 0.2s; }
+.friend-card:nth-child(3) { animation-delay: 0.3s; }
+.friend-card:nth-child(4) { animation-delay: 0.4s; }
+.friend-card:nth-child(5) { animation-delay: 0.5s; }
+.friend-card:nth-child(6) { animation-delay: 0.6s; }
+.friend-card:nth-child(7) { animation-delay: 0.7s; }
+.friend-card:nth-child(8) { animation-delay: 0.8s; }
+.friend-card:nth-child(9) { animation-delay: 0.9s; }
+.friend-card:nth-child(10) { animation-delay: 1.0s; }
+.friend-card:nth-child(11) { animation-delay: 1.1s; }
+.friend-card:nth-child(12) { animation-delay: 1.2s; }
+.friend-card:nth-child(13) { animation-delay: 1.3s; }
+.friend-card:nth-child(14) { animation-delay: 1.4s; }
+.friend-card:nth-child(15) { animation-delay: 1.5s; }
+.friend-card:nth-child(16) { animation-delay: 1.6s; }
+.friend-card:nth-child(17) { animation-delay: 1.7s; }
+.friend-card:nth-child(18) { animation-delay: 1.8s; }
+.friend-card:nth-child(19) { animation-delay: 1.9s; }
+.friend-card:nth-child(20) { animation-delay: 2.0s; }
+.friend-card:nth-child(21) { animation-delay: 2.1s; }
+.friend-card:nth-child(22) { animation-delay: 2.2s; }
+.friend-card:nth-child(23) { animation-delay: 2.3s; }
+.friend-card:nth-child(24) { animation-delay: 2.4s; }
+.friend-card:nth-child(25) { animation-delay: 2.5s; }
+.friend-card:nth-child(26) { animation-delay: 2.6s; }
+.friend-card:nth-child(27) { animation-delay: 2.7s; }
+.friend-card:nth-child(28) { animation-delay: 2.8s; }
+.friend-card:nth-child(29) { animation-delay: 2.9s; }
+.friend-card:nth-child(30) { animation-delay: 3.0s; }
+.friend-card:nth-child(31) { animation-delay: 3.1s; }
+.friend-card:nth-child(32) { animation-delay: 3.2s; }
+.friend-card:nth-child(33) { animation-delay: 3.3s; }
+.friend-card:nth-child(34) { animation-delay: 3.4s; }
+.friend-card:nth-child(35) { animation-delay: 3.5s; }
+.friend-card:nth-child(36) { animation-delay: 3.6s; }
+.friend-card:nth-child(37) { animation-delay: 3.7s; }
+.friend-card:nth-child(38) { animation-delay: 3.8s; }
+.friend-card:nth-child(39) { animation-delay: 3.9s; }
+.friend-card:nth-child(40) { animation-delay: 4.0s; }
+.friend-card:nth-child(n+41) { animation-delay: 4.1s; }
+
+/* Organization 部分的动画延迟 */
+.org-card:nth-child(1) { animation-delay: 4.2s; }
+.org-card:nth-child(2) { animation-delay: 4.3s; }
+.org-card:nth-child(3) { animation-delay: 4.4s; }
+.org-card:nth-child(4) { animation-delay: 4.5s; }
+.org-card:nth-child(5) { animation-delay: 4.6s; }
+.org-card:nth-child(6) { animation-delay: 4.7s; }
+.org-card:nth-child(7) { animation-delay: 4.8s; }
+.org-card:nth-child(8) { animation-delay: 4.9s; }
+.org-card:nth-child(9) { animation-delay: 5.0s; }
+.org-card:nth-child(10) { animation-delay: 5.1s; }
+.org-card:nth-child(n+11) { animation-delay: 5.2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 减少动画的用户偏好设置
+@media (prefers-reduced-motion: reduce) {
+  .friend-card, .org-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  /* 移除了悬停上浮效果 */
+  
+  .friend-avatar img {
+    transition: none;
+  }
+  
+  .friend-card:hover .friend-avatar img {
+    transform: none;
+  }
+}
+
+// 头像切换过渡效果
+.friend-avatar-img {
+  transition: opacity 0.3s ease;
+}
+
+// 打印样式
+@media print {
+  .roll-search,
+  .roll-apply-form {
+    display: none;
+  }
+  
+  .friend-card {
+    break-inside: avoid;
+    
+    &::before {
+      display: none;
+    }
+  }
+}

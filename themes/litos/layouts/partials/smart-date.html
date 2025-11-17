@@ -1,0 +1,30 @@
+{{- $postDate := .Date -}}
+{{- $now := now -}}
+{{- $daysDiff := div (sub $now.Unix $postDate.Unix) 86400 -}}
+{{- $currentYear := $now.Year -}}
+{{- $postYear := $postDate.Year -}}
+
+{{- if le $daysDiff 30 -}}
+  {{- /* 一个月内显示相对时间 */ -}}
+  {{- if eq $daysDiff 0 -}}
+    今天
+  {{- else if eq $daysDiff 1 -}}
+    昨天
+  {{- else if le $daysDiff 7 -}}
+    {{ $daysDiff }} 天前
+  {{- else if le $daysDiff 14 -}}
+    1 周前
+  {{- else if le $daysDiff 21 -}}
+    2 周前
+  {{- else if le $daysDiff 28 -}}
+    3 周前
+  {{- else -}}
+    1 个月前
+  {{- end -}}
+{{- else if eq $currentYear $postYear -}}
+  {{- /* 超过一个月但在本年，显示月日 */ -}}
+  {{ $postDate.Format "1月2日" }}
+{{- else -}}
+  {{- /* 往年显示年月日 */ -}}
+  {{ $postDate.Format "2006年1月2日" }}
+{{- end -}}

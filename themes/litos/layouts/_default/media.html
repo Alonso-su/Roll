@@ -1,0 +1,231 @@
+{{ define "main" }}
+<!-- Page Header -->
+{{ partial "heading.html" (dict "index" "01" "text" .Title) }}
+
+<section class="p-4">
+    <!-- Page Description -->
+    <div class="media-description mb-6">
+        <div class="text-muted">
+            {{ if .Description }}{{ .Description | markdownify }}{{ else }}这里记录着我所欣赏过的各类媒体作品{{ end }}
+        </div>
+    </div>
+    
+    <!-- Content from markdown -->
+    {{ if .Content }}
+        <div class="media-content prose mt-6">
+            {{ .Content }}
+        </div>
+    {{ end }}
+</section>
+
+<!-- Media Tabs and Content -->
+<div style="margin: 0.5rem 0;">
+    {{ partial "line.html" . }}
+</div>
+
+<div class="media-container p-4">
+    <div class="media-tabs">
+        <button class="tab-button active" data-type="movie">
+            <span class="corner"></span>
+            <span class="btn-content">MOVIES</span>
+        </button>
+        <button class="tab-button" data-type="book">
+            <span class="corner"></span>
+            <span class="btn-content">BOOKS</span>
+        </button>
+        <button class="tab-button" data-type="music">
+            <span class="corner"></span>
+            <span class="btn-content">MUSIC</span>
+        </button>
+    </div>
+
+    <div id="media_page"></div>
+
+    <div class="media_loadMore">
+        <button class="movies_loadMore">
+            <span class="corner"></span>
+            <span class="btn-content">LOAD MORE</span>
+        </button>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const MEDIA_API = 'https://node.suuus.top/list';
+  const container = document.getElementById('media_page');
+  const loadMoreBtn = document.querySelector('.movies_loadMore');
+  const tabs = document.querySelectorAll('.tab-button');
+  let currentType = 'movie';
+  let page = 1;
+  const perPage = 12;
+  let loading = false;
+
+  // 添加滚动监听
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate');
+        }, entry.target.dataset.delay || 0);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  }
+
+  function generateStars(score) {
+    if (!score) return '';
+    
+    // 将10分制转换为5分制
+    const rating = (parseFloat(score) / 10) * 5;
+    const decimal = rating % 1;
+    
+    let fullStars, hasHalfStar;
+    
+    if (decimal < 0.25) {
+      // 0.0-0.24: 只显示整数颗实心星
+      fullStars = Math.floor(rating);
+      hasHalfStar = false;
+    } else if (decimal < 0.75) {
+      // 0.25-0.74: 显示整数颗实心星 + 1颗半星
+      fullStars = Math.floor(rating);
+      hasHalfStar = true;
+    } else {
+      // 0.75-0.99: 进位到下一颗实心星
+      fullStars = Math.floor(rating) + 1;
+      hasHalfStar = false;
+    }
+    
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    
+    let stars = '';
+    
+    // 实心星星
+    for (let i = 0; i < fullStars; i++) {
+      stars += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M10.788 3.102c.495-1.003 1.926-1.003 2.421 0l2.358 4.778l5.273.766c1.107.16 1.549 1.522.748 2.303l-3.816 3.719l.901 5.25c.19 1.104-.968 1.945-1.959 1.424l-4.716-2.48l-4.715 2.48c-.99.52-2.148-.32-1.96-1.423l.901-5.251l-3.815-3.72c-.801-.78-.359-2.141.748-2.302L8.43 7.88z"/></svg>';
+    }
+    
+    // 半星
+    if (hasHalfStar) {
+      stars += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><defs><clipPath id="half-star"><rect x="0" y="0" width="12" height="24"/></clipPath></defs><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/><path fill="currentColor" clip-path="url(#half-star)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+    }
+    
+    // 空心星星
+    for (let i = 0; i < emptyStars; i++) {
+      stars += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+    }
+    
+    // 显示原始评分
+    const displayScore = parseFloat(score).toFixed(1);
+    stars += `<span class="score">${displayScore}</span>`;
+    return stars;
+  }
+
+  async function fetchMedia() {
+    try {
+      const response = await fetch(`${MEDIA_API}?type=${currentType}&paged=${page}&status=done`);
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
+      return data.results;
+    } catch (error) {
+      console.error('Error fetching media:', error);
+      throw error;
+    }
+  }
+
+  function createMediaElement(item, index) {
+    const mediaDiv = document.createElement('div');
+    mediaDiv.className = `movies_bankuai ${currentType === 'music' ? 'music_bankuai' : ''}`;
+    mediaDiv.dataset.delay = index * 100; // 添加延迟
+    
+    mediaDiv.innerHTML = `
+      <a rel="link" href="${item.link}" target="_blank">
+        <img class="avatar" decoding="async" src="${item.poster}" loading="lazy" alt="${item.name}">
+      </a>
+      <div class="movies-nrong">
+        <div class="movie-title">
+          <a rel="link" href="${item.link}" target="_blank">${item.name}</a>
+        </div>
+        <div class="movie-pfeng">
+          ${generateStars(item.douban_score)}
+        </div>
+        <div class="movie-info">${item.card_subtitle || ''}</div>
+        <div class="movie-time">${formatDate(item.create_time)}</div>
+      </div>
+    `;
+
+    // 观察元素
+    observer.observe(mediaDiv);
+    
+    return mediaDiv;
+  }
+
+  async function loadMedia(resetPage = false) {
+    if (loading) return;
+    loading = true;
+    
+    if (resetPage) {
+      page = 1;
+      container.innerHTML = '';
+    }
+    
+    try {
+      const items = await fetchMedia();
+      if (!items || items.length === 0) {
+        loadMoreBtn.style.display = 'none';
+        if (resetPage) {
+          container.innerHTML = '<div class="no-data">暂无数据</div>';
+        }
+        return;
+      }
+      
+      items.forEach((item, index) => {
+        container.appendChild(createMediaElement(item, index));
+      });
+      
+      // 更新页码和加载按钮状态
+      page++;
+      loadMoreBtn.style.display = items.length >= perPage ? 'block' : 'none';
+      loadMoreBtn.querySelector('.btn-content').textContent = 'LOAD MORE';
+      
+    } catch (error) {
+      console.error('Failed to load media:', error);
+      container.innerHTML = '<div class="error">加载失败，请刷新页面重试</div>';
+      loadMoreBtn.style.display = 'none';
+    } finally {
+      loading = false;
+    }
+  }
+
+  // 标签切换事件
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentType = tab.dataset.type;
+      loadMedia(true);
+    });
+  });
+
+  // 初始加载
+  loadMedia();
+
+  // 加载更多按钮点击事件
+  loadMoreBtn.addEventListener('click', () => {
+    loadMoreBtn.querySelector('.btn-content').textContent = 'LOADING...';
+    loadMedia();
+  });
+});
+</script>
+
+{{ end }}

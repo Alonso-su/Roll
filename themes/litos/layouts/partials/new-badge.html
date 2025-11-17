@@ -1,0 +1,5 @@
+{{/* 判断文章是否在一周内发布，如果是则显示NEW角标 */}}
+{{ $oneWeekAgo := now.AddDate 0 0 -7 }}
+{{ if gt .Date $oneWeekAgo }}
+<span class="new-badge">NEW</span>
+{{ end }}

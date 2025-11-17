@@ -1,0 +1,232 @@
+{{ define "main" }}
+<section>
+    {{ if eq .Kind "taxonomy" }}
+        {{ partial "heading.html" (dict "index" "01" "text" "Tags") }}
+        
+        <div class="p-4">
+            <!-- 标题区域 -->
+            <div style="margin-bottom: 3rem;">
+                <h1 style="font-size: 2.5rem; font-weight: 600; margin: 0; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-variant, var(--color-primary))); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 0.375rem;">
+                    All Tags
+                </h1>
+                <div style="color: var(--color-muted); line-height: 1.6; margin-top: 0.5rem;">
+                    <p style="margin: 0; font-size: 0.875rem;">Explore posts by topics and themes</p>
+                </div>
+
+                <!-- 统计信息 -->
+                <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 1.5rem; font-size: 0.875rem; color: var(--color-muted);">
+                    <span style="display: flex; align-items: center; gap: 0.375rem;">
+                        <i class="ri-hashtag" style="font-size: 1rem;"></i>
+                        {{ len .Data.Terms }} tags total
+                    </span>
+                    <span style="display: flex; align-items: center; gap: 0.375rem;">
+                        <i class="ri-article-line" style="font-size: 1rem;"></i>
+                        {{ len (where .Site.RegularPages "Type" "posts") }} posts total
+                    </span>
+                </div>
+            </div>
+
+            <!-- 标签网格 -->
+            {{ if .Data.Terms }}
+                {{ $maxCount := 0 }}
+                {{ range .Data.Terms }}
+                    {{ if gt .Count $maxCount }}
+                        {{ $maxCount = .Count }}
+                    {{ end }}
+                {{ end }}
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                    {{ range $index, $term := .Data.Terms.ByCount }}
+                        {{ $sizeClass := cond (ge .Count 10) "font-size: 1rem;" (cond (ge .Count 5) "font-size: 0.875rem;" "font-size: 0.75rem;") }}
+                        
+                        <a href="{{ .Page.RelPermalink }}" class="card" style="display: block; padding: 1rem; text-decoration: none; transition: all 0.2s ease; position: relative; overflow: hidden; {{ if lt $index 6 }}border: 2px solid var(--color-primary-alpha, rgba(var(--color-primary-rgb, 59, 130, 246), 0.1));{{ end }}">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem; min-width: 0; flex: 1;">
+                                    <i class="ri-hashtag" style="font-size: 1rem; color: var(--color-muted); transition: color 0.2s ease;"></i>
+                                    <span style="{{ $sizeClass }} font-weight: 500; color: var(--color-foreground); transition: color 0.2s ease; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        {{ .Page.Title }}
+                                    </span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 0.25rem; margin-left: 0.5rem;">
+                                    <span style="font-size: 0.75rem; color: var(--color-muted); transition: color 0.2s ease;">{{ .Count }}</span>
+                                    <i class="ri-article-line" style="font-size: 0.875rem; color: var(--color-muted-alpha, rgba(var(--color-muted-rgb, 107, 114, 128), 0.7)); transition: color 0.2s ease;"></i>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 0.75rem; width: 100%; height: 0.25rem; background-color: var(--color-muted-alpha, rgba(var(--color-muted-rgb, 107, 114, 128), 0.3)); border-radius: 0.125rem; overflow: hidden;">
+                                <div style="height: 100%; background: linear-gradient(90deg, var(--color-primary-alpha, rgba(var(--color-primary-rgb, 59, 130, 246), 0.6)), var(--color-primary-alpha, rgba(var(--color-primary-rgb, 59, 130, 246), 0.8))); border-radius: 0.125rem; transition: all 0.3s ease; width: {{ div (mul .Count 100) $maxCount }}%;"></div>
+                            </div>
+
+                            <!-- Hover effect overlay -->
+                            <div style="position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, var(--color-primary-alpha, rgba(var(--color-primary-rgb, 59, 130, 246), 0)), transparent, var(--color-accent-alpha, rgba(var(--color-accent-rgb, 16, 185, 129), 0))); opacity: 0; transition: all 0.2s ease; pointer-events: none;"></div>
+                        </a>
+                    {{ end }}
+                </div>
+            {{ else }}
+                <div class="card" style="text-align: center; padding: 3rem;">
+                    <i class="ri-price-tag-3-line" style="font-size: 3rem; color: var(--color-muted-alpha, rgba(var(--color-muted-rgb, 107, 114, 128), 0.5)); display: block; margin: 0 auto 1rem;"></i>
+                    <p style="color: var(--color-muted); margin: 0;">No tags available</p>
+                </div>
+            {{ end }}
+        </div>
+        
+    {{ else if eq .Kind "term" }}
+        {{ partial "heading.html" (dict "index" "01" "text" (printf "#%s" .Title)) }}
+        
+        <div class="p-4">
+            <div style="margin-bottom: 3rem;">
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <!-- 面包屑导航 -->
+                    <nav style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: var(--color-muted-alpha, rgba(var(--color-muted-rgb, 107, 114, 128), 0.8));">
+                        <a href="/tags" style="display: flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none; transition: color 0.2s ease;">
+                            <i class="ri-price-tag-3-line" style="font-size: 1rem;"></i>
+                            <span>Tags</span>
+                        </a>
+                        <span style="color: var(--color-muted-alpha, rgba(var(--color-muted-rgb, 107, 114, 128), 0.3));">/</span>
+                        <span style="color: var(--color-foreground-alpha, rgba(var(--color-foreground-rgb, 17, 24, 39), 0.9));">#{{ .Title }}</span>
+                    </nav>
+
+                    <div style="display: flex; gap: 0.5rem; justify-content: space-between;">
+                        <h1 style="font-size: clamp(1.25rem, 4vw, 1.875rem); font-weight: 500; margin: 0; letter-spacing: 0.025em;">
+                            #{{ .Title }}
+                        </h1>
+                        <div style="display: flex; flex-direction: column; align-items: end; justify-content: center; gap: 0.25rem; font-size: 0.875rem; color: var(--color-muted-alpha, rgba(var(--color-muted-rgb, 107, 114, 128), 0.7));">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="ri-article-line" style="font-size: 1rem;"></i>
+                                <span>{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文章列表 -->
+            {{ if .Pages }}
+                <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                    {{ range .Pages }}
+                        <article class="card">
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem;">
+                                    <h2 style="margin: 0; font-size: 1.5rem;">
+                                        <a href="{{ .RelPermalink }}" style="color: var(--color-foreground); text-decoration: none; transition: color 0.2s ease;">
+                                            {{ .Title }}
+                                        </a>
+                                    </h2>
+                                    <time datetime="{{ .Date.Format "2006-01-02" }}" style="font-size: 0.875rem; color: var(--color-muted); white-space: nowrap;">
+                                        {{ .Date.Format "Jan 2, 2006" }}
+                                    </time>
+                                </div>
+                                
+                                {{ if .Summary }}
+                                    <p style="margin: 0; color: var(--color-muted); line-height: 1.6;">
+                                        {{ .Summary }}
+                                    </p>
+                                {{ end }}
+                                
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 0.75rem;">
+                                    <div>
+                                        {{ if .Params.tags }}
+                                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                                {{ range first 3 .Params.tags }}
+                                                    <a href="/tags/{{ . | urlize }}" style="font-size: 0.75rem; background-color: var(--color-background); color: var(--color-muted); padding: 0.25rem 0.5rem; border-radius: 0.25rem; border: 1px solid var(--color-border); text-decoration: none; transition: all 0.2s ease;">
+                                                        {{ . }}
+                                                    </a>
+                                                {{ end }}
+                                                {{ if gt (len .Params.tags) 3 }}
+                                                    <span style="font-size: 0.75rem; color: var(--color-muted);">
+                                                        +{{ sub (len .Params.tags) 3 }} more
+                                                    </span>
+                                                {{ end }}
+                                            </div>
+                                        {{ end }}
+                                    </div>
+                                    
+                                    <a href="{{ .RelPermalink }}" class="corner-effect" style="font-size: 0.875rem;">
+                                        <span class="corner"></span>
+                                        <span class="btn-content" style="background-color: var(--color-primary); color: var(--color-primary-foreground);">
+                                            {{ $.Site.Params.posts.readMoreText | default "Read more" }}
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    {{ end }}
+                </div>
+                
+                <!-- 分页 -->
+                {{ if .Paginator }}
+                    {{ if gt .Paginator.TotalPages 1 }}
+                        <nav style="margin-top: 3rem; text-align: center;">
+                            <div style="display: flex; justify-content: center; gap: 1rem; align-items: center;">
+                                {{ if .Paginator.HasPrev }}
+                                    <a href="{{ .Paginator.Prev.URL }}" class="corner-effect">
+                                        <span class="corner"></span>
+                                        <span class="btn-content" style="background-color: var(--color-card); color: var(--color-card-foreground);">
+                                            {{ .Site.Params.posts.prevPageText | default "Previous" }}
+                                        </span>
+                                    </a>
+                                {{ end }}
+                                
+                                <span style="font-size: 0.875rem; color: var(--color-muted);">
+                                    Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+                                </span>
+                                
+                                {{ if .Paginator.HasNext }}
+                                    <a href="{{ .Paginator.Next.URL }}" class="corner-effect">
+                                        <span class="corner"></span>
+                                        <span class="btn-content" style="background-color: var(--color-card); color: var(--color-card-foreground);">
+                                            {{ .Site.Params.posts.nextPageText | default "Next" }}
+                                        </span>
+                                    </a>
+                                {{ end }}
+                            </div>
+                        </nav>
+                    {{ end }}
+                {{ end }}
+            {{ else }}
+                <div class="card" style="text-align: center; padding: 3rem;">
+                    <i class="ri-article-line" style="font-size: 3rem; color: var(--color-muted-alpha, rgba(var(--color-muted-rgb, 107, 114, 128), 0.5)); display: block; margin: 0 auto 1rem;"></i>
+                    <p style="color: var(--color-muted); margin: 0;">
+                        No posts found with tag "{{ .Title }}".
+                    </p>
+                </div>
+            {{ end }}
+        </div>
+    {{ end }}
+</section>
+
+<style>
+    a.card:hover {
+        border-color: var(--color-border-hover, var(--color-border));
+        background-color: var(--color-muted-alpha, rgba(var(--color-muted-rgb, 107, 114, 128), 0.05));
+    }
+    a.card:hover .ri-hashtag {
+        color: var(--color-primary);
+    }
+    a.card:hover span {
+        color: var(--color-primary);
+    }
+    a.card:hover .ri-article-line {
+        color: var(--color-muted);
+    }
+    a.card:hover div[style*="background: linear-gradient"] {
+        background: linear-gradient(90deg, var(--color-primary), var(--color-primary-variant, var(--color-primary))) !important;
+    }
+    a.card:hover div[style*="position: absolute"] {
+        opacity: 1;
+        background: linear-gradient(135deg, var(--color-primary-alpha, rgba(var(--color-primary-rgb, 59, 130, 246), 0.05)), transparent, var(--color-accent-alpha, rgba(var(--color-accent-rgb, 16, 185, 129), 0.05)));
+    }
+    nav a:hover {
+        color: var(--color-primary) !important;
+    }
+    article.card h2 a:hover {
+        color: var(--color-primary);
+    }
+    article.card a[href*="/tags/"]:hover {
+        background-color: var(--color-primary);
+        color: var(--color-primary-foreground);
+        border-color: var(--color-primary);
+    }
+</style>
+{{ end }}

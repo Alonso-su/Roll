@@ -1,0 +1,160 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="movies-container">
+    <!-- 电影骨架屏 -->
+    <div class="movie-skeleton">
+        <div class="movie-skeleton-poster"></div>
+        <div class="movie-skeleton-info">
+            <div class="movie-skeleton-title"></div>
+            <div class="movie-skeleton-rating"></div>
+            <div class="movie-skeleton-comment"></div>
+            <div class="movie-skeleton-date"></div>
+        </div>
+    </div>
+    <div class="movie-skeleton">
+        <div class="movie-skeleton-poster"></div>
+        <div class="movie-skeleton-info">
+            <div class="movie-skeleton-title"></div>
+            <div class="movie-skeleton-rating"></div>
+            <div class="movie-skeleton-comment"></div>
+            <div class="movie-skeleton-date"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 使用与media页面一致的API
+    const MEDIA_API = 'https://node.suuus.top/list';
+    
+    // 获取电影数据
+    async function fetchMovies() {
+        try {
+            const response = await fetch(`${MEDIA_API}?type=movie&paged=1&status=done`);
+            if (!response.ok) throw new Error('Network response was not ok');
+            const data = await response.json();
+            return data.results || [];
+        } catch (error) {
+            console.error('Error fetching movies:', error);
+            return [];
+        }
+    }
+    
+    // 取前2部电影用于首页显示
+    let moviesData = [];
+
+    const movieContainer = document.getElementById('movies-container');
+    if (!movieContainer) return;
+
+    // 生成星级评分 - 修复为满分5颗星
+    function generateStars(score) {
+        if (!score) return '';
+        
+        // 将10分制转换为5分制
+        const rating = (parseFloat(score) / 10) * 5;
+        const decimal = rating % 1;
+        
+        let fullStars, hasHalfStar;
+        
+        if (decimal < 0.25) {
+            // 0.0-0.24: 只显示整数颗实心星
+            fullStars = Math.floor(rating);
+            hasHalfStar = false;
+        } else if (decimal < 0.75) {
+            // 0.25-0.74: 显示整数颗实心星 + 1颗半星
+            fullStars = Math.floor(rating);
+            hasHalfStar = true;
+        } else {
+            // 0.75-0.99: 进位到下一颗实心星
+            fullStars = Math.floor(rating) + 1;
+            hasHalfStar = false;
+        }
+        
+        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+        
+        let stars = '';
+        
+        // 实心星星
+        for (let i = 0; i < fullStars; i++) {
+            stars += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M10.788 3.102c.495-1.003 1.926-1.003 2.421 0l2.358 4.778l5.273.766c1.107.16 1.549 1.522.748 2.303l-3.816 3.719l.901 5.25c.19 1.104-.968 1.945-1.959 1.424l-4.716-2.48l-4.715 2.48c-.99.52-2.148-.32-1.96-1.423l.901-5.251l-3.815-3.72c-.801-.78-.359-2.141.748-2.302L8.43 7.88z"/></svg>';
+        }
+        
+        // 半星
+        if (hasHalfStar) {
+            stars += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><defs><clipPath id="half-star"><rect x="0" y="0" width="12" height="24"/></clipPath></defs><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/><path fill="currentColor" clip-path="url(#half-star)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+        }
+        
+        // 空心星星
+        for (let i = 0; i < emptyStars; i++) {
+            stars += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+        }
+        
+        // 显示原始评分
+        const displayScore = parseFloat(score).toFixed(1);
+        stars += `<span class="score">${displayScore}</span>`;
+        return stars;
+    }
+
+    // 格式化日期 - 与media页面一致
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    }
+
+    // 加载电影数据
+    async function loadMovies() {
+        const movieContainer = document.getElementById('movies-container');
+        if (!movieContainer) return;
+
+        try {
+            // 获取电影数据
+            const movies = await fetchMovies();
+            moviesData = movies.slice(0, 2); // 取前2部电影
+
+            // 隐藏骨架屏
+            const skeletons = movieContainer.querySelectorAll('.movie-skeleton');
+            skeletons.forEach(skeleton => skeleton.remove());
+
+            if (moviesData && moviesData.length > 0) {
+                const html = moviesData.map((movie, index) => {
+                    const watchTime = formatDate(movie.create_time);
+                    return `
+                        <article class="movie-card" style="--poster-url: url('${movie.poster}')">
+                            <a href="${movie.link}" target="_blank" rel="noopener noreferrer" class="movie-card-link">
+                                <div class="movie-card-content">
+                                    <div class="movie-poster">
+                                        <img src="${movie.poster}" 
+                                             alt="${movie.name}" 
+                                             loading="lazy"
+                                             onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik04NyAxMDBIMTEzVjEyNkg4N1YxMDBaIiBmaWxsPSIjOUI5QkEwIi8+CjxwYXRoIGQ9Ik04NyAxNDBIMTEzVjE2Nkg4N1YxNDBaIiBmaWxsPSIjOUI5QkEwIi8+CjxwYXRoIGQ9Ik04NyAxODBIMTEzVjIwNkg4N1YxODBaIiBmaWxsPSIjOUI5QkEwIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOUI5QkEwIiBmb250LXNpemU9IjE0Ij5Ob3QgRm91bmQ8L3RleHQ+Cjwvc3ZnPg==';">
+                                    </div>
+                                    <div class="movie-info">
+                                        <h3 class="movie-title">${movie.name}</h3>
+                                        <div class="movie-rating">
+                                            ${generateStars(movie.douban_score)}
+                                        </div>
+                                        ${movie.card_subtitle ? `
+                                            <p class="movie-comment">${movie.card_subtitle}</p>
+                                        ` : ''}
+                                        ${watchTime ? `
+                                            <time class="movie-watch-time">${watchTime}</time>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    `;
+                }).join('');
+                
+                movieContainer.innerHTML = html;
+            } else {
+                movieContainer.innerHTML = '<div class="text-center text-muted">暂无观影记录</div>';
+            }
+        } catch (error) {
+            console.error('Failed to load movies:', error);
+            movieContainer.innerHTML = '<div class="text-center text-muted">加载失败</div>';
+        }
+    }
+
+    loadMovies();
+});
+</script>
+

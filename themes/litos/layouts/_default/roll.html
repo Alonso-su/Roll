@@ -1,0 +1,193 @@
+{{ define "main" }}
+<div class="roll-container">
+    <!-- Page Header -->
+    {{ partial "heading.html" (dict "index" "01" "text" .Title) }}
+    
+    <section class="p-4">
+        <!-- Page Description -->
+        <div class="roll-description mb-6">
+            <div class="text-muted">
+                {{ if .Description }}{{ .Description | markdownify }}{{ else }}友情链接 - 发现更多有趣的博客和网站{{ end }}
+            </div>
+        </div>
+    </section>
+
+    <!-- Friends Links Section -->
+    {{ $rollData := resources.Get "roll.json" }}
+    {{ if $rollData }}
+        {{ $data := $rollData | transform.Unmarshal }}
+        {{ range $index, $group := $data.friends }}
+            {{ if .link_list }}
+                {{ $sectionIndex := printf "%02d" (add $index 2) }}
+                {{ $sectionTitle := "" }}
+                {{ if eq .id_name "friends" }}
+                    {{ $sectionTitle = "Friends" }}
+                {{ else if eq .id_name "Organization" }}
+                    {{ $sectionTitle = "Organization" }}
+                {{ else }}
+                    {{ $sectionTitle = .id_name }}
+                {{ end }}
+                
+                {{ partial "heading.html" (dict "index" $sectionIndex "text" $sectionTitle) }}
+                
+                <section class="p-4">
+                    <div class="friends-grid">
+                        {{ range .link_list }}
+                            <article class="friend-card {{ if eq $group.id_name "Organization" }}org-card{{ else }}friend-card-main{{ end }}">
+                                {{ $isExternal := and (strings.HasPrefix .link "http") (not (strings.Contains .link "suus.me")) }}
+                                <a href="{{ if $isExternal }}/redirect/?url={{ .link | urlquery }}{{ else }}{{ .link }}{{ end }}" 
+                                   class="friend-link{{ if $isExternal }} no-external-icon{{ end }}"
+                                   {{ if $isExternal }}data-no-redirect="true"{{ end }}>
+                                    <div class="friend-avatar">
+                                        {{ $avatarDark := .avatar_dark | default .avatar }}
+                                        <img src="{{ .avatar }}" 
+                                             data-avatar-default="{{ .avatar }}"
+                                             data-avatar-dark="{{ $avatarDark }}"
+                                             alt="{{ .name }}" 
+                                             loading="lazy"
+                                             class="friend-avatar-img"
+                                             onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMCAyMEM4Ljk1IDIwIDAgMTEuMDUgMCAyMFM4Ljk1IDQwIDIwIDQwUzQwIDMxLjA1IDQwIDIwUzMxLjA1IDAgMjAgMFpNMjAgMzZDMTEuMTYgMzYgNCAyOC44NCA0IDIwUzExLjE2IDQgMjAgNFMyOCAxMS4xNiAyOCAyMFMyOC44NCAzNiAyMCAzNloiIGZpbGw9IiM5QjlCQTAiLz4KPC9zdmc+';">
+                                    </div>
+                                    <div class="friend-info">
+                                        <h3 class="friend-name">{{ .name }}</h3>
+                                        <p class="friend-intro">{{ .intro }}</p>
+                                    </div>
+                                </a>
+                            </article>
+                        {{ end }}
+                    </div>
+                </section>
+            {{ end }}
+        {{ end }}
+        
+        <!-- Content from markdown -->
+        {{ if $.Content }}
+            {{ $contentIndex := printf "%02d" (add (len $data.friends) 2) }}
+            {{ partial "heading.html" (dict "index" $contentIndex "text" "More") }}
+            <section class="p-4">
+                <div class="roll-content prose">
+                    {{ $.Content }}
+                </div>
+            </section>
+        {{ end }}
+    {{ else }}
+        <section class="p-4">
+            <div class="text-center text-muted">
+                <p>暂无友情链接数据</p>
+            </div>
+        </section>
+    {{ end }}
+</div>
+
+<!-- Comments Section -->
+{{ if .Site.Params.artalk.server }}
+    <!-- Section Divider -->
+    <div class="section-divider">
+        <div class="divider-pattern"></div>
+    </div>
+    
+    <section class="post-main">
+        <div class="comments-container">
+            <!-- Comments Header -->
+            <div class="comments-header">
+                <h3 class="comments-title">
+                    <i class="ri-chat-3-line"></i>
+                    <span>评论区</span>
+                </h3>
+                <p class="comments-subtitle">欢迎留下你的想法和建议</p>
+            </div>
+            
+            <!-- Artalk Container -->
+            <div id="artalk-container" class="artalk-custom-styles"></div>
+        </div>
+        
+        <!-- Artalk JS and CSS -->
+        <!-- 加载Artalk核心CSS（包含折叠样式） -->
+        <link href="/dist/2.9.1_Artalk.css" rel="stylesheet" />
+        <!-- 加载Artalk核心JS -->
+        <script src="/dist/2.9.1_Artalk.js"></script>
+        <!-- 初始化Artalk -->
+        {{- partial "comment" . -}}
+        <!-- Artalk增强功能（折叠展开） -->
+        <script src="/js/artalk-enhanced.js"></script>
+        <!-- Artalk头像功能 -->
+        <script src="/js/artalk-avatar.js"></script>
+    </section>
+{{ end }}
+
+
+
+<script>
+// 友链头像主题切换功能
+(function() {
+    'use strict';
+    
+    // 更新所有友链头像
+    function updateFriendAvatars() {
+        // 检测当前主题模式
+        const isDark = document.documentElement.classList.contains('dark') || 
+                      document.documentElement.getAttribute('data-theme') === 'dark' ||
+                      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        
+        // 获取所有友链头像
+        const avatars = document.querySelectorAll('.friend-avatar-img');
+        
+        avatars.forEach(img => {
+            const defaultSrc = img.getAttribute('data-avatar-default');
+            const darkSrc = img.getAttribute('data-avatar-dark');
+            
+            if (defaultSrc && darkSrc) {
+                const newSrc = isDark ? darkSrc : defaultSrc;
+                
+                // 只在需要时更新 src，避免不必要的重新加载
+                if (img.src !== newSrc && !img.src.endsWith(newSrc)) {
+                    img.src = newSrc;
+                }
+            }
+        });
+    }
+    
+    // 页面加载时初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateFriendAvatars);
+    } else {
+        updateFriendAvatars();
+    }
+    
+    // 监听主题切换事件
+    // 方法1: 监听 class 变化
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class' || mutation.attributeName === 'data-theme') {
+                updateFriendAvatars();
+            }
+        });
+    });
+    
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'data-theme']
+    });
+    
+    // 方法2: 监听系统主题变化
+    if (window.matchMedia) {
+        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // 现代浏览器
+        if (darkModeQuery.addEventListener) {
+            darkModeQuery.addEventListener('change', updateFriendAvatars);
+        } 
+        // 旧版浏览器
+        else if (darkModeQuery.addListener) {
+            darkModeQuery.addListener(updateFriendAvatars);
+        }
+    }
+    
+    // 方法3: 监听自定义主题切换事件（如果你的主题使用了自定义事件）
+    window.addEventListener('themeChanged', updateFriendAvatars);
+    window.addEventListener('theme-change', updateFriendAvatars);
+    
+})();
+</script>
+
+{{ end }}

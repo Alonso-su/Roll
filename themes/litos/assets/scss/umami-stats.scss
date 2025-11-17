@@ -1,0 +1,343 @@
+/* Umami统计展板样式 - 参考memos编辑器布局 */
+
+.umami-stats-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+
+        .umami-stats-modal {
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .umami-stats-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+
+    .umami-stats-modal {
+        position: relative;
+        background: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-radius: 0;
+        width: 90%;
+        max-width: 700px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: modalSlideIn 0.3s ease-out;
+        transform: translateY(-20px) scale(0.95);
+        transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
+
+        @media (max-width: 768px) {
+            width: 95%;
+            max-width: 600px;
+        }
+
+        @media (max-width: 480px) {
+            width: 95%;
+            max-width: none;
+        }
+    }
+
+    .stats-header {
+        text-align: center;
+        margin-bottom: 1rem;
+
+        @media (max-width: 600px) {
+            margin-bottom: 0.8rem;
+        }
+
+        @media (max-width: 400px) {
+            margin-bottom: 0.6rem;
+        }
+
+        .stats-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--color-foreground);
+            margin: 0;
+            font-family: var(--font-sans);
+
+            @media (max-width: 600px) {
+                font-size: 1.1rem;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .umami-stats-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 1px solid var(--color-border);
+        background: var(--color-background);
+        
+        h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--color-foreground);
+        }
+
+        .umami-stats-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-muted);
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0;
+            
+            &:hover {
+                color: var(--color-foreground);
+                background: var(--color-border);
+            }
+        }
+    }
+
+    .umami-stats-body {
+        padding: 1.5rem;
+
+        @media (max-width: 768px) {
+            padding: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            padding: 0.75rem;
+        }
+    }
+
+    .stats-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .stats-section {
+        padding: 0;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.8rem;
+
+        @media (max-width: 900px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 400px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.4rem;
+        }
+    }
+
+    .loading {
+        grid-column: span 4;
+        text-align: center;
+        color: var(--color-muted);
+        font-size: 0.875rem;
+        padding: 1.5rem;
+
+        @media (max-width: 900px) {
+            grid-column: span 3;
+        }
+
+        @media (max-width: 600px) {
+            grid-column: span 2;
+            padding: 1rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    .error {
+        grid-column: span 4;
+        text-align: center;
+        color: #ff6b6b;
+        font-size: 0.875rem;
+        padding: 1.5rem;
+
+        @media (max-width: 900px) {
+            grid-column: span 3;
+        }
+
+        @media (max-width: 600px) {
+            grid-column: span 2;
+            padding: 1rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    .stats-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0.5rem 0.25rem;
+        background: none;
+        border: none;
+        box-shadow: none;
+        min-height: 60px;
+        justify-content: center;
+
+        @media (max-width: 600px) {
+            padding: 0.4rem 0.2rem;
+            min-height: 50px;
+        }
+
+        @media (max-width: 400px) {
+            padding: 0.3rem 0.1rem;
+            min-height: 45px;
+        }
+
+        .stats-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--color-muted);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+
+            @media (max-width: 600px) {
+                font-size: 0.7rem;
+                margin-bottom: 0.15rem;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 0.65rem;
+                margin-bottom: 0.1rem;
+            }
+        }
+
+        .stats-value {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--color-foreground);
+            font-weight: 600;
+            line-height: 1;
+
+            @media (max-width: 600px) {
+                font-size: 1rem;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .retry-btn {
+        position: relative;
+        display: inline-block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        text-decoration: none;
+
+        .corner {
+            position: absolute;
+            inset: -4px;
+            --s: 6px;
+            border: 1px solid var(--color-primary);
+            border-radius: 2px;
+            mask: conic-gradient(#000 0 0) content-box,
+                conic-gradient(at var(--s) var(--s), #0000 75%, #000 0) 0 0/calc(100% - var(--s)) calc(100% - var(--s));
+            transition: 0.2s cubic-bezier(.4, 0, .2, 1) all;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.7);
+        }
+
+        &:hover .corner {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .btn-content {
+            position: relative;
+            z-index: 10;
+            display: block;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background-color: var(--color-primary);
+            color: var(--color-primary-foreground);
+            border: 1px solid var(--color-primary);
+            border-radius: 0;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 防止页面滚动 */
+body.umami-stats-open {
+    overflow: hidden;
+}
+
+/* 暗色模式适配 */
+.dark {
+    .umami-stats-panel {
+        .umami-stats-modal {
+            background: var(--color-card);
+            border-color: var(--color-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .umami-stats-header {
+            background: var(--color-background);
+            border-color: var(--color-border);
+        }
+    }
+}
+

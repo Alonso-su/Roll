@@ -1,0 +1,8 @@
+<div style="margin: 0.5rem 0;">
+  {{ partial "line.html" . }}
+  <h2 style="padding: 1rem; font-size: 0.75rem; text-transform: uppercase; font-family: var(--font-mono); margin: 0;">
+    <span style="color: var(--color-muted); margin-right: 0.5rem;" aria-hidden="true">{{ .index }} /</span>
+    {{ .text }}
+  </h2>
+  {{ partial "line.html" . }}
+</div>

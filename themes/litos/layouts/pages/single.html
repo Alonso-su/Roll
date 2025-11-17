@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="page-content">
+    <!-- Page Title with Lines -->
+    {{ partial "heading.html" (dict "index" "01" "text" .Title) }}
+
+    <section class="p-4">
+        <div class="page-inner">
+            <div class="prose">
+                {{ .Content }}
+            </div>
+        </div>
+    </section>
+</article>
+{{ end }}

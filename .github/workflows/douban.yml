@@ -1,0 +1,51 @@
+name: Douban mark data sync
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"  # 每 12 小时运行一次
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  douban:
+    name: Douban mark data sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      # 同步观影记录
+      - name: Sync Movie Data
+        uses: lizheming/doumark-action@master
+        with:
+          id: ${{ secrets.DOUBAN_ID }}  # 您的豆瓣 ID
+          type: movie
+          format: csv  
+          dir: ./assets/douban
+          
+      # 同步读书记录
+      - name: Sync Book Data
+        uses: lizheming/doumark-action@master
+        with:
+          id: ${{ secrets.DOUBAN_ID }}
+          type: book
+          format: csv
+          dir: ./assets/douban
+          
+      # 同步音乐记录  
+      - name: Sync Music Data
+        uses: lizheming/doumark-action@master
+        with:
+          id: ${{ secrets.DOUBAN_ID }}
+          type: music
+          format: csv
+          dir: ./assets/douban
+
+      # 提交更改
+      - name: Commit Changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'chore: update douban data'
+          add: './assets/douban'
+          default_author: github_actions

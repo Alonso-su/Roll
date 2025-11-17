@@ -1,0 +1,151 @@
+/* PWA 相关样式 */
+
+
+
+/* 更新提示样式 */
+.pwa-update-prompt {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-radius: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    @media (min-width: 768px) {
+        left: auto;
+        right: 20px;
+        max-width: 350px;
+    }
+}
+
+.pwa-update-content {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    
+    span {
+        flex: 1;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+}
+
+.pwa-update-btn {
+    padding: 0.5rem 1rem;
+    background: var(--color-primary-foreground);
+    color: var(--color-primary);
+    border: none;
+    border-radius: 0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.pwa-update-dismiss {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--color-primary-foreground);
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+        opacity: 1;
+    }
+}
+
+/* 动画 */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 已安装状态的样式调整 */
+.pwa-installed {
+    /* 可以在这里添加已安装状态下的特殊样式 */
+}
+
+/* 离线状态指示器 */
+.offline-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #f39c12;
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    z-index: 1002;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    
+    &.show {
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .pwa-update-prompt {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+    
+    .pwa-update-content {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+    
+    .pwa-update-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* 暗色模式适配 */
+.dark {
+    .pwa-update-prompt {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .offline-indicator {
+        background: #e67e22;
+    }
+}
+
+
+
+/* 独立模式下的样式调整 */
+@media (display-mode: standalone) {
+    /* 在 PWA 模式下的特殊样式 */
+    body {
+        /* 可以添加一些 PWA 特有的样式 */
+    }
+}

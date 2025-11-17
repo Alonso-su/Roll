@@ -1,0 +1,11 @@
+{{ $url := .Destination }}
+{{ $isExternal := and (strings.HasPrefix $url "http") (not (in $url "suus.me")) }}
+<a 
+    {{ if $isExternal }}
+        href="/redirect/?url={{ $url | urlquery }}"
+    {{ else }}
+        href="{{ $url }}"
+    {{ end }}
+    {{ if $isExternal }} class="external-link"{{ end }}
+>
+{{ .Text | safeHTML }}</a>

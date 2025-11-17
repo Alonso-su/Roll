@@ -1,0 +1,185 @@
+{{ define "main" }}
+<!-- Page Title with Lines -->
+{{ partial "heading.html" (dict "index" "01" "text" "HOME") }}
+
+<section class="p-4">
+    <!-- Hero Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2" style="gap: 2rem;">
+        <div style="display: flex; flex-direction: column; justify-content: space-between; padding: 1rem;">
+            <div style="margin-bottom: 2rem;">
+                <p style="font-size: 1.8rem; line-height: 1.2; color: var(--color-foreground); margin-bottom: 0; font-weight: 500;">
+                    A nook where <span class="highlighter-underline">thoughts</span> & <span class="highlighter-underline">ideas</span> sometimes echo
+                </p>
+            </div>
+            <div style="display: flex; justify-content: flex-start;">
+                <a href="{{ "about" | relURL }}" class="corner-effect">
+                    <span class="corner"></span>
+                    <span style="position: relative; z-index: 10; display: block; padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; border-radius: 0.125rem; background-color: var(--color-primary); color: var(--color-primary-foreground);">About Me</span>
+                </a>
+            </div>
+        </div>
+        <div style="padding: 1rem; font-size: 1rem; line-height: 1.75; color: var(--color-muted);">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+<!-- Recent Posts Section -->
+{{ $posts := where .Site.RegularPages "Type" "posts" }}
+{{ if $posts }}
+<section>
+    {{ partial "heading.html" (dict "index" "02" "text" "Recent Posts") }}
+    <div class="p-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {{ range first 2 $posts }}
+                <article class="recent-post-card" data-featured-image="{{ if .Params.image }}{{ .Params.image }}{{ end }}">
+                    <a href="{{ .RelPermalink }}" class="recent-post-link">
+                        <div class="recent-post-content">
+                            <h3 class="recent-post-title">
+                                <span class="title-content">{{ partial "new-badge.html" . }}{{ .Title }}</span>
+                            </h3>
+                            <time datetime="{{ .Date.Format "2006-01-02" }}" class="recent-post-date">
+                                {{ partial "smart-date.html" . }}
+                            </time>
+                        </div>
+                    </a>
+                </article>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- Recent Posts JavaScript -->
+{{ $recentPostsJS := resources.Get "js/recent-posts.js" }}
+{{ if $recentPostsJS }}
+{{ $recentPostsJS = $recentPostsJS | minify }}
+<script src="{{ $recentPostsJS.RelPermalink }}" defer></script>
+{{ end }}
+{{ end }}
+
+<!-- Recently Watched Section -->
+<section>
+    {{ partial "heading.html" (dict "index" "03" "text" "Recently Watched") }}
+    <div class="p-4">
+        {{ partial "movies.html" . }}
+    </div>
+</section>
+
+<!-- 唠里唠叨 Section -->
+<section>
+    {{ partial "heading.html" (dict "index" "04" "text" "Thoughts") }}
+    <div class="p-4">
+        {{ partial "memos.html" . }}
+    </div>
+</section>
+
+<!-- Memos JavaScript Dependencies -->
+<script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/moment@2.29.4/locale/zh-cn.js"></script>
+<script>
+// 配置 moment.js 中文
+moment.locale('zh-cn');
+
+// 添加 Twitter 风格的时间格式
+moment.fn.twitterLong = function() {
+    var now = moment();
+    var diff = now.diff(this);
+    var duration = moment.duration(diff);
+    
+    if (duration.asSeconds() < 60) {
+        return '刚刚';
+    } else if (duration.asMinutes() < 60) {
+        return Math.floor(duration.asMinutes()) + '分钟前';
+    } else if (duration.asHours() < 24) {
+        return Math.floor(duration.asHours()) + '小时前';
+    } else if (duration.asDays() < 7) {
+        return Math.floor(duration.asDays()) + '天前';
+    } else {
+        return this.format('YYYY-MM-DD');
+    }
+};
+
+// Memos 配置（可以根据需要修改）
+var bbMemos = {
+    memos: 'https://me.suuus.top/',      // 你的 Memos 服务器地址
+    limit: '6',                          // 显示条数
+    creatorId: '1',                      // 创建者ID
+    domId: '#bber',
+};
+</script>
+{{ $cocoMessageJS := resources.Get "js/coco-message.min.js" }}
+{{ if $cocoMessageJS }}
+{{ $cocoMessageJS = $cocoMessageJS | minify }}
+<script src="{{ $cocoMessageJS.RelPermalink }}"></script>
+{{ end }}
+{{ $memosJS := resources.Get "js/memos.js" }}
+{{ if $memosJS }}
+{{ $memosJS = $memosJS | minify }}
+<script src="{{ $memosJS.RelPermalink }}"></script>
+{{ end }}
+
+<!-- ViewImage for Memos -->
+{{ $viewImageJS := resources.Get "js/view-image.min.js" }}
+{{ if $viewImageJS }}
+{{ $viewImageScript := $viewImageJS | resources.Minify }}
+<script src="{{ $viewImageScript.RelPermalink }}" defer></script>
+{{ end }}
+
+<!-- Highlighter Underline Styles -->
+<style>
+.highlighter-underline {
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    color: var(--color-foreground);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.highlighter-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FF9800, #FF6B35);
+    border-radius: 2px;
+    transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: left;
+}
+
+.highlighter-underline:hover::after {
+    width: 100%;
+}
+
+/* 添加一个微妙的悬停效果 */
+.highlighter-underline:hover {
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+/* 暗色模式适配 */
+.dark .highlighter-underline::after {
+    background: linear-gradient(90deg, #FFB74D, #FF8A65);
+}
+
+/* 可选：添加一个初始的淡淡下划线提示 */
+.highlighter-underline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-border);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.highlighter-underline:hover::before {
+    opacity: 0;
+}
+</style>
+{{ end }}

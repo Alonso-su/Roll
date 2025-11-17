@@ -1,0 +1,741 @@
+// 文章详情页样式
+
+// 文章容器
+.post-article {
+    position: relative;
+    
+    // 确保文章页面的卡片没有圆角
+    .card {
+        border-radius: 0 !important;
+    }
+    
+    // 顶部标题区域间距已在heading.html中统一设置
+}
+
+// 文章顶部分割线 - 与其他页面保持一致的间距
+.post-divider {
+    margin: 0.5rem 0 0 0;
+    grid-column-start: 2;
+}
+
+// 文章头部
+.post-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    margin-top: 0;
+    
+    @media (min-width: 640px) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.post-header-container {
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+// 元信息
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+
+    &-item {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        
+        i {
+            font-size: 1rem;
+            color: var(--color-muted);
+        }
+    }
+    
+    // 状态标签在元信息区域的样式
+    .status-badge {
+        margin-left: 0.25rem;
+        
+        i {
+            font-size: 1rem; // 与其他图标保持一致的大小
+        }
+    }
+}
+
+// 页面浏览量样式
+.page-view-item {
+    .page-view-count {
+        font-weight: 500;
+        color: var(--color-foreground);
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        
+        &.loaded {
+            opacity: 1;
+        }
+    }
+    
+    .page-view-label {
+        color: var(--color-muted);
+    }
+}
+
+// 标题和封面布局
+.post-title-cover {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.cover-split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+
+    @media (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        
+        .post-title-section {
+            flex: 3;
+        }
+        
+        .post-featured-image {
+            flex: 2;
+        }
+    }
+}
+
+// 标题区域
+.post-title-section {
+    width: 100%;
+    
+    // 在分栏布局中移除底部边距以改善对齐
+    .cover-split-layout & {
+        margin-bottom: 0;
+    }
+    
+    // 在非分栏布局中保持边距
+    .no-cover-layout & {
+        margin-bottom: 1rem;
+    }
+}
+
+.post-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.3;
+    
+    .title-content {
+        background: linear-gradient(to right, var(--color-foreground), var(--color-muted));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        display: inline;
+        vertical-align: baseline;
+    }
+    
+    // 确保徽章在标题中正确对齐
+    .status-recommend {
+        vertical-align: baseline;
+        position: relative;
+        top: 0.2em; // 向下调整到文本中心
+        transform: translateY(-50%);
+    }
+    
+
+}
+
+.post-description {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+
+// 标签区域
+.post-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+
+    &.centered {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+// 特色图片
+.post-featured-image {
+    width: 100%;
+    aspect-ratio: 1200/630;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+    border-radius: 0 !important;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0 !important;
+    }
+}
+
+
+
+// 无封面布局
+.no-cover-layout {
+    text-align: center;
+    max-width: 48rem;
+
+    .post-description {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .post-title {
+        margin-bottom: 1rem;
+    }
+}
+
+// 主要内容
+.post-main {
+    padding: 2rem 1.5rem 1rem 1.5rem;
+    max-width: 56rem;
+    margin: 0 auto;
+    
+    @media (min-width: 640px) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.post-content {
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.prose {
+    max-width: none;
+    line-height: 1.7;
+}
+
+// 现代化文章导航 - ITboy Style
+.post-navigation-modern {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    
+    // 如果只有一个导航项，让它占满整个宽度
+    &:has(.nav-card:only-child) {
+        grid-template-columns: 1fr;
+        
+        .nav-card {
+            max-width: 50%;
+            
+            &.nav-next {
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.nav-card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    background: transparent;  // 移除背景色
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    overflow: hidden;
+    transition: border-color 0.3s ease;  // 简化过渡效果
+    
+    &:hover {
+        border-color: var(--color-primary);
+        text-decoration: none;  // 确保悬停时也没有下划线
+        // 移除上浮和阴影效果
+    }
+    
+    &.nav-next {
+        .nav-direction {
+            justify-content: flex-end;
+        }
+        
+        .nav-title {
+            text-align: right;
+        }
+        
+        .nav-meta {
+            text-align: right;
+        }
+    }
+}
+
+.nav-card-inner {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;        // 缩小内边距
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;          // 缩小间距
+}
+
+// 移除背景动画元素
+.nav-card-bg {
+    display: none;  // 完全隐藏背景动画
+}
+
+.nav-direction {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    .nav-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-muted);
+        font-weight: 500;
+    }
+    
+    .nav-arrow {
+        width: 16px;
+        height: 16px;
+        color: var(--color-muted);
+        // 移除箭头动画
+    }
+}
+
+.nav-title {
+    font-size: 0.875rem;    // 缩小字体
+    font-weight: 500;       // 减轻字重
+    color: var(--color-foreground);
+    line-height: 1.4;
+    margin: 0;
+    // 移除颜色过渡动画
+    
+    // 限制显示行数
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.nav-meta {
+    margin-top: auto;
+    
+    time {
+        font-size: 0.75rem;     // 缩小日期字体
+        color: var(--color-muted);
+        font-family: var(--font-mono);
+    }
+}
+
+// ITboy风格的Section Divider
+.section-divider {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    z-index: 1;
+    margin: 1.5rem 0 1.5rem 0;
+    
+    .divider-pattern {
+        height: 6px;  // 0.375rem = 6px
+        width: 100%;
+        background: repeating-linear-gradient(
+            -45deg,
+            var(--color-border),
+            var(--color-border) 1px,
+            transparent 1px,
+            transparent 6px
+        );
+        opacity: 0.6;
+    }
+}
+
+// 深色主题下的分割线样式
+.dark .section-divider {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    
+    .divider-pattern {
+        background: repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px,
+            transparent 6px
+        );
+        opacity: 0.8;
+    }
+}
+
+// 评论区域的 post-main 容器
+section.post-main {
+    padding-top: 0; // 评论区域不需要顶部间距
+}
+
+// Gitalk评论组件
+.comments-container {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0; // 移除所有内边距
+}
+
+// Gitalk样式自定义
+#gitalk-container {
+    .gt-container {
+        .gt-header {
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .gt-btn {
+            background: var(--color-primary);
+            color: var(--color-primary-foreground);
+            border: none;
+            border-radius: 0;
+            
+            &:hover {
+                background: var(--color-foreground);
+                color: var(--color-background);
+            }
+        }
+        
+        .gt-ico {
+            fill: var(--color-muted);
+        }
+        
+        .gt-comment-content {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            
+            &:hover {
+                border-color: var(--color-primary);
+            }
+        }
+        
+        // 输入框样式
+        .gt-header-textarea {
+            background-color: var(--color-card) !important;
+            color: var(--color-foreground) !important;
+            border: 1px solid var(--color-border) !important;
+            border-radius: 0 !important;
+            
+            &:focus {
+                border-color: var(--color-primary) !important;
+                outline: none !important;
+            }
+            
+            &::placeholder {
+                color: var(--color-muted) !important;
+            }
+        }
+        
+        // 评论列表
+        .gt-comment {
+            border-bottom: 1px solid var(--color-border);
+            
+            .gt-comment-content {
+                background-color: var(--color-card);
+                color: var(--color-foreground);
+            }
+            
+            .gt-comment-username {
+                color: var(--color-primary);
+            }
+            
+            .gt-comment-text {
+                color: var(--color-foreground);
+            }
+            
+            .gt-comment-date {
+                color: var(--color-muted);
+            }
+        }
+        
+        // 用户信息
+        .gt-user {
+            .gt-user-name {
+                color: var(--color-foreground);
+            }
+        }
+        
+        // 链接样式
+        a {
+            color: var(--color-primary);
+            
+            &:hover {
+                color: var(--color-foreground);
+            }
+        }
+    }
+}
+
+// 深色模式适配
+.dark {
+    .form-input,
+    .form-textarea {
+        background: var(--color-card) !important;
+        color: var(--color-foreground) !important;
+        border-color: var(--color-border) !important;
+    }
+    
+    // Gitalk 深色模式强制覆盖
+    #gitalk-container {
+        .gt-container {
+            background-color: transparent !important;
+            
+            .gt-header-textarea,
+            textarea,
+            input[type="text"],
+            input[type="email"] {
+                background-color: var(--color-card) !important;
+                color: var(--color-foreground) !important;
+                border: 1px solid var(--color-border) !important;
+                
+                &::placeholder {
+                    color: var(--color-muted) !important;
+                }
+            }
+            
+            .gt-comment-content,
+            .gt-comment-body {
+                background-color: var(--color-card) !important;
+                color: var(--color-foreground) !important;
+            }
+            
+            .gt-meta {
+                color: var(--color-muted) !important;
+            }
+        }
+    }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+    .post-header {
+        padding: 1.5rem 1rem 2rem 1rem;
+    }
+
+    .post-main {
+        padding: 2rem 1rem;
+    }
+
+    .post-navigation-modern {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        
+        .nav-card {
+            max-width: 100% !important;
+            margin-left: 0 !important;
+            
+            &.nav-next {
+                .nav-direction {
+                    justify-content: flex-start;
+                }
+                
+                .nav-title,
+                .nav-meta {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+// ITboy分割线响应式设计
+@media (max-width: 768px) {
+    .itboy-divider {
+        margin: 2rem 0 1.5rem 0;
+        padding: 0 1rem;
+        
+        .divider-content {
+            padding: 0 1rem;
+        }
+        
+        .divider-text {
+            font-size: 0.75rem;
+            padding: 0 0.75rem;
+        }
+    }
+}
+
+// 深色模式适配
+@media (prefers-color-scheme: dark) {
+    .itboy-divider {
+        .divider-line::before {
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%
+            );
+        }
+    }
+}
+
+// Gitalk响应式设计
+@media (max-width: 768px) {
+    .comments-container {
+        padding: 0; // 移动端也移除左右内边距
+    }
+    
+    #gitalk-container {
+        .gt-container {
+            .gt-header-textarea {
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+
+// ITboy Style Navigation Buttons
+// Mobile Back to Top Button
+.back-to-top-mobile {
+  position: fixed;
+  bottom: 3.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.04);
+  color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.7);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  
+  &:hover {
+    background-color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.1);
+    color: var(--color-primary);
+  }
+  
+  i {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover i {
+    transform: translateY(-0.125rem);
+  }
+  
+  @media (min-width: 1280px) {
+    display: none;
+  }
+}
+
+// Desktop Navigation Buttons
+.desktop-nav-buttons {
+  position: fixed;
+  bottom: 6rem;
+  right: calc(50% - 24rem);
+  transform: translateX(100%);
+  padding: 1rem;
+  z-index: 50;
+  
+  @media (max-width: 1279px) {
+    display: none;
+  }
+}
+
+.nav-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 0.75rem;
+  background-color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.04);
+  color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.7);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.1);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  
+  i {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover i {
+    transform: translateX(-0.125rem);
+  }
+}
+
+.back-to-top-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.04);
+  color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.7);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  
+  &:hover {
+    background-color: rgba(var(--color-primary-rgb, 39, 39, 39), 0.1);
+    color: var(--color-primary);
+  }
+  
+  i {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover i {
+    transform: translateY(-0.125rem);
+  }
+}
+
+// Dark mode styles
+.dark {
+  .back-to-top-mobile,
+  .back-button,
+  .back-to-top-desktop {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}

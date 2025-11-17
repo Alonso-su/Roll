@@ -1,0 +1,52 @@
+{{- $type := .Get 0 | default "info" -}}
+{{- $title := .Get 1 | default "" -}}
+{{- $closable := .Get 2 | default false -}}
+{{- $collapsible := .Get 3 | default false -}}
+{{- $content := .Inner | strings.TrimSpace -}}
+
+{{- /* 设置默认标题 */ -}}
+{{- if eq $title "" -}}
+  {{- if eq $type "tip" -}}
+    {{- $title = "提示" -}}
+  {{- else if eq $type "warning" -}}
+    {{- $title = "警告" -}}
+  {{- else if eq $type "error" -}}
+    {{- $title = "错误" -}}
+  {{- else if eq $type "info" -}}
+    {{- $title = "信息" -}}
+  {{- else if eq $type "note" -}}
+    {{- $title = "注释" -}}
+  {{- end -}}
+{{- end -}}
+
+<div class="alert alert-{{ $type }}{{ if $collapsible }} alert-collapsible{{ end }}">
+  <div class="alert-header{{ if $collapsible }} alert-header-clickable{{ end }}"{{ if $collapsible }} role="button" tabindex="0" aria-expanded="true"{{ end }}>
+    <span class="alert-icon">
+      {{- if eq $type "tip" -}}
+        <i class="ri-lightbulb-line"></i>
+      {{- else if eq $type "warning" -}}
+        <i class="ri-alert-line"></i>
+      {{- else if eq $type "error" -}}
+        <i class="ri-close-circle-line"></i>
+      {{- else if eq $type "info" -}}
+        <i class="ri-information-line"></i>
+      {{- else if eq $type "note" -}}
+        <i class="ri-file-text-line"></i>
+      {{- end -}}
+    </span>
+    <span class="alert-title">{{ $title }}</span>
+    {{- if $collapsible -}}
+      <button class="alert-toggle" aria-label="展开/折叠内容">
+        <i class="ri-arrow-down-s-line"></i>
+      </button>
+    {{- end -}}
+    {{- if $closable -}}
+      <button class="alert-close" aria-label="关闭提示">
+        <i class="ri-close-line"></i>
+      </button>
+    {{- end -}}
+  </div>
+  <div class="alert-content">
+    {{ $content | markdownify }}
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{{/* 分类徽章 */}}
+{{ if .Params.category }}
+<span class="category-badge category-{{ .Params.category | urlize }}" title="分类: {{ .Params.category | title }}">
+    {{ .Params.category | upper }}
+</span>
+{{ else if .Params.categories }}
+{{ range first 1 .Params.categories }}
+<span class="category-badge category-{{ . | urlize }}" title="分类: {{ . | title }}">
+    {{ . | upper }}
+</span>
+{{ end }}
+{{ end }}

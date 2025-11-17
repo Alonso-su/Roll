@@ -1,0 +1,2110 @@
+/* Artalk 评论组件 - Litos 主题适配版本 */
+
+/* 使用主题的 CSS 变量系统 */
+.artalk,
+.atk-layer-wrap {
+    /* 继承主题颜色变量 */
+    --at-color-font: var(--color-foreground);
+    --at-color-deep: var(--color-foreground);
+    --at-color-sub: var(--color-muted);
+    --at-color-grey: var(--color-muted);
+    --at-color-meta: var(--color-muted);
+    --at-color-border: var(--color-border);
+    --at-color-light: var(--color-primary);
+    --at-color-bg: var(--color-background);
+    --at-color-bg-transl: var(--color-background);
+    --at-color-bg-grey: var(--color-card);
+    --at-color-bg-grey-transl: var(--color-card);
+    --at-color-bg-light: rgba(var(--color-primary-rgb), 0.1);
+    --at-color-main: var(--color-primary);
+    --at-color-red: #ef4444;
+    --at-color-pink: #ec4899;
+    --at-color-yellow: #f59e0b;
+    --at-color-green: #10b981;
+    --at-color-gradient: linear-gradient(180deg, transparent, var(--color-background));
+    
+    /* 主题一致的过渡效果 */
+    --at-transition: 0.2s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* 评论区标题样式 - 与主题一致 */
+.comments-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.comments-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
+.comments-title i {
+    color: var(--color-muted);
+    font-size: 1.25rem;
+}
+
+.comments-subtitle {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 评论容器 - Litos 主题风格 */
+.atk-comment-wrap {
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--at-color-border);
+    transition: var(--at-transition);
+    background: transparent;
+    border-radius: 0;
+}
+
+.atk-comment-wrap:hover {
+    border-color: var(--at-color-main);
+}
+
+.atk-comment-wrap.atk-flash-once {
+    animation: atkFlashOnce 1s ease-in-out 0s;
+}
+
+@keyframes atkFlashOnce {
+    0% {
+        background: var(--at-color-bg-light);
+    }
+    to {
+        background: transparent;
+    }
+}
+
+.atk-comment-wrap.atk-unread:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 10%;
+    width: 3px;
+    height: 80%;
+    background: var(--at-color-main);
+}
+
+.atk-comment-wrap.atk-openable {
+    cursor: pointer;
+}
+
+.atk-comment-wrap.atk-openable:hover {
+    background: var(--at-color-bg-grey);
+}
+
+.atk-comment-wrap.atk-openable .atk-height-limit:after {
+    background: transparent !important;
+}
+
+.atk-comment-wrap:last-child {
+    border-bottom: none;
+}
+
+/* 评论主体 - Litos 主题风格 */
+.atk-comment {
+    display: block;
+    padding: 1rem;
+}
+
+.atk-comment > .atk-avatar {
+    display: block;
+    padding: 2px 0;
+    float: left;
+}
+
+.atk-comment > .atk-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--at-color-border);
+    transition: var(--at-transition);
+}
+
+.atk-comment > .atk-avatar img:hover {
+    border-color: var(--at-color-main);
+}
+
+.atk-comment > .atk-main {
+    display: block;
+    margin-left: 63px;
+}
+
+/* 评论头部 - Litos 主题风格 */
+.atk-comment > .atk-main > .atk-header {
+    line-height: 1.5;
+    font-size: 13px;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-item {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: var(--at-color-meta);
+}
+
+.atk-comment > .atk-main > .atk-header .atk-item:not(:last-child) {
+    margin-right: 6px;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-item.atk-nick,
+.atk-comment > .atk-main > .atk-header .atk-item.atk-nick a {
+    font-size: 14px;
+    color: var(--at-color-main);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-item.atk-nick:hover,
+.atk-comment > .atk-main > .atk-header .atk-item.atk-nick a:hover {
+    text-decoration: underline;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-item.atk-reply-at {
+    margin-left: 2px;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-item.atk-reply-at > .atk-arrow:before {
+    content: "";
+    vertical-align: middle;
+    transform: rotate(90deg);
+    border-bottom: 4px solid var(--at-color-grey);
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    display: inline-block;
+    margin-top: -1px;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-item.atk-reply-at > .atk-nick {
+    color: var(--at-color-main);
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+/* 徽章样式 - 隐藏系统和浏览器徽标 */
+.atk-comment > .atk-main > .atk-header .badge,
+.atk-comment > .atk-main > .atk-header .atk-ua,
+.atk-comment > .atk-main > .atk-header .atk-region-badge {
+    display: none !important;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-badge {
+    display: inline-block;
+    color: var(--at-color-meta);
+    background: var(--at-color-bg-grey);
+    padding: 0 6px;
+    line-height: 17px;
+    border-radius: 0;
+    border: 1px solid var(--at-color-border);
+    font-size: 12px;
+}
+
+.atk-comment > .atk-main > .atk-header .badge:not(:last-child),
+.atk-comment > .atk-main > .atk-header .atk-ua:not(:last-child),
+.atk-comment > .atk-main > .atk-header .atk-pinned-badge:not(:last-child),
+.atk-comment > .atk-main > .atk-header .atk-region-badge:not(:last-child),
+.atk-comment > .atk-main > .atk-header .atk-badge:not(:last-child) {
+    margin-right: 6px;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-badge-wrap > *:last-child {
+    margin-right: 6px;
+}
+
+.atk-comment > .atk-main > .atk-header .atk-badge {
+    color: var(--color-primary-foreground);
+    background: var(--at-color-main);
+    border-color: var(--at-color-main);
+}
+
+.atk-comment > .atk-main > .atk-header .atk-pinned-badge {
+    color: #fff;
+    background: var(--at-color-red);
+    border-color: var(--at-color-red);
+}
+
+.atk-comment > .atk-main > .atk-header .atk-verified-icon {
+    height: 1.4em;
+    width: 1.4em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: block;
+    background-image: url('data:image/svg+xml,<svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" fill="%23d19a66"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></g></svg>');
+}
+
+/* 评论内容 */
+.atk-comment > .atk-main > .atk-body {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.atk-comment > .atk-main > .atk-body img {
+    max-width: 100%;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-content {
+    word-break: break-word;
+    line-height: 1.6;
+    font-family: var(--font-sans);
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-content.atk-type-collapsed {
+    border: 3px solid var(--at-color-bg-grey);
+    border-bottom: 0;
+    padding: 5px 10px;
+    border-radius: 0;
+    margin-bottom: -5px;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-content > *:first-child {
+    margin-top: 0;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-content > *:last-child {
+    margin-bottom: 0;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-pending {
+    color: var(--at-color-meta);
+    margin: 3px 0;
+    font-size: 13px;
+    padding: 10px 18px;
+    display: block;
+    background: var(--at-color-bg-grey);
+    border-left: 4px solid var(--at-color-red);
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-reply-to {
+    padding: 5px 15px;
+    border-left: 3px solid var(--at-color-border);
+    margin-bottom: 10px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-reply-to .atk-meta {
+    font-size: 15px;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-reply-to .atk-meta .atk-nick {
+    color: var(--at-color-main);
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-reply-to .atk-content {
+    margin-top: 5px;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-collapsed {
+    margin: 3px 0;
+    font-size: 13px;
+    padding: 10px 18px;
+    display: block;
+    background: var(--at-color-bg-grey);
+    border-radius: 0;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-collapsed .atk-text {
+    color: var(--at-color-meta);
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-collapsed .atk-show-btn {
+    color: var(--at-color-main);
+    cursor: pointer;
+    user-select: none;
+    margin-left: 3px;
+}
+
+.atk-comment > .atk-main > .atk-body > .atk-collapsed .atk-show-btn:hover {
+    color: var(--at-color-main);
+    text-decoration: underline;
+}
+
+/* 评论操作 */
+.atk-comment > .atk-main > .atk-footer {
+    margin-top: 5px;
+}
+
+.atk-comment > .atk-main > .atk-footer .atk-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.atk-comment > .atk-main > .atk-footer .atk-actions > span {
+    color: var(--at-color-meta);
+    font-size: 13px;
+    line-height: 25px;
+    display: inline-flex;
+    cursor: pointer;
+    user-select: none;
+    transition: var(--at-transition);
+}
+
+.atk-comment > .atk-main > .atk-footer .atk-actions > span.atk-error,
+.atk-comment > .atk-main > .atk-footer .atk-actions > span.atk-error:hover {
+    color: var(--at-color-red);
+}
+
+.atk-comment > .atk-main > .atk-footer .atk-actions > span:not(:last-child):not(.atk-hide) {
+    margin-right: 16px;
+}
+
+.atk-comment > .atk-main > .atk-footer .atk-actions > span:hover {
+    color: var(--at-color-deep);
+    text-decoration: underline;
+}
+
+/* 子评论 */
+.atk-comment-children > .atk-comment-wrap {
+    margin-top: 10px;
+    border-left: 1px dashed var(--at-color-border);
+    border-bottom-color: transparent;
+}
+
+.atk-comment-children > .atk-comment-wrap:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.atk-comment-children > .atk-comment-wrap > .atk-comment {
+    padding: 0;
+}
+
+.atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-avatar img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-main {
+    margin-left: 47px;
+}
+
+/* 主编辑器 - 分离式布局 */
+.atk-main-editor {
+    position: relative;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: visible; /* 确保绝对定位的子元素可见 */
+}
+
+.atk-main-editor.editor-traveling {
+    margin-top: 5px;
+    margin-bottom: 1rem;
+}
+
+/* 用户信息输入区域 - 移动到内容输入框下方 */
+.atk-main-editor > .atk-header {
+    padding: 0;
+    margin-bottom: 0.5rem;
+    order: 2; /* 放在文本输入框后面 */
+}
+
+.atk-main-editor > .atk-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.atk-main-editor > .atk-header input {
+    font-size: 14px;
+    background: var(--at-color-bg-grey);
+    border: 1px solid var(--at-color-border);
+    border-radius: 0;
+    padding: 8px 12px;
+    outline: none;
+    font-family: var(--font-sans);
+    transition: var(--at-transition);
+}
+
+.atk-main-editor > .atk-header input:focus {
+    border-color: var(--at-color-main);
+    background: var(--at-color-bg);
+}
+
+.atk-main-editor > .atk-header input::placeholder {
+    color: var(--at-color-meta);
+}
+
+/* 文本输入区域 - 放在最前面 */
+.atk-main-editor > .atk-textarea-wrap {
+    position: relative;
+    margin-bottom: 0.5rem;
+    order: 1; /* 放在最前面 */
+}
+
+.atk-main-editor > .atk-textarea-wrap > .atk-textarea {
+    display: block;
+    overflow: hidden;
+    color: var(--at-color-font);
+    font-size: 15px;
+    background-color: var(--at-color-bg);
+    border: 1px solid var(--at-color-border);
+    border-radius: 0;
+    width: 100%;
+    min-height: 120px;
+    padding: 10px 20px;
+    resize: vertical;
+    word-wrap: break-word;
+    outline: none;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    transition: var(--at-transition);
+}
+
+.atk-main-editor > .atk-textarea-wrap > .atk-textarea:focus {
+    border-color: var(--at-color-main);
+}
+
+.atk-main-editor > .atk-textarea-wrap > .atk-comment-closed {
+    pointer-events: none;
+    color: var(--at-color-meta);
+    font-size: 12px;
+    background-color: var(--at-color-bg);
+    border-top: 1px solid var(--at-color-border);
+    padding: 5px 15px;
+    margin-top: 10px;
+}
+
+.atk-main-editor > .atk-plug-panel-wrap {
+    position: relative;
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid var(--at-color-border);
+    animation: 0.3s both atkFadeIn;
+    transition: 0.2s height ease-in-out;
+    order: 4; /* 放在所有元素之后 */
+    z-index: 1; /* 确保不会覆盖通知 */
+}
+
+/* 工具栏和发送按钮区域 - 放在最后 */
+.atk-main-editor > .atk-bottom {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    order: 3; /* 放在最后 */
+}
+
+.atk-main-editor > .atk-bottom > .atk-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.atk-main-editor > .atk-bottom > .atk-bottom-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.atk-main-editor > .atk-bottom > .atk-bottom-left > .atk-state-wrap {
+    margin-right: 0;
+}
+
+.atk-main-editor > .atk-bottom > .atk-bottom-left > .atk-plug-btn-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.atk-main-editor > .atk-bottom .atk-plug-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    height: 32px;
+    cursor: pointer;
+    color: var(--at-color-grey);
+    font-size: 14px;
+    user-select: none;
+    border-radius: 0;
+    border: 1px solid transparent;
+    transition: var(--at-transition);
+    background: transparent;
+}
+
+.atk-main-editor > .atk-bottom .atk-plug-btn:hover {
+    background: var(--at-color-bg-grey);
+    border-color: var(--at-color-border);
+}
+
+.atk-main-editor > .atk-bottom .atk-plug-btn.active {
+    color: var(--at-color-main);
+    background: var(--at-color-bg-light);
+    border-color: var(--at-color-main);
+}
+
+.atk-main-editor > .atk-bottom .atk-plug-btn.active svg.markdown path {
+    fill: var(--at-color-main);
+}
+
+.atk-main-editor > .atk-bottom .atk-plug-btn i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: currentColor;
+}
+
+.atk-main-editor > .atk-bottom .atk-plug-btn i:not(:first-child) {
+    margin-left: 4px;
+}
+
+.atk-main-editor > .atk-bottom .atk-state-btn {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    background: var(--at-color-bg-grey);
+    border: 1px solid var(--at-color-border);
+    cursor: pointer;
+    border-radius: 0;
+    transition: var(--at-transition);
+}
+
+.atk-main-editor > .atk-bottom .atk-state-btn:hover {
+    background: var(--at-color-bg-light);
+    border-color: var(--at-color-main);
+}
+
+.atk-main-editor > .atk-bottom .atk-state-btn .atk-text-wrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 8em;
+}
+
+.atk-main-editor > .atk-bottom .atk-state-btn .atk-cancel {
+    margin-left: 8px;
+    padding: 0 8px;
+    font-weight: 600;
+    color: var(--at-color-red);
+}
+
+/* 发送按钮 - 独立样式 */
+.atk-main-editor > .atk-bottom .atk-send-btn {
+    background: var(--at-color-main);
+    color: var(--color-primary-foreground);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--at-color-main);
+    height: 36px;
+    min-width: 100px;
+    cursor: pointer;
+    transition: var(--at-transition);
+    outline: none;
+    border-radius: 0;
+    font-family: var(--font-sans);
+    padding: 0 1.5rem;
+}
+
+.atk-main-editor > .atk-bottom .atk-send-btn:hover {
+    background: var(--at-color-deep);
+    border-color: var(--at-color-deep);
+}
+
+.atk-main-editor > .atk-bottom .atk-send-btn:active {
+    opacity: 0.9;
+}
+
+.atk-main-editor > .atk-notify-wrap {
+    z-index: 999;
+    position: absolute;
+    right: -2px;
+    bottom: 40px;
+    width: 225px;
+    opacity: 0.83;
+}
+
+/* 评论列表 */
+.artalk > .atk-list {
+    position: relative;
+}
+
+.artalk > .atk-list > .atk-list-header {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 17px;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-text {
+    display: inline-block;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap {
+    position: relative;
+    cursor: pointer;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap .atk-arrow-down-icon {
+    cursor: pointer;
+    vertical-align: middle;
+    border-top: 5px solid var(--at-color-grey);
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    margin-top: -1px;
+    margin-left: 0.8rem;
+    display: inline-block;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap:hover .atk-dropdown {
+    display: block;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap .atk-dropdown {
+    z-index: 3;
+    display: none;
+    height: auto !important;
+    max-height: calc(100vh - 2.7rem);
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: var(--at-color-bg);
+    padding: 0.6rem 0;
+    border: 1px solid var(--at-color-border);
+    text-align: center;
+    border-radius: 0;
+    white-space: nowrap;
+    margin: 0;
+    list-style: none;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap .atk-dropdown-item span,
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap .atk-dropdown-item a {
+    display: block;
+    line-height: 2rem;
+    position: relative;
+    border-bottom: none;
+    font-weight: 400;
+    padding: 0 1.5rem;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap .atk-dropdown-item span:hover,
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap .atk-dropdown-item a:hover {
+    color: var(--at-color-main);
+}
+
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap .atk-dropdown-item.active span,
+.artalk > .atk-list > .atk-list-header .atk-dropdown-wrap .atk-dropdown-item.active a {
+    color: var(--at-color-main);
+}
+
+.artalk > .atk-list > .atk-list-header .atk-comment-count {
+    font-size: 15px;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-comment-count .atk-comment-count-num {
+    font-size: 22px;
+    margin-right: 4px;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-right-action {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-right-action > span {
+    font-size: 14px;
+    color: var(--at-color-meta);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-right-action > span.atk-on,
+.artalk > .atk-list > .atk-list-header .atk-right-action > span.atk-on * {
+    color: var(--at-color-main);
+}
+
+.artalk > .atk-list > .atk-list-header .atk-right-action > span:not(:last-child):not(.atk-hide) {
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.artalk > .atk-list > .atk-list-header .atk-right-action > span .atk-unread-badge {
+    position: absolute;
+    top: -5px;
+    left: -6px;
+    color: #fff;
+    background: var(--at-color-pink);
+    text-align: center;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 3px;
+    border-radius: 8px;
+    line-height: 16px;
+    font-size: 12px;
+}
+
+.artalk > .atk-list > .atk-list-body {
+    min-height: 150px;
+}
+
+.artalk > .atk-list > .atk-list-footer {
+    text-align: right;
+}
+
+.artalk > .atk-list > .atk-list-footer .atk-copyright {
+    display: none !important;
+}
+
+/* 空状态 */
+.atk-list-no-comment {
+    height: 150px;
+    display: flex;
+    font-size: 19px;
+    justify-content: center;
+    align-items: center;
+    word-break: break-word;
+    text-align: center;
+}
+
+/* 加载更多 */
+.atk-list-read-more {
+    border-top: 1px dashed var(--at-color-border);
+    margin-top: 28px;
+    padding-bottom: 25px;
+}
+
+.atk-list-read-more.atk-err .atk-text {
+    color: var(--at-color-red) !important;
+}
+
+.atk-list-read-more .atk-list-read-more-inner {
+    cursor: pointer;
+    user-select: none;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 0;
+    border: 1px solid transparent;
+    display: flex;
+    height: 30px;
+    flex-direction: row;
+    place-content: center;
+    align-items: center;
+    width: 120px;
+    margin: -15px auto 0;
+    background: var(--at-color-bg);
+    border-color: var(--at-color-border);
+    transition: var(--at-transition);
+}
+
+.atk-list-read-more .atk-list-read-more-inner > .atk-loading-icon {
+    height: 15px;
+    width: 15px;
+}
+
+.atk-list-read-more .atk-list-read-more-inner > .atk-text {
+    color: var(--at-color-meta);
+}
+
+.atk-list-read-more .atk-list-read-more-inner:hover {
+    background: var(--at-color-bg-grey);
+}
+
+/* 分页 */
+.atk-pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+.atk-pagination > .atk-btn,
+.atk-pagination > .atk-input {
+    height: 30px;
+    border: 1px solid var(--at-color-border);
+    border-radius: 0;
+    padding: 0 5px;
+    text-align: center;
+    background: var(--at-color-bg);
+}
+
+.atk-pagination > .atk-btn {
+    user-select: none;
+    width: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.atk-pagination > .atk-btn:hover {
+    background: var(--at-color-bg-grey);
+}
+
+.atk-pagination > .atk-btn.atk-disabled {
+    color: var(--at-color-sub);
+}
+
+.atk-pagination > .atk-btn.atk-disabled:hover {
+    cursor: default;
+    background: initial;
+}
+
+.atk-pagination > .atk-input {
+    background: transparent;
+    color: var(--at-color-font);
+    font-size: 18px;
+    width: 60px;
+    outline: none;
+}
+
+.atk-pagination > .atk-input:focus {
+    border-color: var(--at-color-main);
+}
+
+.atk-pagination > *:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* 通用样式 - Litos 主题风格 */
+.artalk {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    font-family: var(--font-sans);
+}
+
+.artalk,
+.atk-layer-wrap {
+    color: var(--at-color-font);
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.artalk *,
+.atk-layer-wrap * {
+    box-sizing: border-box;
+}
+
+.artalk input,
+.artalk textarea,
+.artalk button,
+.artalk optgroup,
+.artalk select,
+.atk-layer-wrap input,
+.atk-layer-wrap textarea,
+.atk-layer-wrap button,
+.atk-layer-wrap optgroup,
+.atk-layer-wrap select {
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* 代码块 - Litos 主题风格 */
+.artalk code,
+.atk-layer-wrap code {
+    font-family: var(--font-mono);
+    margin: 0 0.05em;
+    padding: 0 0.4em;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.9em;
+    background-color: var(--at-color-bg-grey);
+    color: var(--at-color-font);
+    border-radius: 0;
+    border: 1px solid var(--at-color-border);
+}
+
+.artalk pre,
+.atk-layer-wrap pre {
+    margin: 10px 0 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.artalk pre code,
+.atk-layer-wrap pre code {
+    line-height: 1.6em;
+    display: block;
+    padding: 10px 15px;
+    white-space: pre-wrap !important;
+    background-color: var(--at-color-bg-grey);
+    color: var(--at-color-font);
+    margin: 0;
+    border: 1px solid var(--at-color-border);
+}
+
+.artalk pre code *,
+.atk-layer-wrap pre code * {
+    font-family: var(--font-mono);
+}
+
+/* 链接 - Litos 主题风格 */
+.artalk a,
+.atk-layer-wrap a {
+    color: var(--at-color-main);
+    text-decoration: none;
+}
+
+.artalk a:hover,
+.atk-layer-wrap a:hover {
+    text-decoration: underline;
+}
+
+/* 引用块 - Litos 主题风格 */
+.artalk blockquote,
+.atk-layer-wrap blockquote {
+    position: static;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: var(--at-color-bg-grey);
+    border-left: 4px solid var(--at-color-border);
+    color: var(--at-color-font);
+}
+
+.artalk p:first-child,
+.atk-layer-wrap p:first-child {
+    margin-top: 0;
+}
+
+.artalk p:last-child,
+.atk-layer-wrap p:last-child {
+    margin-bottom: 0;
+}
+
+.artalk img,
+.atk-layer-wrap img {
+    max-width: 100%;
+}
+
+/* 表格 - Litos 主题风格 */
+.artalk table,
+.atk-layer-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1.5em;
+    font-size: 0.96em;
+}
+
+.artalk td,
+.artalk th,
+.atk-layer-wrap td,
+.atk-layer-wrap th {
+    text-align: left;
+    padding: 4px 8px 4px 10px;
+    border: 1px solid var(--at-color-border);
+}
+
+.artalk td,
+.atk-layer-wrap td {
+    vertical-align: top;
+}
+
+.artalk tr:nth-child(2n),
+.atk-layer-wrap tr:nth-child(2n) {
+    background-color: var(--at-color-bg-grey);
+}
+
+.artalk ul,
+.atk-layer-wrap ul {
+    list-style: disc;
+}
+
+.artalk ol,
+.atk-layer-wrap ol {
+    list-style: decimal;
+}
+
+.artalk li + li,
+.atk-layer-wrap li + li {
+    margin-top: 8px;
+}
+
+.artalk li > ol,
+.artalk li > ul,
+.atk-layer-wrap li > ol,
+.atk-layer-wrap li > ul {
+    margin: 8px 0 0;
+}
+
+/* 工具类 */
+.atk-hide {
+    display: none !important;
+}
+
+/* 侧边栏通知中心样式 */
+.atk-sidebar-layer {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 100%;
+    background: var(--at-color-bg);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(100%);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.atk-sidebar-layer.atk-show {
+    transform: translateX(0);
+}
+
+.atk-sidebar-layer .atk-sidebar-inner {
+    position: relative;
+    height: 100%;
+}
+
+.atk-sidebar-layer .atk-sidebar-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    padding: 16px;
+}
+
+.atk-sidebar-layer .atk-sidebar-header .atk-sidebar-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 0;
+    background: var(--at-color-bg-grey);
+    color: var(--at-color-meta);
+    transition: var(--at-transition);
+    border: 1px solid var(--at-color-border);
+}
+
+.atk-sidebar-layer .atk-sidebar-header .atk-sidebar-close:hover {
+    background: var(--at-color-red);
+    color: #fff;
+    border-color: var(--at-color-red);
+}
+
+.atk-sidebar-layer .atk-sidebar-iframe-wrap {
+    height: 100%;
+    position: relative;
+}
+
+.atk-sidebar-layer .atk-sidebar-iframe-wrap iframe {
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 通知中心遮罩层 */
+.atk-layer-wrap .atk-layer-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99998;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+}
+
+.atk-layer-wrap .atk-layer-item {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.atk-layer-wrap .atk-layer-item > * {
+    pointer-events: auto;
+}
+
+/* 通知组件样式 */
+.atk-notify {
+    display: block;
+    overflow: hidden;
+    background: var(--at-color-bg-grey);
+    color: var(--at-color-font);
+    border: 1px solid var(--at-color-border);
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    transition: var(--at-transition);
+}
+
+.atk-notify:hover {
+    border-color: var(--at-color-main);
+    background: var(--at-color-bg-light);
+}
+
+.atk-notify:last-child {
+    margin-bottom: 0;
+}
+
+.atk-notify .atk-notify-content {
+    color: var(--at-color-font);
+    font-weight: 500;
+}
+
+/* 移动端适配 */
+@media only screen and (max-width: 450px) {
+    .atk-sidebar-layer {
+        width: 100%;
+    }
+}
+
+/* 加载动画 */
+.atk-full-layer,
+.atk-layer-dialog-wrap,
+.atk-error-layer,
+.atk-loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--at-color-bg);
+    z-index: 4;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    display: flex;
+}
+
+.atk-loading-spinner {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.atk-loading-spinner svg {
+    animation: atkRotate 2s linear infinite;
+    transform-origin: center center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.atk-loading-spinner svg circle {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: atkDash 1.5s ease-in-out infinite, atkColor 6s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+@keyframes atkRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes atkDash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    to {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes atkColor {
+    0%,
+    to {
+        stroke: var(--at-color-red);
+    }
+
+    40% {
+        stroke: var(--at-color-main);
+    }
+
+    66% {
+        stroke: var(--at-color-green);
+    }
+
+    80%,
+    90% {
+        stroke: var(--at-color-yellow);
+    }
+}
+
+@keyframes atkLoadingIconRotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.atk-loading-icon {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border: solid 1px transparent;
+    border-top-color: var(--at-color-main);
+    border-left-color: var(--at-color-main);
+    border-radius: 50%;
+    animation: atkLoadingIconRotate 0.4s linear infinite;
+}
+
+.atk-fade-in {
+    animation: atkFadeIn both 0.3s;
+}
+
+.atk-fade-out {
+    animation: atkFadeOut both 0.2s;
+}
+
+.atk-rotate {
+    animation: atkRotate 2s linear infinite;
+}
+
+@keyframes atkFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes atkFadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+/* 高度限制 */
+.atk-comment .atk-height-limit:after {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    content: " ";
+    bottom: 0;
+    height: 80px;
+    background: var(--at-color-gradient);
+}
+
+.atk-comment .atk-height-limit-btn {
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%);
+    cursor: pointer;
+    border: 1px solid var(--at-color-border);
+    border-radius: 0;
+    background: var(--at-color-bg);
+    padding: 1px 20px;
+    font-size: 15px;
+    color: var(--at-color-meta);
+    user-select: none;
+}
+
+.atk-comment .atk-height-limit-btn:hover {
+    background: var(--at-color-bg-grey);
+}
+
+.atk-comment .atk-height-limit .atk-height-limit .atk-height-limit-btn {
+    display: none;
+}
+
+.atk-comment .atk-height-limit-scroll {
+    margin-top: 10px;
+    overflow-y: auto;
+    background: linear-gradient(var(--at-color-bg) 1px, transparent 1px calc(100% - 1px)) center top, linear-gradient(transparent calc(100% - 1px), var(--at-color-bg) calc(100% - 1px) 1px) center bottom, linear-gradient(var(--at-color-border) 1px, transparent 1px calc(100% - 1px)) center top, linear-gradient(transparent calc(100% - 1px), var(--at-color-border) calc(100% - 1px) 1px) center bottom;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 100% 1px, 100% 1px, 100% 1px, 100% 1px;
+    background-attachment: local, local, scroll, scroll;
+}
+
+/* 响应式设计 */
+/* 隐藏用户代理包装器 */
+.atk-comment > .atk-main > .atk-header .atk-ua-wrap {
+    display: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .atk-comment > .atk-main > .atk-header .atk-ua-wrap {
+        display: none !important;
+    }
+
+    .artalk > .atk-list > .atk-list-footer {
+        float: initial;
+        text-align: center;
+    }
+
+    .atk-list-read-more {
+        padding-bottom: 10px;
+    }
+
+    .atk-main-editor {
+        margin-bottom: 0.5rem;
+    }
+
+    /* 移动端用户信息输入区域 */
+    .atk-main-editor > .atk-header {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    /* 移动端文本输入区域 */
+    .atk-main-editor > .atk-textarea-wrap > .atk-textarea {
+        min-height: 100px;
+        padding: 12px 16px;
+    }
+
+    /* 移动端工具栏和按钮区域 */
+    .atk-main-editor > .atk-bottom {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        padding: 0.5rem 0;
+    }
+
+    .atk-main-editor > .atk-bottom > .atk-bottom-left {
+        justify-content: center;
+    }
+
+    .atk-main-editor > .atk-bottom .atk-state-btn .atk-text-wrap {
+        display: none;
+    }
+
+    .atk-main-editor > .atk-bottom .atk-send-btn {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+/* 选择文本样式 */
+::selection {
+    background-color: var(--at-color-bg-light);
+    color: var(--at-color-deep);
+}
+
+/* 焦点样式 */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--at-color-main);
+    outline-offset: 2px;
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 字体渲染优化 */
+.artalk,
+.atk-layer-wrap {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+/* 
+隐藏图片上传按钮 */
+.atk-plug-btn[data-type="image"],
+.atk-plug-btn[data-type="img-upload"],
+.atk-img-upload-btn,
+.atk-editor-img-upload,
+[data-action="image"],
+[data-action="img-upload"] {
+    display: none !important;
+}
+
+/* 隐藏所有可能的图片上传相关元素 */
+.atk-main-editor .atk-bottom .atk-plug-btn:has(svg[data-icon="image"]),
+.atk-main-editor .atk-bottom .atk-plug-btn:has([class*="image"]),
+.atk-main-editor .atk-bottom .atk-plug-btn:has([class*="upload"]) {
+    display: none !important;
+}
+/
+* ========================================
+   评论框折叠展开功能样式
+   ======================================== */
+
+/* 评论框容器 - 支持折叠展开 */
+.atk-comment-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media only screen and (max-width: 640px) {
+    .atk-comment-box {
+        gap: 10px;
+        align-items: stretch;
+    }
+}
+
+/* 评论头像区域 */
+.atk-comment-box .atk-comment-avatar {
+    flex-shrink: 0;
+    padding-left: 10px;
+}
+
+.atk-comment-box .atk-comment-avatar .atk-comment-avatar-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    display: block;
+    background: var(--at-color-bg-grey);
+    border: 2px solid var(--at-color-border);
+    transition: var(--at-transition);
+}
+
+@media only screen and (max-width: 640px) {
+    .atk-comment-box .atk-comment-avatar {
+        padding-left: 5px;
+    }
+    
+    .atk-comment-box .atk-comment-avatar .atk-comment-avatar-image {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* 评论表单区域 */
+.atk-comment-box .atk-comment-form {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 折叠状态样式 */
+.atk-comment-box.atk-collapsed {
+    cursor: pointer;
+}
+
+.atk-comment-box.atk-collapsed .atk-main-editor .atk-textarea-wrap .atk-textarea {
+    height: 44px !important;
+    min-height: 44px !important;
+    resize: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 22px;
+    padding: 10px 20px;
+    background: var(--at-color-bg-grey);
+    border: 2px solid transparent;
+}
+
+.atk-comment-box.atk-collapsed .atk-main-editor .atk-textarea-wrap .atk-textarea:hover {
+    border-color: var(--at-color-border);
+    background: var(--at-color-bg);
+}
+
+.atk-comment-box.atk-collapsed .atk-main-editor .atk-textarea-wrap .atk-textarea:focus {
+    border-color: var(--at-color-main);
+    background: var(--at-color-bg);
+}
+
+/* 折叠状态下隐藏的元素 */
+.atk-comment-box.atk-collapsed .atk-collapsible-section[data-section="bottom"],
+.atk-comment-box.atk-collapsed .atk-collapsible-section[data-section="header"],
+.atk-comment-box.atk-collapsed .atk-collapsible-section[data-section="panel"],
+.atk-comment-box.atk-collapsed .atk-collapsible-section[data-section="notify"],
+.atk-comment-box.atk-collapsed .atk-collapsible-section[data-section="submit"] {
+    display: none !important;
+}
+
+/* 可折叠区域的过渡动画 */
+.atk-comment-box .atk-collapsible-section {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.atk-comment-box .atk-collapsible-section.atk-expanding {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.atk-comment-box .atk-collapsible-section:not(.atk-expanding) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 文本框的过渡效果 */
+.atk-comment-box .atk-textarea-wrap {
+    transition: all 0.3s ease-in-out;
+}
+
+.atk-comment-box .atk-textarea-wrap .atk-textarea {
+    transition: height 0.3s ease-in-out, min-height 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+/* 展开状态的文本框 */
+.atk-comment-box:not(.atk-collapsed) .atk-textarea-wrap .atk-textarea {
+    height: auto;
+    min-height: 120px;
+    cursor: text;
+    border-radius: 8px;
+    padding: 16px;
+    background: var(--at-color-bg);
+    border: 2px solid var(--at-color-border);
+}
+
+.atk-comment-box:not(.atk-collapsed) .atk-textarea-wrap .atk-textarea:focus {
+    border-color: var(--at-color-main);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+}
+
+/* 头像在有状态按钮时的调整 */
+@media only screen and (min-width: 769px) {
+    .atk-comment-box:has(.atk-state-btn) .atk-comment-avatar .atk-comment-avatar-image {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* 折叠状态指示器 */
+.atk-comment-box.atk-collapsed .atk-textarea-wrap::after {
+    content: "点击展开完整评论表单";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--at-color-meta);
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.atk-comment-box.atk-collapsed .atk-textarea-wrap:hover::after {
+    opacity: 1;
+}
+
+/* 移动端适配 */
+@media only screen and (max-width: 640px) {
+    .atk-comment-box.atk-collapsed .atk-textarea-wrap::after {
+        content: "点击展开";
+        right: 15px;
+        font-size: 11px;
+    }
+    
+    .atk-comment-box.atk-collapsed .atk-main-editor .atk-textarea-wrap .atk-textarea {
+        padding: 12px 16px;
+        border-radius: 20px;
+    }
+    
+    .atk-comment-box:not(.atk-collapsed) .atk-textarea-wrap .atk-textarea {
+        padding: 12px 16px;
+        min-height: 100px;
+    }
+}
+
+/* 动画关键帧 */
+@keyframes expandCommentBox {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes collapseCommentBox {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* 展开动画 */
+.atk-comment-box .atk-expanding-in {
+    animation: expandCommentBox 0.3s ease-out forwards;
+}
+
+/* 收缩动画 */
+.atk-comment-box .atk-collapsing-out {
+    animation: collapseCommentBox 0.3s ease-in forwards;
+}
+
+/* 确保折叠状态下的布局稳定性 */
+.atk-comment-box.atk-collapsed .atk-main-editor {
+    margin-bottom: 0;
+}
+
+.atk-comment-box.atk-collapsed .atk-main-editor > .atk-textarea-wrap {
+    margin-bottom: 0;
+    position: relative;
+}
+
+/* 优化焦点状态 */
+.atk-comment-box.atk-collapsed .atk-main-editor .atk-textarea-wrap .atk-textarea:focus {
+    outline: none;
+}
+
+/* 确保在折叠状态下头像和输入框对齐 */
+.atk-comment-box.atk-collapsed {
+    align-items: center;
+}
+
+.atk-comment-box:not(.atk-collapsed) {
+    align-items: flex-start;
+}/
+* ========================================
+   折叠展开功能的兼容性优化
+   ======================================== */
+
+/* 确保 Artalk 容器的基础样式 */
+#artalk-container {
+    width: 100%;
+    max-width: none;
+}
+
+/* 防止评论框在初始化时闪烁 */
+.atk-main-editor {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.atk-main-editor.atk-ready {
+    opacity: 1;
+}
+
+/* 确保评论框在所有主题下都有正确的背景 */
+.atk-comment-box {
+    background: transparent;
+    border-radius: 12px;
+    padding: 0;
+}
+
+/* 优化头像显示 */
+.atk-comment-box .atk-comment-avatar .atk-comment-avatar-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--at-color-meta);
+    background: var(--at-color-bg-grey);
+    border: 2px solid var(--at-color-border);
+}
+
+.atk-comment-box .atk-comment-avatar .atk-comment-avatar-image svg {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+}
+
+/* 确保在折叠状态下文本框的样式正确 */
+.atk-comment-box.atk-collapsed .atk-main-editor .atk-textarea-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 优化占位符文本 */
+.atk-comment-box.atk-collapsed .atk-textarea::placeholder {
+    color: var(--at-color-meta);
+    opacity: 0.8;
+}
+
+.atk-comment-box:not(.atk-collapsed) .atk-textarea::placeholder {
+    color: var(--at-color-meta);
+    opacity: 0.6;
+}
+
+/* 确保按钮在展开状态下正确显示 */
+.atk-comment-box:not(.atk-collapsed) .atk-main-editor > .atk-bottom {
+    display: flex;
+    margin-top: 0.75rem;
+}
+
+/* 优化发送按钮样式 */
+.atk-comment-box:not(.atk-collapsed) .atk-send-btn {
+    background: var(--at-color-main);
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.atk-comment-box:not(.atk-collapsed) .atk-send-btn:hover {
+    background: var(--at-color-deep);
+    transform: translateY(-1px);
+}
+
+/* 确保工具栏按钮正确显示 */
+.atk-comment-box:not(.atk-collapsed) .atk-plug-btn {
+    background: transparent;
+    border: 1px solid var(--at-color-border);
+    color: var(--at-color-meta);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.atk-comment-box:not(.atk-collapsed) .atk-plug-btn:hover {
+    background: var(--at-color-bg-grey);
+    border-color: var(--at-color-main);
+    color: var(--at-color-main);
+}
+
+/* 响应式优化 */
+@media only screen and (max-width: 480px) {
+    .atk-comment-box {
+        gap: 8px;
+    }
+    
+    .atk-comment-box .atk-comment-avatar .atk-comment-avatar-image {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .atk-comment-box .atk-comment-avatar .atk-comment-avatar-image svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .atk-comment-box.atk-collapsed .atk-main-editor .atk-textarea-wrap .atk-textarea {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+/* 深色主题优化 */
+@media (prefers-color-scheme: dark) {
+    .atk-comment-box .atk-comment-avatar .atk-comment-avatar-image {
+        background: var(--at-color-bg-grey);
+        border-color: var(--at-color-border);
+    }
+    
+    .atk-comment-box.atk-collapsed .atk-main-editor .atk-textarea-wrap .atk-textarea {
+        background: var(--at-color-bg-grey);
+        color: var(--at-color-font);
+    }
+}
+
+/* 确保动画流畅性 */
+.atk-comment-box * {
+    box-sizing: border-box;
+}
+
+/* 防止内容溢出 */
+.atk-comment-box .atk-comment-form {
+    overflow: hidden;
+}
+
+/* 优化加载状态 */
+.atk-comment-box.atk-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.atk-comment-box.atk-loading .atk-textarea {
+    background: var(--at-color-bg-grey);
+}
+
+/* 确保在所有状态下都有正确的层级 */
+.atk-comment-box {
+    position: relative;
+    z-index: 1;
+}
+
+.atk-comment-box .atk-textarea-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.atk-comment-box .atk-comment-avatar {
+    position: relative;
+    z-index: 3;
+}/* ======
+==================================
+   评论框折叠展开功能样式
+   ======================================== */
+
+/* 折叠状态样式 */
+.comment-box-wrapper.collapsed .atk-main-editor .atk-header,
+.comment-box-wrapper.collapsed .atk-main-editor .atk-bottom {
+    display: none !important;
+}
+
+.comment-box-wrapper.collapsed .atk-main-editor .atk-textarea {
+    height: 44px !important;
+    min-height: 44px !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    border: 2px solid var(--at-color-border) !important;
+    transition: all 0.3s ease !important;
+    padding: 10px 20px !important;
+    resize: none !important;
+}
+
+.comment-box-wrapper.collapsed .atk-main-editor .atk-textarea:hover {
+    border-color: var(--at-color-main) !important;
+    background: transparent !important;
+}
+
+.comment-box-wrapper.collapsed .atk-main-editor .atk-textarea:focus {
+    border-color: var(--at-color-main) !important;
+    background: transparent !important;
+    outline: none !important;
+}
+
+/* 展开状态样式 */
+.comment-box-wrapper:not(.collapsed) .atk-main-editor .atk-textarea {
+    height: auto !important;
+    min-height: 120px !important;
+    border-radius: 0 !important;
+    padding: 16px !important;
+    cursor: text !important;
+}
+
+/* 移动端适配 */
+@media only screen and (max-width: 640px) {
+    .comment-box-wrapper.collapsed .atk-main-editor .atk-textarea {
+        padding: 12px 16px !important;
+        border-radius: 0 !important;
+        font-size: 14px !important;
+    }
+    
+    .comment-box-wrapper:not(.collapsed) .atk-main-editor .atk-textarea {
+        min-height: 100px !important;
+        padding: 12px 16px !important;
+    }
+}
+
+/* 确保折叠功能的优先级 */
+.comment-box-wrapper.collapsed .atk-main-editor {
+    margin-bottom: 0 !important;
+}
+
+.comment-box-wrapper.collapsed .atk-main-editor .atk-textarea-wrap {
+    margin-bottom: 0 !important;
+}
+
+/* 折叠状态指示 */
+.comment-box-wrapper.collapsed .atk-main-editor .atk-textarea::placeholder {
+    color: var(--at-color-meta);
+    opacity: 0.8;
+}
+
+/* 平滑过渡效果 */
+.comment-box-wrapper .atk-main-editor .atk-header,
+.comment-box-wrapper .atk-main-editor .atk-bottom {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.comment-box-wrapper.collapsed .atk-main-editor .atk-header,
+.comment-box-wrapper.collapsed .atk-main-editor .atk-bottom {
+    opacity: 0;
+    transform: translateY(-10px);
+}/* ==
+======================================
+   折叠状态头像显示功能
+   ======================================== */
+
+/* 评论框包装器 */
+.comment-box-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.comment-box-wrapper.collapsed {
+    align-items: center;
+}
+
+/* 头像容器 */
+.comment-avatar {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f5f5f5;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.comment-avatar .avatar-placeholder {
+    color: #666;
+    font-size: 24px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-avatar .avatar-placeholder svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* 表单包装器 */
+.comment-form-wrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 移动端头像适配 */
+@media only screen and (max-width: 640px) {
+    .comment-box-wrapper {
+        gap: 8px;
+    }
+    
+    .comment-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .comment-avatar .avatar-placeholder {
+        font-size: 20px;
+    }
+    
+    .comment-avatar .avatar-placeholder svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* 深色主题下的头像样式 */
+@media (prefers-color-scheme: dark) {
+    .comment-avatar {
+        background: #2a2a2a;
+        border-color: #404040;
+    }
+    
+    .comment-avatar .avatar-placeholder {
+        color: #999;
+    }
+}
+
+/* 确保头像在折叠状态下显示 */
+.comment-box-wrapper .comment-avatar {
+    opacity: 1;
+    visibility: visible;
+}/
+* ========================================
+   邮箱认证徽章功能
+   ======================================== */
+
+/* 认证徽章样式 */
+.atk-comment > .atk-main > .atk-header .atk-verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #fff;
+    background: #10b981;
+    border: 1px solid #10b981;
+    padding: 2px 8px;
+    line-height: 16px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+/* 认证图标 */
+.atk-verified-icon {
+    width: 14px;
+    height: 14px;
+    background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: inline-block;
+}
+
+/* 深色主题适配 */
+@media (prefers-color-scheme: dark) {
+    .atk-comment > .atk-main > .atk-header .atk-verified-badge {
+        background: #059669;
+        border-color: #059669;
+    }
+}
+
+/* 移动端适配 */
+@media only screen and (max-width: 640px) {
+    .atk-comment > .atk-main > .atk-header .atk-verified-badge {
+        font-size: 10px;
+        padding: 1px 6px;
+    }
+    
+    .atk-verified-icon {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* 只隐藏自定义验证徽章，保留Artalk内置验证 */
+.atk-verified-badge,
+.atk-comment .atk-header [title*="该用户邮箱已通过认证"] {
+    display: none !important;
+    visibility: hidden !important;
+}

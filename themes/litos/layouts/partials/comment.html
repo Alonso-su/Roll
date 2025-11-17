@@ -1,0 +1,105 @@
+<script>
+  // 初始化 Artalk 评论系统
+  (function() {
+
+    
+    // 等待 Artalk 库加载完成
+    function initArtalk() {
+      if (typeof Artalk === 'undefined') {
+
+        setTimeout(initArtalk, 100);
+        return;
+      }
+      
+
+      
+      // 初始化 Artalk
+      const artalkInstance = Artalk.init({
+        el: '#artalk-container',
+        pageKey: '{{ .Permalink }}',
+        pageTitle: '{{ .Title }}',
+        server: '{{ $.Site.Params.artalk.server }}',
+        site: '{{ $.Site.Params.artalk.site }}',
+        darkMode: 'auto',
+        locale: 'zh-CN',
+        imgUpload: false,
+        placeholder: '写下你的想法...',
+        // 评论框配置
+        avatar: {
+          type: 'gravatar',
+          default: 'mp'
+        },
+        // 禁用一些不需要的功能
+        vote: false,
+        voteDown: false,
+        uaBadge: false,
+        // 自定义配置
+        heightLimit: {
+          content: 300,
+          children: 400,
+          scrollable: true
+        },
+        // PV 浏览量统计配置
+        pvEl: '.page-view-count',
+        statPageKeyAttr: 'data-page-key',
+        // 启用 PV 统计
+        pageView: true
+      });
+      
+
+      
+      // 存储实例供其他脚本使用
+      window.artalkInstance = artalkInstance;
+      
+      // Artalk 会自动处理 PV 统计
+      // 如果配置了 pvEl 和 pageView: true，Artalk 会自动更新浏览量
+      
+      // 手动触发 PV 更新（备用方案）
+      setTimeout(() => {
+        const pvElements = document.querySelectorAll('.page-view-count');
+        if (pvElements.length > 0) {
+          // 检查 Artalk 是否已经更新了浏览量
+          const firstEl = pvElements[0];
+          if (firstEl.textContent === '--' || firstEl.textContent === '') {
+            // 如果 Artalk 没有自动更新，尝试手动获取
+            fetch('{{ $.Site.Params.artalk.server }}/api/v2/stats/page_pv', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                site_name: '{{ $.Site.Params.artalk.site }}',
+                page_key: '{{ .Permalink }}'
+              })
+            })
+            .then(res => res.json())
+            .then(data => {
+              const pv = data.data?.pv || data.pv || 0;
+              pvElements.forEach(el => {
+                el.textContent = pv;
+                el.classList.add('loaded');
+              });
+            })
+            .catch(err => {
+              console.log('无法获取浏览量，使用默认值');
+              pvElements.forEach(el => {
+                el.textContent = '0';
+                el.classList.add('loaded');
+              });
+            });
+          }
+        }
+      }, 2000);
+      
+      // 标记编辑器为就绪状态
+      setTimeout(() => {
+        const editor = document.querySelector('.atk-main-editor');
+        if (editor) {
+          editor.classList.add('atk-ready');
+
+        }
+      }, 500);
+    }
+    
+    // 开始初始化
+    initArtalk();
+  })();
+</script>

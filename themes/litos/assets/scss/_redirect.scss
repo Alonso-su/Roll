@@ -1,0 +1,251 @@
+// Redirect Page Styles - 外链跳转页面样式
+
+.redirect-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.redirect-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.redirect-icon {
+    margin: 0 auto 2rem;
+    width: 48px;
+    height: 48px;
+    color: var(--color-muted);
+    
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.redirect-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.3;
+}
+
+.redirect-description {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin: 0 0 2rem 0;
+}
+
+.redirect-url {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    padding: 1rem;
+    margin: 0 0 2rem 0;
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+        border-color: var(--color-primary);
+        background: var(--color-card);
+    }
+    
+    &.copied {
+        border-color: var(--color-primary);
+        background: rgba(var(--color-primary-rgb, 39, 39, 39), 0.05);
+    }
+    
+    .redirect-url-label {
+        display: block;
+        font-size: 0.875rem;
+        color: var(--color-muted);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+    }
+    
+    .redirect-url-value {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        color: var(--color-foreground);
+        word-break: break-all;
+        line-height: 1.4;
+        padding-right: 2rem;
+    }
+    
+    .copy-indicator {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        color: var(--color-muted);
+        transition: all 0.2s ease;
+        
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+    
+    &:hover .copy-indicator {
+        color: var(--color-primary);
+    }
+}
+
+.redirect-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.redirect-btn {
+    @extend .corner-effect;
+    text-decoration: none;
+    
+    .btn-content {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        white-space: nowrap;
+        border-radius: 0;
+        transition: all 0.2s ease;
+        
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+    
+    &.redirect-btn-primary .btn-content {
+        background-color: var(--color-primary);
+        color: var(--color-primary-foreground);
+        border: 1px solid var(--color-primary);
+    }
+    
+    &.redirect-btn-secondary .btn-content {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        border: 1px solid var(--color-border);
+    }
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.redirect-countdown {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    padding: 1rem;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    margin: 0;
+    
+    #countdown {
+        font-weight: 600;
+        color: var(--color-primary);
+        font-family: var(--font-mono);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .redirect-container {
+        padding: 1rem 0;
+    }
+    
+    .redirect-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .redirect-title {
+        font-size: 1.25rem;
+    }
+    
+    .redirect-actions {
+        flex-direction: column;
+        align-items: center;
+        
+        .redirect-btn {
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .redirect-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .redirect-url {
+        padding: 0.75rem;
+    }
+    
+    .redirect-btn .btn-content {
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    .redirect-card {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* 外部链接样式 */
+.external-link {
+    position: relative;
+    
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-left: 0.25rem;
+        background-image: url('data:image/svg+xml;utf8,<svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.6;
+        vertical-align: text-top;
+    }
+}
+
+/* 隐藏外部链接图标 */
+.redirect-card .external-link-icon,
+.redirect-card .external-link::after {
+    display: none !important;
+}
+
+/* 打印样式 */
+@media print {
+    .redirect-countdown,
+    .redirect-actions {
+        display: none !important;
+    }
+    
+    .redirect-url-value {
+        color: #000 !important;
+    }
+}

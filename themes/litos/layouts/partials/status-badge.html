@@ -1,0 +1,8 @@
+{{/* 统一的状态标签：显示recommend */}}
+{{ if .Params.recommend }}
+<span class="status-badge status-recommend" title="{{ .Site.Params.statusBadges.recommend.title | default "推荐文章" }}">
+    <i class="ri-star-fill"></i>
+    <span class="badge-text">REC</span>
+</span>
+
+{{ end }}

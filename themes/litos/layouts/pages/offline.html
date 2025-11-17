@@ -1,0 +1,180 @@
+{{ define "main" }}
+<div class="offline-container">
+    <div class="offline-content">
+        <div class="offline-icon">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16.5 9.4L7 19l-3-3m12.5-6.4L21 5l-3.5 3.5M7 19l-3-3 1.5-1.5L7 16l7.5-7.5L16 7l-9 12z"/>
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+        </div>
+        
+        <h1 class="offline-title">You're Offline</h1>
+        
+        <p class="offline-description">
+            It looks like you've lost your internet connection. Don't worry, you can still browse the pages you've visited before.
+        </p>
+        
+        <div class="offline-actions">
+            <button onclick="window.location.reload()" class="retry-button">
+                <span class="corner"></span>
+                <span class="btn-content">Try Again</span>
+            </button>
+            
+            <a href="/" class="home-button">
+                <span class="corner"></span>
+                <span class="btn-content">Go Home</span>
+            </a>
+        </div>
+        
+        <div class="offline-tips">
+            <h3>While you're offline, you can:</h3>
+            <ul>
+                <li>Browse previously visited pages</li>
+                <li>Read cached blog posts</li>
+                <li>View your bookmarks</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+.offline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 2rem;
+}
+
+.offline-content {
+    text-align: center;
+    max-width: 500px;
+}
+
+.offline-icon {
+    margin-bottom: 2rem;
+    color: var(--color-muted);
+}
+
+.offline-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-foreground);
+}
+
+.offline-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+}
+
+.offline-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.retry-button,
+.home-button {
+    position: relative;
+    display: inline-block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    
+    .corner {
+        position: absolute;
+        inset: -4px;
+        --s: 6px;
+        border: 1px solid var(--color-primary);
+        border-radius: 0;
+        mask: conic-gradient(#000 0 0) content-box,
+            conic-gradient(at var(--s) var(--s), #0000 75%, #000 0) 0 0/calc(100% - var(--s)) calc(100% - var(--s));
+        transition: 0.2s cubic-bezier(.4, 0, .2, 1) all;
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    
+    &:hover .corner {
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+    .btn-content {
+        position: relative;
+        z-index: 10;
+        display: block;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        white-space: nowrap;
+        border-radius: 0;
+        background-color: var(--color-primary);
+        color: var(--color-primary-foreground);
+    }
+}
+
+.home-button .btn-content {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border: 1px solid var(--color-border);
+}
+
+.offline-tips {
+    text-align: left;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    padding: 1.5rem;
+    
+    h3 {
+        margin: 0 0 1rem 0;
+        font-size: 1.1rem;
+        color: var(--color-foreground);
+    }
+    
+    ul {
+        margin: 0;
+        padding-left: 1.5rem;
+        
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--color-muted);
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .offline-container {
+        padding: 1rem;
+    }
+    
+    .offline-title {
+        font-size: 1.5rem;
+    }
+    
+    .offline-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .retry-button,
+    .home-button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+</style>
+{{ end }}

@@ -1,0 +1,249 @@
+{
+  "friends": [
+    {
+      "id_name": "friends",
+      "link_list": [
+        {
+          "name": "清羽飞扬",
+          "intro": "柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜",
+          "link": "https://blog.liushen.fun/",
+          "avatar": "https://blog.liushen.fun/info/avatar.ico"
+        },
+        {
+          "name": "林木木",
+          "intro": "自知之明是最可贵的知识！",
+          "link": "https://immmmm.com/",
+          "avatar": "https://gravatar.memobbs.app/avatar/ba83fa02fc4b2ba621514941307e21be?s=80"
+        },
+        {
+          "name": "雅余",
+          "intro": "分享网络安全与科技生活",
+          "link": "https://yayu.net/",
+          "avatar": "https://yayu.net/wp-content/themes/yayu/assets/images/logo.png"
+        },
+        {
+          "name": "归藏",
+          "intro": "On the other side of obstacles",
+          "link": "https://nuoea.com/",
+          "avatar": "https://weavatar.com/avatar/57404184c248351c8c0a91cf8feee8b907581bd98ff2d95a16a1f6c0345c9bad?s=80"
+        },
+        {
+          "name": "大大的小蜗牛",
+          "intro": "机会总是垂青于有准备的人",
+          "link": "https://www.eallion.com/",
+          "avatar": "https://weavatar.com/avatar/171e4c30959e8c077a6c58b958624b31?s=80"
+        },
+        {
+          "name": "粽叶加米",
+          "intro": "总有一样是你的激情与动力",
+          "link": "https://www.wordpace.com/",
+          "avatar": "https://weavatar.com/avatar/96c423cfaf54d029ba3a08a520f1b548?s=80"
+        },
+        {
+          "name": "沉舟侧畔",
+          "intro": "沉舟侧畔千帆过，病树前头万木春",
+          "link": "https://springwood.me/",
+          "avatar": "https://s2.loli.net/2025/01/23/HrvlnIfPwY251jC.jpg"
+        },
+        {
+          "name": "且听书吟",
+          "intro": "诗与梦想的远方",
+          "link": "https://yufan.me/",
+          "avatar": "https://yufan.me/logo.svg",
+          "avatar_dark": "https://yufan.me/logo-dark.svg"
+        },
+        {
+          "name": "Aimer Neige",
+          "intro": "技术宅拯救世界",
+          "link": "https://aimer.aiursoft.cn/",
+          "avatar": "https://s2.loli.net/2025/01/16/ckGsgvnQUuJNB4x.jpg"
+        },
+        {
+          "name": "糊涂说",
+          "intro": "任抛星汉归园圃，留取乾坤盛酒囊。",
+          "link": "https://hutusi.com/",
+          "avatar": "https://s2.loli.net/2025/01/23/d7ZL9fyuOqWeUjz.jpg"
+        },
+        {
+          "name": "荷戟独彷徨",
+          "intro": "爱光学，爱生活，爱创造。",
+          "link": "https://guanqr.com/",
+          "avatar": "https://s2.loli.net/2025/02/13/USpKJ37anA24dBw.png"
+        },
+        {
+          "name": "CWorld Site",
+          "intro": "求知若愚，虚怀若谷。",
+          "link": "https://cworld0.com/",
+          "avatar": "https://weavatar.com/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=80"
+        },
+        {
+          "name": "Heo",
+          "intro": "爱折腾的设计师",
+          "link": "https://blog.zhheo.com/",
+          "avatar": "https://bu.dusays.com/2022/12/28/63ac2812183aa.png"
+        },
+        {
+          "name": "老孙博客",
+          "intro": "资深网民孙先生",
+          "link": "https://www.imsun.org/",
+          "avatar": "https://weavatar.com/avatar/2950778b87c48f43c576c08bd67df6b6?s=80"
+        },
+        {
+          "name": "东评西就",
+          "intro": "小饿，专注科技互联网、社交媒体运营。",
+          "link": "https://dongjunke.cn/",
+          "avatar": "https://weavatar.com/avatar/42542189ddb33064599dc88a5149bea7?s=80"
+        },
+        {
+          "name": "八咫烏",
+          "intro": "万物皆虚、诸行皆允",
+          "link": "https://www.vergilisme.com/",
+          "avatar": "https://gravatar.loli.net/avatar/a9c7fa5311650805839788d0cbed597c?s=80"
+        },
+        {
+          "name": "Vei Blog",
+          "intro": "松窗竹户，万千潇洒",
+          "link": "https://blog.veitzn.top",
+          "avatar": "https://cn.cravatar.com/avatar/f89bd3322f43e78d061536d493e80a4d?s=80"
+        },
+        {
+          "name": "第三边境研究所",
+          "intro": "心驰寰宇，不落尘俗",
+          "link": "https://szhshp.org/",
+          "avatar": "https://szhshp.org/favicon.ico?favicon.e53590be.ico"
+        },
+        {
+          "name": "SSR-FF 摄影",
+          "intro": "远赴人间惊鸿宴，一睹人间盛世颜",
+          "link": "https://pic.ffnb.top",
+          "avatar": "https://s2.loli.net/2025/03/18/HKSLbGU1cIix4hV.webp"
+        },
+        {
+          "name": "子夜松声",
+          "intro": "一介草民，只为生活！",
+          "link": "https://xyzbz.cn/",
+          "avatar": "https://weavatar.com/avatar/120340d1df519f4e28613fe5d404b286?s=80"
+        },
+        {
+          "name": "L1nSn0w",
+          "intro": "无限进步！🎈",
+          "link": "https://log.vaaat.com/",
+          "avatar": "https://log.vaaat.com/avatar.png"
+        },
+        {
+          "name": "文案姐笔记",
+          "intro": "别为难自己，孤独比将就有趣多了。",
+          "link": "https://www.5186a.com/",
+          "avatar": "https://weavatar.com/avatar/858ab0fd89d459c5b8839e47d6697cef7ae6708ba66360f24914f298580ee731?s=80"
+        },
+        {
+          "name": "咕咚同学",
+          "intro": "独立开发者，inBox 笔记作者",
+          "link": "https://gudong.site",
+          "avatar": "https://blog.gudong.site/assets/profile/gudong_2023.png"
+        },
+        {
+          "name": "1900'Blog",
+          "intro": "孤独的互联网冲浪大师",
+          "link": "https://1900.live/",
+          "avatar": "https://weavatar.com/avatar/cc38267b10cc25dfc62209f8ca34589e?s=80"
+        },
+        {
+          "name": "耳朵的主人",
+          "intro": "耳朵电台，庆幸我们还有耳朵。",
+          "link": "https://www.edzbe.com/",
+          "avatar": "https://www.edzbe.com/favicon.ico"
+        },
+        {
+          "name": "魏叔叔生活志",
+          "intro": "用认真生活提升自己",
+          "link": "https://vss.plus",
+          "avatar": "https://pic.vss.plus/pianke/touxiang3.jpg"
+        },
+        {
+          "name": "ElysiumStack",
+          "intro": "不会摄影的设计师不是优秀的旅行家",
+          "link": "https://www.elysium-stack.cn/",
+          "avatar": "https://www.elysium-stack.cn/upload/ee0757e6-ebb4-46d0-a388-660f648653ea.jpg"
+        },
+        {
+          "name": "全局变量",
+          "intro": "记录生活中的平凡事",
+          "link": "https://ilogs.cn/",
+          "avatar": "https://ilogs.cn/images/avatar.jpg"
+        },
+        {
+          "name": "漫川",
+          "intro": "即面向位置的世界",
+          "link": "https://www.mancs.cn/",
+          "avatar": "https://q.qlogo.cn/headimg_dl?dst_uin=28422961&spec=640&cache-key=720b7de724e373e8fb8092ed4704b494"
+        },
+        {
+          "name": "佬T博客",
+          "intro": "法律、科技和生活",
+          "link": "https://lawtee.com/",
+          "avatar": "https://lawtee.com/links/avatar.jpg"
+        },
+        {
+          "name": "木竹",
+          "intro": "喜欢把复杂的图纸变成简洁优雅的造价文件",
+          "link": "https://www.laomuzhu.cn/",
+          "avatar": "https://www.laomuzhu.cn/touxiang.png"
+        },
+        {
+          "name": "小十博客",
+          "intro": "十分之十的小十",
+          "link": "https://www.xiaoten.com/",
+          "avatar": "https://www.xiaoten.com/avatar.png"
+        }
+      ]
+    },
+    {
+      "id_name": "Organization",
+      "link_list": [
+        {
+          "name": "BlogFinder",
+          "intro": "聚合优秀的个人博客",
+          "link": "https://bf.zzxworld.com/s",
+          "avatar": "https://bf.zzxworld.com/images/favicon.png"
+        },
+        {
+          "name": "博友圈",
+          "intro": "博客人的朋友圈",
+          "link": "https://www.boyouquan.com/",
+          "avatar": "https://www.boyouquan.com/assets/images/sites/logo/logo-small.png"
+        },
+        {
+          "name": "个站商店",
+          "intro": "一个带社交元素的博客收录网站",
+          "link": "https://storeweb.cn/",
+          "avatar": "https://s2.loli.net/2025/02/13/5qV7Yfybz9dwoG2.png"
+        },
+        {
+          "name": "十年之约",
+          "intro": "一个记录十年之约的网站",
+          "link": "https://foreverblog.cn/go.html",
+          "avatar": "https://s2.loli.net/2025/02/13/UifxlF8pWrbCK7t.png"
+        },
+        {
+          "name": "BlogsClub",
+          "intro": "博客俱乐部",
+          "link": "https://www.blogsclub.org/",
+          "avatar": "https://s2.loli.net/2025/02/22/rSbEDONxtadWqBF.jpg"
+        },
+        {
+          "name": "博客星球",
+          "intro": "每一个博客都是一个独立星球！",
+          "link": "https://www.blogplanet.cn/",
+          "avatar": "https://www.blogplanet.cn/img/bkxq.png"
+        },
+        {
+          "name": "独立博客传送门",
+          "intro": "博客聚合站点",
+          "link": "https://webteleporter.top/",
+          "avatar": "https://webteleporter.top/img/logo.png"
+        }
+      ]
+    }
+  ]
+}

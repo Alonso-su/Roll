@@ -1,0 +1,46 @@
+<div class="music-shortcode">
+    <!-- Cover, title, artist -->
+    <div class="music-shortcode-info">
+        <img class="music-shortcode-cover"
+            src="{{ .Get "cover" }}" loading="lazy" alt="{{ .Get "title" }}" no-view />
+        <div class="music-shortcode-details">
+            <h4 class="music-shortcode-title">{{ .Get "title" }}</h4>
+            <p class="music-shortcode-artist">{{ .Get "artist" }}</p>
+        </div>
+    </div>
+    <!-- Links -->
+    <div class="music-shortcode-links">
+        {{ with .Get "apple" }}
+        <a href="{{ . }}"
+            class="music-shortcode-link"
+            target="_blank"
+            data-tooltip="在 Apple Music 中打开"
+        >
+            <img src="/img/apple-music.png" loading="lazy" class="music-shortcode-link-icon" alt="Apple Music" no-view />
+            <span class="music-shortcode-link-text">Apple Music</span>
+        </a>
+        {{ end }}
+
+        {{ with .Get "netease" }}
+        <a href="{{ . }}"
+            class="music-shortcode-link"
+            target="_blank"
+            data-tooltip="在网易云音乐中打开"
+        >
+            <img src="/img/netease-music.png" loading="lazy" class="music-shortcode-link-icon" alt="网易云音乐" no-view />
+            <span class="music-shortcode-link-text">网易云</span>
+        </a>
+        {{ end }}
+
+        {{ with .Get "spotify" }}
+        <a href="{{ . }}"
+            class="music-shortcode-link"
+            target="_blank"
+            data-tooltip="在 Spotify 中打开"
+        >
+            <img src="/img/spotify.png" loading="lazy" class="music-shortcode-link-icon" alt="Spotify" no-view />
+            <span class="music-shortcode-link-text">Spotify</span>
+        </a>
+        {{ end }}
+    </div>
+</div>

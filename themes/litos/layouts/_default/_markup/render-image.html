@@ -1,0 +1,25 @@
+{{ $title := .Title }}
+{{ if not $title }}
+  {{ $title = .Text }}
+{{ end }}
+
+{{ if $title }}
+<figure>
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async" />
+  <figcaption>
+    {{ if hasPrefix $title "Image from: " }}
+      Image from: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>
+    {{ else if hasPrefix $title "Photo by " }}
+      {{ $parts := split $title "](" }}
+      {{ $nameWithPrefix := index $parts 0 }}
+      {{ $name := trim (replace $nameWithPrefix "Photo by [" "") " " }}
+      {{ $url := trim (replace (index $parts 1) ")" "") " " }}
+      Photo by <a href="{{ $url }}" target="_blank" rel="noopener">{{ $name }}</a>
+    {{ else }}
+      {{ $title }}
+    {{ end }}
+  </figcaption>
+</figure>
+{{ else }}
+<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async" />
+{{ end }}

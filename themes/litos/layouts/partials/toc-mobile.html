@@ -1,0 +1,37 @@
+{{/* Mobile Table of Contents */}}
+{{ $headings := .TableOfContents }}
+{{ $tocEnabled := .Params.toc | default true }}
+{{ if and $headings $tocEnabled }}
+{{ $tocText := .Site.Params.posts.tocText | default "On this page" }}
+
+<div id="mobile-toc-container" class="toc-mobile">
+  <div class="toc-mobile-wrapper">
+    <button class="toc-toggle" data-toc-toggle>
+      <div class="toc-toggle-content">
+        <div class="progress-ring-container">
+          {{ partial "progress-ring.html" }}
+        </div>
+        <span id="mobile-toc-current-section" class="current-section">
+          Overview
+        </span>
+      </div>
+      <div class="toc-toggle-arrow">
+        <i class="ri-arrow-down-s-line" data-toc-arrow></i>
+      </div>
+    </button>
+
+    <div class="toc-content-wrapper" data-toc-content>
+      <div class="toc-fade-overlay">
+        <div class="fade-top" data-fade-top></div>
+        <div class="fade-bottom" data-fade-bottom></div>
+      </div>
+
+      <div class="toc-scroll-area" data-toc-scroll-area>
+        <div class="toc-content-mobile" id="mobile-table-of-contents">
+          {{ $headings | safeHTML }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

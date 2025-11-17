@@ -1,0 +1,37 @@
+/**
+ * Post ViewImage 样式
+ * 为文章内容中的图片添加悬停效果
+ */
+
+/* 文章内容中的图片悬停效果 */
+.post-content img {
+    cursor: zoom-in;
+}
+
+/* 确保特色图片不受影响 */
+.post-featured-image img {
+    cursor: default !important;
+    transition: none !important;
+}
+
+.post-featured-image img:hover {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Music 短代码中的图片不显示放大镜指针 */
+.music-shortcode img,
+.music-shortcode-cover,
+.music-shortcode-link-icon {
+    cursor: default !important;
+}
+
+/* Music 短代码中的链接图标使用指针 */
+.music-shortcode-link img {
+    cursor: pointer !important;
+}
+
+/* ViewImage 灯箱中的图片使用缩小指针 */
+.view-image img {
+    cursor: zoom-out !important;
+}

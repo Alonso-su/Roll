@@ -1,0 +1,140 @@
+// 点赞按钮样式
+// 移植自 Bloghugo 主题
+
+/* 点赞按钮容器 */
+.like-button-container {
+  display: flex;
+  justify-content: center;
+  margin: $spacing-3xl 0 $spacing-2xl 0;
+
+  .like-button {
+    display: inline-flex !important;
+    align-items: center;
+    gap: $spacing-sm;
+    background: none;
+    border: none;
+    padding: $spacing-sm 0;
+    font-size: 1rem;
+    color: var(--color-foreground);
+    cursor: pointer;
+    transition: all $transition-slow;
+    
+    svg {
+      width: 24px;
+      height: 24px;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      stroke: currentColor;
+      fill: transparent;
+      transform-origin: center;
+    }
+    
+    &:hover {
+      transform: translateY(-2px);
+      color: var(--color-primary);
+      
+      svg {
+        transform: scale(1.15) rotate(-5deg);
+      }
+    }
+    
+    &.liked {
+      color: var(--color-primary);
+      
+      svg {
+        fill: currentColor;
+        stroke: currentColor;
+      }
+    }
+  }
+
+  .like-count {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+
+/* 点赞动画 */
+@keyframes heart-burst {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5) rotate(12deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.heart-animation svg {
+  animation: heart-burst 0.6s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+}
+
+/* 提示消息样式 */
+.like-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  padding: $spacing-lg $spacing-xl;
+  border-radius: 25px;
+  font-size: 0.875rem;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity $transition-slow;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes toastFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translate(-50%, -40%); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translate(-50%, -50%); 
+  }
+}
+
+.like-toast {
+  animation: toastFadeIn $transition-slow ease forwards;
+}
+
+/* 深色模式适配 - 只使用 .dark 类，不依赖系统偏好 */
+.dark .like-toast {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* 响应式设计 */
+@media (max-width: $breakpoint-md) {
+  .like-button-container {
+    margin: $spacing-2xl 0 $spacing-xl 0;
+    
+    .like-button {
+      padding: $spacing-md 0;
+      
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    
+    .like-count {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .like-toast {
+    padding: $spacing-md $spacing-lg;
+    font-size: 0.8125rem;
+  }
+}

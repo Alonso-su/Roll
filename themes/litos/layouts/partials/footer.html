@@ -1,0 +1,23 @@
+<footer class="site-footer">
+    <div class="footer-content">
+        <p class="footer-text">
+            &copy; {{ now.Format "2006" }} {{ .Site.Title }}
+        </p>
+
+        <div class="footer-links">
+            {{ range .Site.Params.footer.links }}
+            <a href="{{ .url | relURL }}" class="footer-link" {{ if .external }}target="_blank"
+                rel="noopener noreferrer" {{ end }} title="{{ .name }}">
+                <span class="corner"></span>
+                <span class="footer-link-content">
+                    {{ if .icon }}
+                    <i class="{{ .icon }}"></i>
+                    {{ else }}
+                    {{ .name }}
+                    {{ end }}
+                </span>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</footer>

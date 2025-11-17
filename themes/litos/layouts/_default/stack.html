@@ -1,0 +1,123 @@
+{{ define "main" }}
+<!-- Page Header -->
+{{ partial "heading.html" (dict "index" "01" "text" .Title) }}
+
+<section class="p-4">
+    <!-- Page Description -->
+    <div class="stack-description mb-6">
+        <div class="text-muted">
+            {{ if .Description }}{{ .Description | markdownify }}{{ else }}我的数字生活装备清单{{ end }}
+        </div>
+    </div>
+
+    <!-- Content from markdown -->
+    {{ if .Content }}
+        <div class="stack-content prose mt-6">
+            {{ .Content }}
+        </div>
+    {{ end }}
+</section>
+
+<!-- Hardware Section -->
+{{ $stackData := resources.Get "stack.json" }}
+{{ if $stackData }}
+    {{ $data := $stackData | transform.Unmarshal }}
+    {{ if $data.hardware }}
+    {{ partial "heading.html" (dict "index" "02" "text" "Hardware") }}
+    <section class="p-4">
+        <div class="hardware-grid">
+        {{ range $index, $hardware := $data.hardware }}
+                    <article class="hardware-card">
+                        {{ if eq $hardware.Wishlist "true" }}
+                        <div class="wishlist-badge">Wishlist</div>
+                        {{ end }}
+                        
+                        <div class="hardware-overlay"></div>
+                        
+                        <svg class="hardware-pattern" width="90%" height="90%" viewBox='0 0 800 800'>
+                            <rect fill='transparent' width='800' height='800'/>
+                            <g class="pattern-lines" fill='none' stroke-width='1'>
+                                <path d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/>
+                                <path d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/>
+                                <path d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/>
+                                <path d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/>
+                                <path d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/>
+                            </g>
+                            <g class="pattern-joins">
+                                <circle cx='769' cy='229' r='5'/>
+                                <circle cx='539' cy='269' r='5'/>
+                                <circle cx='603' cy='493' r='5'/>
+                                <circle cx='731' cy='737' r='5'/>
+                                <circle cx='520' cy='660' r='5'/>
+                                <circle cx='309' cy='538' r='5'/>
+                                <circle cx='295' cy='764' r='5'/>
+                                <circle cx='40' cy='599' r='5'/>
+                                <circle cx='102' cy='382' r='5'/>
+                                <circle cx='127' cy='80' r='5'/>
+                                <circle cx='370' cy='105' r='5'/>
+                                <circle cx='578' cy='42' r='5'/>
+                                <circle cx='237' cy='261' r='5'/>
+                                <circle cx='390' cy='382' r='5'/>
+                            </g>
+                        </svg>
+                        
+                        <a href="{{ $hardware.link }}" target="_blank" rel="noopener noreferrer" class="hardware-content">
+                            <h3 class="hardware-title">{{ $hardware.title }}</h3>
+                            <span class="hardware-type">{{ $hardware.type }}</span>
+                        </a>
+                        
+                        {{ if $hardware.image }}
+                        <img src="{{ $hardware.image }}" 
+                             alt="{{ $hardware.title }}" 
+                             loading="lazy"
+                             class="hardware-image"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMDAgMTAwQzg5LjUgMTAwIDgwIDkwLjUgODAgMTAwUzg5LjUgMTIwIDEwMCAxMjBTMTIwIDExMC41IDEyMCAxMDBTMTEwLjUgODAgMTAwIDgwWiIgZmlsbD0iIzlCOUJBMCIvPgo8L3N2Zz4=';">
+                        {{ end }}
+                    </article>
+        {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Software Section -->
+    {{ if $data.categories }}
+    {{ partial "heading.html" (dict "index" "03" "text" "Software") }}
+    <section class="p-4">
+        {{ range $category := $data.categories }}
+                    <div class="software-category mb-6">
+                        <h3 class="category-title mb-4">{{ $category.name }}</h3>
+                        <div class="software-grid">
+                        {{ range $app := $category.apps }}
+                        <article class="software-card">
+                            <a href="{{ $app.link }}" target="_blank" rel="noopener noreferrer" class="software-link">
+                                <div class="software-icon">
+                                    <img src="{{ $app.image }}" 
+                                         alt="{{ $app.title }}" 
+                                         loading="lazy"
+                                         onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0zMiAzMkMyNi41IDMyIDIyIDI3LjUgMjIgMzJTMjYuNSA0MiAzMiA0MlM0MiAzNy41IDQyIDMyUzM3LjUgMjIgMzIgMjJaIiBmaWxsPSIjOUI5QkEwIi8+Cjwvc3ZnPg==';">
+                                </div>
+                                <div class="software-info">
+                                    <h4 class="software-title">
+                                        {{ $app.title }}
+                                        {{ if $app.recommended }}
+                                        <span class="recommended-badge">推荐</span>
+                                        {{ end }}
+                                    </h4>
+                                    <p class="software-description">{{ $app.info }}</p>
+                                </div>
+                            </a>
+                        </article>
+                        {{ end }}
+                        </div>
+                    </div>
+        {{ end }}
+    </section>
+    {{ end }}
+{{ else }}
+    <section class="p-4">
+        <div class="text-center text-muted">
+            <p>暂无装备数据</p>
+        </div>
+    </section>
+{{ end }}
+{{ end }}

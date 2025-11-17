@@ -1,0 +1,11 @@
+{
+  "name": "raindrop-proxy",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker proxy for Raindrop.io",
+  "scripts": {
+    "dev": "wrangler dev src/index.js",
+    "publish": "wrangler publish"
+  },
+  "author": "",
+  "license": "MIT"
+}

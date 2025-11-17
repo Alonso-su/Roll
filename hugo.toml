@@ -1,0 +1,144 @@
+baseURL = 'https://suus.me/'
+languageCode = 'en-us'
+title = 'SUUS'
+theme = 'litos'
+
+[params]
+  # Site configuration
+  description = "A nook where thoughts & ideas sometimes echo"
+  lang = "en"
+  
+  # Author information
+  [params.author]
+    name = "SUUS"
+    email = ""
+  
+  # Theme settings
+  darkMode = true
+  imageDarkenInDark = true
+  
+ [params.artalk]
+   server = 'https://at.suuus.top'
+   site = '蘇SU'
+
+ [params.umami]
+   script = "https://ui.suuus.top/script.js"
+   website_id = "7ebabcf6-c77f-4455-8ae5-2c1868e870f2"
+   enable = true  # 启用 umami 统计
+   url = "https://ui.suuus.top/"  # Umami 服务地址
+   api_url = "https://up.suuus.top/"  # Umami API 地址
+
+ [params.raindrop]
+   enable = true  # 启用 Raindrop.io 书签
+   api_url = "https://api.raindrop.io/rest/v1/raindrops/0"
+   token = "d048b2d1-bd16-46f3-837e-26eef7b06fc0"  # 开发环境使用固定token
+  
+  # Navigation
+  [params.header]
+    [[params.header.links]]
+      name = "Posts"
+      url = "/posts"
+      icon = "ri-article-line"
+    [[params.header.links]]
+      name = "Stack"
+      url = "/stack"
+      icon = "ri-stack-line"
+    [[params.header.links]]
+      name = "Album"
+      url = "/album"
+      icon = "ri-image-line"
+  
+  # Footer
+  [params.footer]
+    [[params.footer.links]]
+      name = "Roll"
+      url = "/roll"
+      icon = "ri-at-fill"
+      external = false
+    [[params.footer.links]]
+      name = "Bookmarks"
+      url = "/bookmark"
+      icon = "ri-bookmark-line"
+      external = false
+    [[params.footer.links]]
+      name = "Atom"
+      url = "/atom.xml"
+      icon = "ri-rss-line"
+      external = false
+  
+  # Posts configuration
+  [params.posts]
+    homePageSize = 5
+    postPageSize = 10
+    readMoreText = "Read more"
+    prevPageText = "Previous"
+    nextPageText = "Next"
+    tocText = "On this page"
+    backToPostsText = "Back to Posts"
+    nextPostText = "Next Post"
+    prevPostText = "Previous Post"
+  
+  # Status badges configuration
+  [params.statusBadges]
+    [params.statusBadges.recommend]
+      icon = "ri-star-smile-fill"
+      color = "#ff6b6b"
+      hoverColor = "#ee5a24"
+      title = "推荐文章"
+
+
+# URL配置
+[permalinks]
+  posts = "/:slug/"
+  pages = "/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# 媒体类型定义
+[mediaTypes]
+  [mediaTypes."application/atom+xml"]
+    suffixes = ["xml"]
+
+# RSS和Atom输出格式配置
+[outputs]
+  home = ["HTML", "RSS", "Atom"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediaType = "application/rss+xml"
+    baseName = "rss"
+    path = ""
+    isPlainText = false
+    rel = "alternate"
+    
+  [outputFormats.Atom]
+    mediaType = "application/atom+xml"
+    baseName = "atom"
+    path = ""
+    isPlainText = false
+    rel = "alternate"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github"
+    lineNos = false
+    codeFences = true
+    guessSyntax = true
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
+    ordered = false
+
+# RSS配置
+[services]
+  [services.rss]
+    limit = 20

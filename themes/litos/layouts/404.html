@@ -1,0 +1,96 @@
+{{ define "main" }}
+<!-- Page Title with Lines -->
+{{ partial "heading.html" (dict "index" "01" "text" "ERROR") }}
+
+<div class="p-4 text-center" style="padding: 4rem 1rem;">
+    <div style="max-width: 32rem; margin: 0 auto;">
+        <h1 style="font-size: 6rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-muted);">
+            404
+        </h1>
+        
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">
+            Page Not Found
+        </h2>
+        
+        <p style="color: var(--color-muted); margin-bottom: 2rem; line-height: 1.6;">
+            The page you're looking for doesn't exist or has been moved.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="/" class="corner-effect internal-link no-external-icon" data-no-redirect="true">
+                <span class="corner"></span>
+                <span style="position: relative; z-index: 10; display: block; padding: 0.5rem 1rem; font-size: 0.75rem; text-transform: uppercase; white-space: nowrap; border-radius: 0.125rem; background-color: var(--color-primary); color: var(--color-primary-foreground);">Go Home</span>
+            </a>
+            
+            <a href="/posts/" class="corner-effect internal-link no-external-icon" data-no-redirect="true">
+                <span class="corner"></span>
+                <span style="position: relative; z-index: 10; display: block; padding: 0.5rem 1rem; font-size: 0.75rem; text-transform: uppercase; white-space: nowrap; border-radius: 0.125rem; background-color: var(--color-background); color: var(--color-foreground); border: 1px solid var(--color-border);">View Posts</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+/* 修复404页面按钮的外部链接图标问题 */
+.no-external-icon .external-link-icon {
+    display: none !important;
+}
+
+.no-external-icon::after {
+    display: none !important;
+}
+
+/* 防止JavaScript添加外部链接图标 */
+.internal-link .external-link-icon,
+[data-no-redirect] .external-link-icon {
+    display: none !important;
+}
+
+/* 移除可能的外部链接样式 */
+.corner-effect.internal-link::after,
+.corner-effect.no-external-icon::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 404页面按钮样式 - 参考跳转页面的按钮样式 */
+.corner-effect.internal-link,
+.corner-effect.no-external-icon {
+    text-decoration: none;
+}
+
+.corner-effect.internal-link:hover,
+.corner-effect.no-external-icon:hover {
+    text-decoration: none;
+}
+</style>
+
+<script>
+// 防止redirect.js处理404页面的按钮
+document.addEventListener('DOMContentLoaded', function() {
+    // 移除可能已经添加的外部链接图标
+    document.querySelectorAll('.no-external-icon .external-link-icon').forEach(function(icon) {
+        icon.remove();
+    });
+    
+    // 监听DOM变化，防止后续添加图标
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1 && node.classList && node.classList.contains('external-link-icon')) {
+                    const parent = node.parentElement;
+                    if (parent && (parent.classList.contains('no-external-icon') || parent.hasAttribute('data-no-redirect'))) {
+                        node.remove();
+                    }
+                }
+            });
+        });
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+});
+</script>
+{{ end }}

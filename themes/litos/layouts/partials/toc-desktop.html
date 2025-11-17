@@ -1,0 +1,20 @@
+{{/* Desktop Table of Contents */}}
+{{ $headings := .TableOfContents }}
+{{ $tocEnabled := .Params.toc | default true }}
+{{ if and $headings $tocEnabled }}
+{{ $tocText := .Site.Params.posts.tocText | default "On this page" }}
+
+<div class="toc-desktop">
+  <nav class="toc-nav">
+    <h3 class="toc-title">
+      <i class="ri-list-unordered"></i>
+      {{ $tocText }}
+    </h3>
+    <div class="toc-container">
+      <div class="toc-content" data-desktop-toc-list>
+        {{ $headings | safeHTML }}
+      </div>
+    </div>
+  </nav>
+</div>
+{{ end }}

@@ -1,0 +1,54 @@
+{{ define "main" }}
+<!-- Page Header -->
+{{ partial "heading.html" (dict "index" "01" "text" .Title) }}
+
+<section class="p-4">
+    <!-- Page Description -->
+    <div class="bookmark-description mb-6">
+        <div class="text-muted">
+            {{ if .Description }}{{ .Description | markdownify }}{{ else }}在这片数字星河里，每个博客都是闪烁的星辰，传递着独特的光芒。这里收录了一些令我驻足的星光，感谢他们照亮了我的航程。{{ end }}
+        </div>
+    </div>
+
+    <!-- Content from markdown -->
+    {{ if .Content }}
+        <div class="bookmark-content prose mt-6">
+            {{ .Content }}
+        </div>
+    {{ end }}
+</section>
+
+<!-- Bookmark Section Header -->
+<div class="bookmark-section-header">
+    {{ partial "line.html" . }}
+    <h2 class="bookmark-section-title">
+        <span class="bookmark-index" aria-hidden="true">02 /</span>
+        <span class="bookmark-title-text">ALL</span>
+        <span class="bookmark-total-count"></span>
+    </h2>
+    {{ partial "line.html" . }}
+</div>
+
+<!-- Raindrop.io API Loading Container -->
+<div id="raindrop-bookmarks" class="bookmark-container">
+    <!-- Loading State -->
+    <div id="bookmark-loading" class="bookmark-loading">
+        <div class="loading-spinner">
+            <i class="ri-loader-4-line"></i>
+        </div>
+        <p>正在加载书签...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="bookmark-error" class="bookmark-error" style="display: none;">
+        <div class="error-icon">
+            <i class="ri-error-warning-line"></i>
+        </div>
+        <p>无法加载书签数据，请检查网络连接或稍后重试。</p>
+        <button id="retry-loading" class="retry-button">重试</button>
+    </div>
+
+    <!-- Bookmark Categories will be populated by JavaScript -->
+    <div id="bookmark-categories"></div>
+</div>
+{{ end }}

@@ -1,0 +1,7 @@
+{{/* Back to Top Button */}}
+{{ $id := .id | default "backToTop" }}
+{{ $class := .class | default "" }}
+
+<button id="{{ $id }}" class="back-to-top {{ $class }}" aria-label="Back to top">
+  <i class="ri-arrow-up-line"></i>
+</button>

@@ -1,0 +1,162 @@
+{{ define "main" }}
+<!-- Page Header -->
+{{ partial "heading.html" (dict "index" "01" "text" "External Link") }}
+
+<section class="p-4">
+    <div class="redirect-container">
+        <!-- Warning Card -->
+        <div class="redirect-card">
+            <div class="redirect-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <h2 class="redirect-title">You are leaving {{ .Site.Title }}</h2>
+            
+            <p class="redirect-description">
+                You are about to visit an external website. Please note that we are not responsible for the content or privacy practices of external sites.
+            </p>
+            
+            <div class="redirect-url" id="url-container" title="Click to copy">
+                <span class="redirect-url-label">Destination:</span>
+                <span class="redirect-url-value" id="destination-url">{{ .Params.url | default "Unknown" }}</span>
+                <span class="copy-indicator" id="copy-indicator">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </span>
+            </div>
+            
+            <div class="redirect-actions">
+                <a href="javascript:history.back()" class="corner-effect redirect-btn redirect-btn-secondary">
+                    <span class="corner"></span>
+                    <span class="btn-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Go Back
+                    </span>
+                </a>
+                
+                <a href="#" id="continue-btn" class="corner-effect redirect-btn redirect-btn-primary">
+                    <span class="corner"></span>
+                    <span class="btn-content">
+                        Continue
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+            
+            <div class="redirect-countdown">
+                <span>Auto redirect in <span id="countdown">10</span> seconds</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    // Get URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetUrl = urlParams.get('url');
+    
+    if (!targetUrl) {
+        document.querySelector('.redirect-description').textContent = 'No destination URL provided.';
+        document.getElementById('continue-btn').style.display = 'none';
+        document.getElementById('countdown').parentElement.style.display = 'none';
+        return;
+    }
+    
+    // Validate URL
+    try {
+        const url = new URL(targetUrl);
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+            throw new Error('Invalid protocol');
+        }
+    } catch (e) {
+        document.querySelector('.redirect-description').textContent = 'Invalid URL provided.';
+        document.getElementById('continue-btn').style.display = 'none';
+        document.getElementById('countdown').parentElement.style.display = 'none';
+        return;
+    }
+    
+    // Update destination URL display
+    document.getElementById('destination-url').textContent = targetUrl;
+    document.getElementById('continue-btn').href = targetUrl;
+    
+    // Add copy functionality
+    const urlContainer = document.getElementById('url-container');
+    const copyIndicator = document.getElementById('copy-indicator');
+    
+    urlContainer.addEventListener('click', async function() {
+        try {
+            await navigator.clipboard.writeText(targetUrl);
+            
+            // Show success feedback
+            copyIndicator.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" fill="none"/></svg>';
+            copyIndicator.style.color = 'var(--color-primary)';
+            urlContainer.classList.add('copied');
+            
+            // Reset after 2 seconds
+            setTimeout(() => {
+                copyIndicator.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg>';
+                copyIndicator.style.color = '';
+                urlContainer.classList.remove('copied');
+            }, 2000);
+            
+        } catch (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = targetUrl;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Show success feedback
+            copyIndicator.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" fill="none"/></svg>';
+            copyIndicator.style.color = 'var(--color-primary)';
+            urlContainer.classList.add('copied');
+            
+            setTimeout(() => {
+                copyIndicator.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg>';
+                copyIndicator.style.color = '';
+                urlContainer.classList.remove('copied');
+            }, 2000);
+        }
+    });
+    
+    // Countdown timer
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdown');
+    
+    const timer = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+        
+        if (countdown <= 0) {
+            clearInterval(timer);
+            window.location.href = targetUrl;
+        }
+    }, 1000);
+    
+    // Stop countdown when user interacts
+    document.addEventListener('click', () => {
+        clearInterval(timer);
+        document.querySelector('.redirect-countdown').style.display = 'none';
+    });
+    
+    document.addEventListener('keydown', () => {
+        clearInterval(timer);
+        document.querySelector('.redirect-countdown').style.display = 'none';
+    });
+})();
+</script>
+{{ end }}

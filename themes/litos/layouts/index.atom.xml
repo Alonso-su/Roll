@@ -1,0 +1,51 @@
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := $pctx.RegularPages -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ .Site.Title | html }}</title>
+  <link href="{{ .Site.BaseURL }}" rel="alternate" />
+  <link href="{{ .Site.BaseURL }}atom.xml" rel="self" />
+  <id>{{ .Site.BaseURL }}</id>
+  <author>
+    <name>{{ .Site.Params.author.name | default .Site.Title | html }}</name>
+    {{ with .Site.Params.author.email }}<email>{{ . | html }}</email>{{ end }}
+  </author>
+  <generator uri="https://gohugo.io/" version="{{ hugo.Version }}">Hugo</generator>
+  <subtitle>{{ .Site.Params.description | html }}</subtitle>
+  {{- $latestDate := "" -}}
+  {{- range $pages -}}
+    {{- if not $latestDate -}}
+      {{- $latestDate = .Date -}}
+    {{- else if .Date.After $latestDate -}}
+      {{- $latestDate = .Date -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $latestDate -}}
+  <updated>{{ $latestDate.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+  {{- else -}}
+  <updated>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+  {{- end -}}
+  {{ with .Site.Copyright }}<rights>{{ . | html }}</rights>{{ end }}
+  {{ range $pages }}
+  <entry>
+    <title>{{ .Title | html }}</title>
+    <link href="{{ .Permalink }}" rel="alternate" />
+    <id>{{ .Permalink }}</id>
+    {{ with .Params.author }}<author><name>{{ . | html }}</name></author>{{ else }}{{ with .Site.Params.author.name }}<author><name>{{ . | html }}</name></author>{{ end }}{{ end }}
+    <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</published>
+    <updated>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+    {{ with .Description }}<summary type="html">{{ . | html }}</summary>{{ else }}<summary type="html">{{ .Summary | html }}</summary>{{ end }}
+    {{ if .Content }}
+    <content type="html">{{ .Content | html }}</content>
+    {{ end }}
+    {{ range .Params.tags }}
+    <category term="{{ . | html }}" />
+    {{ end }}
+  </entry>
+  {{ end }}
+</feed>

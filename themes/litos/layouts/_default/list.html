@@ -1,0 +1,119 @@
+{{ define "main" }}
+<section>
+    {{ if eq .Kind "taxonomy" }}
+        {{ partial "heading.html" (dict "index" "01" "text" .Title) }}
+    {{ else if eq .Kind "term" }}
+        {{ partial "heading.html" (dict "index" "01" "text" (printf "Posts tagged \"%s\"" .Title)) }}
+    {{ else }}
+        {{ partial "heading.html" (dict "index" "01" "text" .Title) }}
+    {{ end }}
+    
+    <div class="p-4">
+        <!-- Page Header -->
+        <header style="margin-bottom: 2rem;">
+        
+            {{ if .Content }}
+                <div style="color: var(--color-muted); line-height: 1.6;">
+                    {{ .Content }}
+                </div>
+            {{ end }}
+            
+            {{ if .Pages }}
+                <p style="color: var(--color-muted); font-size: 0.875rem; margin-top: 1rem;">
+                    {{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}
+                </p>
+            {{ end }}
+        </header>
+    
+    <!-- Posts List -->
+    {{ if .Pages }}
+        <div class="grid grid-cols-1" style="gap: 1.5rem;">
+            {{ range .Pages }}
+                <article class="card">
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem;">
+                            <h2 style="margin: 0; font-size: 1.5rem;">
+                                <a href="{{ .RelPermalink }}" style="color: var(--color-foreground); text-decoration: none;">
+                                    {{ .Title }}
+                                </a>
+                            </h2>
+                            <time datetime="{{ .Date.Format "2006-01-02" }}" style="font-size: 0.875rem; color: var(--color-muted); white-space: nowrap;">
+                                {{ .Date.Format "Jan 2, 2006" }}
+                            </time>
+                        </div>
+                        
+                        {{ if .Summary }}
+                            <p style="margin: 0; color: var(--color-muted); line-height: 1.6;">
+                                {{ .Summary }}
+                            </p>
+                        {{ end }}
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 0.75rem;">
+                            <div>
+                                {{ if .Params.tags }}
+                                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                        {{ range first 3 .Params.tags }}
+                                            <span style="font-size: 0.75rem; background-color: var(--color-background); color: var(--color-muted); padding: 0.25rem 0.5rem; border-radius: 0.25rem; border: 1px solid var(--color-border);">
+                                                {{ . }}
+                                            </span>
+                                        {{ end }}
+                                        {{ if gt (len .Params.tags) 3 }}
+                                            <span style="font-size: 0.75rem; color: var(--color-muted);">
+                                                +{{ sub (len .Params.tags) 3 }} more
+                                            </span>
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+                            </div>
+                            
+                            <a href="{{ .RelPermalink }}" class="corner-effect" style="font-size: 0.875rem;">
+                                <span class="corner"></span>
+                                <span class="btn-content" style="background-color: var(--color-primary); color: var(--color-primary-foreground);">
+                                    {{ $.Site.Params.posts.readMoreText | default "Read more" }}
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            {{ end }}
+        </div>
+        
+        <!-- Pagination -->
+        {{ if .Paginator }}
+            {{ if gt .Paginator.TotalPages 1 }}
+                <nav style="margin-top: 3rem; text-align: center;">
+                    <div style="display: flex; justify-content: center; gap: 1rem; align-items: center;">
+                        {{ if .Paginator.HasPrev }}
+                            <a href="{{ .Paginator.Prev.URL }}" class="corner-effect">
+                                <span class="corner"></span>
+                                <span class="btn-content" style="background-color: var(--color-card); color: var(--color-card-foreground);">
+                                    {{ .Site.Params.posts.prevPageText | default "Previous" }}
+                                </span>
+                            </a>
+                        {{ end }}
+                        
+                        <span style="font-size: 0.875rem; color: var(--color-muted);">
+                            Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+                        </span>
+                        
+                        {{ if .Paginator.HasNext }}
+                            <a href="{{ .Paginator.Next.URL }}" class="corner-effect">
+                                <span class="corner"></span>
+                                <span class="btn-content" style="background-color: var(--color-card); color: var(--color-card-foreground);">
+                                    {{ .Site.Params.posts.nextPageText | default "Next" }}
+                                </span>
+                            </a>
+                        {{ end }}
+                    </div>
+                </nav>
+            {{ end }}
+        {{ end }}
+    {{ else }}
+        <div class="card text-center">
+            <p style="color: var(--color-muted); margin: 0;">
+                No posts found.
+            </p>
+        </div>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,32 @@
+{{/* Simple Progress Ring Component */}}
+{{ $size := 16 }}
+{{ $strokeWidth := 2 }}
+{{ $radius := div (sub $size $strokeWidth) 2 }}
+{{ $circumference := mul 2 3.14159 $radius }}
+
+<div class="progress-ring">
+  <svg width="{{ $size }}" height="{{ $size }}" class="progress-ring-svg">
+    <circle 
+      cx="{{ div $size 2 }}" 
+      cy="{{ div $size 2 }}" 
+      r="{{ $radius }}" 
+      stroke="currentColor" 
+      stroke-width="{{ $strokeWidth }}" 
+      fill="none" 
+      class="progress-ring-bg">
+    </circle>
+    <circle
+      cx="{{ div $size 2 }}"
+      cy="{{ div $size 2 }}"
+      r="{{ $radius }}"
+      stroke="currentColor"
+      stroke-width="{{ $strokeWidth }}"
+      fill="none"
+      class="progress-ring-progress"
+      stroke-linecap="round"
+      stroke-dasharray="{{ $circumference }}"
+      stroke-dashoffset="{{ $circumference }}"
+      data-progress-ring>
+    </circle>
+  </svg>
+</div>

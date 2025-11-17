@@ -1,0 +1,43 @@
+name: Rebuild on Friend Link Update
+
+on:
+  repository_dispatch:
+    types: [friend-link-updated]
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+        env:
+          # 传递必要的环境变量
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUES_GITHUB_OWNER: ${{ secrets.ISSUES_GITHUB_OWNER }}
+          ISSUES_GITHUB_REPO: ${{ secrets.ISSUES_GITHUB_REPO }}
+
+      - name: Deploy
+        # 这里添加你的部署步骤
+        # 例如部署到 Vercel、Netlify 或其他服务
+        run: |
+          echo "Site rebuilt successfully due to friend link update"
+          # 如果使用 Vercel CLI: vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+          # 如果使用 Netlify CLI: netlify deploy --prod --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+      - name: Notify completion
+        if: success()
+        run: |
+          echo "Friend link update processed and site rebuilt successfully"

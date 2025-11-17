@@ -1,0 +1,8 @@
+{{/* 生成状态标签的CSS自定义属性 */}}
+<style>
+:root {
+  --status-recommend-color: {{ .Site.Params.statusBadges.recommend.color | default "#ff6b6b" }};
+  --status-recommend-hover-color: {{ .Site.Params.statusBadges.recommend.hoverColor | default "#ee5a24" }};
+
+}
+</style>

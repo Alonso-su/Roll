@@ -1,0 +1,207 @@
+{{ define "main" }}
+<!-- Artalk 配置 Meta 标签 -->
+{{ if .Site.Params.artalk.server }}
+<meta name="artalk-server" content="{{ .Site.Params.artalk.server }}">
+<meta name="artalk-site" content="{{ .Site.Params.artalk.site }}">
+{{ end }}
+
+<!-- Mobile Back to Top Button -->
+{{ partial "back-to-top.html" (dict "id" "backToTopMobile" "class" "back-to-top-mobile") }}
+
+<!-- Desktop Navigation Buttons -->
+<div class="desktop-nav-buttons">
+    <div class="nav-buttons-group">
+        <a href="/posts" class="back-button" aria-label="{{ .Site.Params.posts.backToPostsText | default "Back to Posts" }}">
+            <i class="ri-arrow-left-line"></i>
+            <span>{{ .Site.Params.posts.backToPostsText | default "Back to Posts" }}</span>
+        </a>
+        {{ partial "back-to-top.html" (dict "id" "backToTopDesktop" "class" "back-to-top-desktop") }}
+    </div>
+</div>
+
+<!-- Desktop TOC -->
+{{ partial "toc-desktop.html" . }}
+
+<!-- Mobile TOC -->
+{{ partial "toc-mobile.html" . }}
+
+<article class="post-article">
+    <!-- Line divider above post header -->
+    <div class="post-divider">
+        {{ partial "line.html" . }}
+    </div>
+    
+    <!-- Header with Cover Split Layout -->
+    <header class="post-header">
+        <div class="post-header-container">
+            <!-- Meta info -->
+            <div class="post-meta">
+                <div class="post-meta-item">
+                    <i class="ri-calendar-line"></i>
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">
+                        {{ partial "smart-date.html" . }}
+                    </time>
+                </div>
+                {{ if .ReadingTime }}
+                <div class="post-meta-item">
+                    <i class="ri-time-line"></i>
+                    <span>{{ .ReadingTime }} 分钟</span>
+                </div>
+                {{ end }}
+                {{ if .Site.Params.artalk.server }}
+                <div class="post-meta-item page-view-item">
+                    <i class="ri-eye-line"></i>
+                    <span class="page-view-count" data-page-key="{{ .Permalink }}">--</span>
+                    <span class="page-view-label">次浏览</span>
+                </div>
+                {{ end }}
+                {{ partial "category-badge.html" . }}
+            </div>
+
+            <!-- Title and Cover Split Layout -->
+            <div class="post-title-cover">
+                {{ if .Params.image }}
+                <div class="cover-split-layout">
+                    <!-- Left: Title and Description -->
+                    <div class="post-title-section">
+                        <div class="post-title" data-pagefind-body>
+                            <span class="title-content">{{ partial "status-badge.html" . }}{{ .Title }}</span>
+                        </div>
+                        {{ if .Params.description }}
+                        <p class="post-description">
+                            {{ .Params.description }}
+                        </p>
+                        {{ end }}
+                    </div>
+
+                    <!-- Right: Featured Image -->
+                    <div class="post-featured-image">
+                        <img loading="lazy" src="{{ .Params.image }}" alt="{{ .Title }}" width="1200" height="630" />
+                    </div>
+                </div>
+                {{ else }}
+                <!-- No Cover: Center Layout -->
+                <div class="no-cover-layout">
+                    {{ if .Params.description }}
+                    <p class="post-description">{{ .Params.description }}</p>
+                    {{ end }}
+                    <div class="post-title" data-pagefind-body>
+                        <span class="title-content">{{ partial "status-badge.html" . }}{{ .Title }}</span>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </header>
+
+    <!-- Line Divider -->
+    {{ partial "line.html" . }}
+
+    <!-- Main Content -->
+    <main class="post-main">
+        <div class="post-content">
+            <div class="prose">
+                {{ .Content }}
+            </div>
+
+            <!-- Like Button -->
+            {{ partial "like-button.html" . }}
+
+            <!-- Post Navigation - ITboy Style -->
+            {{ if or .NextInSection .PrevInSection }}
+            <nav class="post-navigation-modern">
+                {{ if .NextInSection }}
+                <a href="{{ .NextInSection.RelPermalink }}" class="nav-card nav-prev">
+                    <div class="nav-card-inner">
+                        <div class="nav-direction">
+                            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="nav-label">{{ .Site.Params.posts.prevPostText | default "Previous Post" }}</span>
+                        </div>
+                        <h3 class="nav-title">{{ .NextInSection.Title }}</h3>
+                        <div class="nav-meta">
+                            <time datetime="{{ .NextInSection.Date.Format "2006-01-02" }}">
+                                {{ .NextInSection.Date.Format "Jan 2, 2006" }}
+                            </time>
+                        </div>
+                    </div>
+                    <div class="nav-card-bg"></div>
+                </a>
+                {{ end }}
+
+                {{ if .PrevInSection }}
+                <a href="{{ .PrevInSection.RelPermalink }}" class="nav-card nav-next">
+                    <div class="nav-card-inner">
+                        <div class="nav-direction">
+                            <span class="nav-label">{{ .Site.Params.posts.nextPostText | default "Next Post" }}</span>
+                            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="nav-title">{{ .PrevInSection.Title }}</h3>
+                        <div class="nav-meta">
+                            <time datetime="{{ .PrevInSection.Date.Format "2006-01-02" }}">
+                                {{ .PrevInSection.Date.Format "Jan 2, 2006" }}
+                            </time>
+                        </div>
+                    </div>
+                    <div class="nav-card-bg"></div>
+                </a>
+                {{ end }}
+            </nav>
+            {{ end }}
+        </div>
+    </main>
+    
+    <!-- Comments Section -->
+    {{ if .Params.comments }}
+    <!-- ITboy Style Section Divider - 移到 post-main 外面以获得完整宽度 -->
+    <div class="section-divider">
+        <div class="divider-pattern"></div>
+    </div>
+    
+    <section class="post-main">
+        <div class="comments-container">
+            <!-- Comments Header -->
+            <div class="comments-header">
+                <h3 class="comments-title">
+                    <i class="ri-chat-3-line"></i>
+                    <span>评论区</span>
+                </h3>
+                <p class="comments-subtitle">欢迎留下你的想法和建议</p>
+            </div>
+            
+            <!-- Artalk Container -->
+            <div id="artalk-container" class="artalk-custom-styles"></div>
+        </div>
+        
+        <!-- Artalk JS and CSS -->
+        {{ if .Site.Params.artalk.server }}
+        <!-- 加载Artalk核心CSS（包含折叠样式） -->
+        <link href="/dist/2.9.1_Artalk.css" rel="stylesheet" />
+        <!-- 加载Artalk核心JS -->
+        <script src="/dist/2.9.1_Artalk.js"></script>
+        <!-- 初始化Artalk -->
+        {{- partial "comment" . -}}
+        <!-- Artalk增强功能（折叠展开） -->
+        <script src="/js/artalk-enhanced.js"></script>
+        <!-- Artalk头像功能 -->
+        <script src="/js/artalk-avatar.js"></script>
+        {{ end }}
+    </section>
+    {{ end }}
+
+<!-- Like Button JavaScript -->
+<script src="/js/like-button.js"></script>
+
+<!-- Artalk 会自动处理 PV 统计，无需额外脚本 -->
+
+<!-- Code Collapse JavaScript -->
+{{ $codeCollapseJS := resources.Get "js/code-collapse.js" }}
+{{ if $codeCollapseJS }}
+{{ $codeCollapseJS = $codeCollapseJS | minify }}
+<script src="{{ $codeCollapseJS.RelPermalink }}" defer></script>
+{{ end }}
+
+{{ end }}

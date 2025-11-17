@@ -1,0 +1,170 @@
+{{ define "main" }}
+<!-- Blog Statistics Data for Umami Stats Panel -->
+{{- $totalPosts := len (where .Site.RegularPages "Section" "posts") -}}
+{{- $totalWords := 0 -}}
+{{- range where .Site.RegularPages "Section" "posts" -}}
+    {{- $totalWords = add $totalWords .WordCount -}}
+{{- end -}}
+{{- $avgWords := 0 -}}
+{{- if gt $totalPosts 0 -}}
+    {{- $avgWords = div $totalWords $totalPosts -}}
+{{- end -}}
+{{- $startDate := time "2022-08-20" -}}
+{{- $runningDays := div (sub now.Unix $startDate.Unix) 86400 -}}
+<script id="blog-stats" type="application/json">
+{
+    "totalPosts": {{ $totalPosts }},
+    "totalWords": {{ $totalWords }},
+    "avgWords": {{ $avgWords }},
+    "runningDays": {{ $runningDays }}
+}
+</script>
+
+{{- if .Site.Params.umami -}}
+<script id="umami-config" type="application/json">
+{
+    "apiUrl": "{{ .Site.Params.umami.api_url }}",
+    "websiteId": "{{ .Site.Params.umami.website_id }}",
+    "enable": {{ if .Site.Params.umami.enable }}true{{ else }}false{{ end }}
+}
+</script>
+{{- end -}}
+
+<article class="about-page">
+    <!-- Page Title with Lines -->
+    {{ partial "heading.html" (dict "index" "01" "text" .Title) }}
+
+    <section class="about-intro">
+        <!-- 页面描述 -->
+        {{ if .Params.description }}
+        <div class="about-description">{{ .Params.description }}</div>
+        {{ end }}
+
+        <!-- 图片容器 -->
+        <div class="about-image-container">
+            <div class="about-image-wrapper">
+                <img
+                    id="randomAboutImage"
+                    alt="About Photo"
+                    class="about-image"
+                    style="opacity: 0;"
+                />
+                <div class="about-image-caption">
+                    <!-- 说明文字将通过JavaScript动态填充 -->
+                </div>
+                <!-- 加载状态 -->
+                <div id="imageLoader" class="about-image-loader">
+                    <div class="loader-text">加载中...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{ partial "heading.html" (dict "index" "02" "text" "ABOUT ME") }}
+
+    <!-- 内容容器 -->
+    <section class="about-content-section">
+        <div class="about-content">
+            <div class="prose" data-pagefind-body>
+                {{ .Content }}
+            </div>
+        </div>
+    </section>
+</article>
+
+<script>
+function initAboutPage() {
+    const imageElement = document.getElementById('randomAboutImage')
+    const loaderElement = document.getElementById('imageLoader')
+
+    // 检查元素是否存在
+    if (!imageElement || !loaderElement) {
+        return
+    }
+
+    // 图片信息映射 - 使用avif格式
+    const imageInfo = {
+        '/about/1.avif': {
+            caption: '故宫角楼',
+        },
+        '/about/2.avif': {
+            caption: '中秋游园',
+        },
+        '/about/3.avif': {
+            caption: '麦田守望',
+        },
+        '/about/4.avif': {
+            caption: '芦苇满地',
+        },
+    }
+
+    // 获取所有图片路径并随机打乱
+    const allImages = Object.keys(imageInfo)
+    const shuffledImages = [...allImages].sort(() => Math.random() - 0.5)
+
+    // 检测并加载第一张可用的图片
+    function tryLoadImage(imageIndex = 0) {
+        if (imageIndex >= shuffledImages.length) {
+            showDefaultBackground()
+            return
+        }
+
+        const imagePath = shuffledImages[imageIndex]
+        const imageData = imageInfo[imagePath]
+        const img = new Image()
+
+        img.onload = function () {
+            // 图片加载成功，再次检查元素是否存在
+            if (!imageElement || !loaderElement) {
+                return
+            }
+
+            imageElement.src = imagePath
+            imageElement.alt = 'About Photo'
+            imageElement.style.opacity = '1'
+            loaderElement.style.display = 'none'
+
+            // 使用对应的图片说明
+            const captionElement = imageElement.parentElement?.querySelector('.about-image-caption')
+            if (captionElement && imageData.caption) {
+                captionElement.textContent = imageData.caption
+                setTimeout(() => {
+                    captionElement.style.opacity = '1'
+                }, 500)
+            }
+        }
+
+        img.onerror = function () {
+            // 图片加载失败，尝试下一张
+            tryLoadImage(imageIndex + 1)
+        }
+
+        img.src = imagePath
+    }
+
+    // 开始尝试加载图片
+    tryLoadImage()
+
+    // 显示默认背景的函数
+    function showDefaultBackground() {
+        if (!imageElement || !imageElement.parentElement) {
+            return
+        }
+
+        const container = imageElement.parentElement
+        container.innerHTML = `
+            <div class="about-default-bg">
+                <div class="about-default-text">About</div>
+            </div>
+        `
+    }
+}
+
+// 初始化
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAboutPage)
+} else {
+    initAboutPage()
+}
+</script>
+{{ end }}

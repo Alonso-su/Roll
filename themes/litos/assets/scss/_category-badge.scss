@@ -1,0 +1,76 @@
+// 分类徽章样式 - 纯文本版本
+.category-badge {
+    display: inline-block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin-left: 0.5rem;
+    color: var(--color-muted);
+    
+    // 在文章详情页添加边框
+    .post-header &,
+    .post-meta & {
+        border: 1px solid currentColor;
+        border-radius: 0.25rem;
+        padding: 0.125rem 0.375rem;
+    }
+    
+    // 主要分类的文本颜色
+    &.category-tech,
+    &.category-technology {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        
+        // 在文章详情页为tech分类添加特定边框颜色
+        .post-header &,
+        .post-meta & {
+            border-color: #667eea;
+        }
+    }
+    
+    &.category-thoughts,
+    &.category-thinking {
+        color: #ff6b6b;
+    }
+    
+    &.category-daily {
+        color: #6c5ce7;
+    }
+    
+    &.category-life {
+        color: #00f2fe;
+    }
+    
+    // 深色模式适配
+    .dark & {
+        &.category-tech,
+        &.category-technology {
+            background: linear-gradient(135deg, #8b9aff 0%, #9a7bc8 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            
+            // 深色模式下的边框颜色
+            .post-header &,
+            .post-meta & {
+                border-color: #8b9aff;
+            }
+        }
+        
+        &.category-thoughts,
+        &.category-thinking {
+            color: #ff8989;
+        }
+        
+        &.category-daily {
+            color: #8a7ff0;
+        }
+        
+        &.category-life {
+            color: #4facfe;
+        }
+    }
+}
