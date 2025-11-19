@@ -31,7 +31,7 @@ theme = 'litos'
  [params.raindrop]
    enable = true  # 启用 Raindrop.io 书签
    api_url = "https://api.raindrop.io/rest/v1/raindrops/0"
-   token = "d048b2d1-bd16-46f3-837e-26eef7b06fc0"  # 开发环境使用固定token
+   token = ""  # 开发环境使用固定token
   
   # Navigation
   [params.header]

@@ -1,4 +1,4 @@
-{{ define "main" }}
+﻿{{ define "main" }}
 <div class="roll-container">
     <!-- Page Header -->
     {{ partial "heading.html" (dict "index" "01" "text" .Title) }}
@@ -53,6 +53,18 @@
                                         <p class="friend-intro">{{ .intro }}</p>
                                     </div>
                                 </a>
+                                    {{ $feeds := .feeds | default (slice) }}
+                                    {{ if gt (len $feeds) 0 }}
+                                        <div class="friend-feeds">
+                                            {{ range first 3 $feeds }}
+                                                <a href="{{ .link }}" class="feed-item" title="{{ .title }}" target="_blank" rel="noopener noreferrer">
+                                                    <span class="feed-icon">📰</span>
+                                                    <span class="feed-title">{{ .title }}</span>
+                                                    <span class="feed-date">{{ .published }}</span>
+                                                </a>
+                                            {{ end }}
+                                        </div>
+                                    {{ end }}
                             </article>
                         {{ end }}
                     </div>

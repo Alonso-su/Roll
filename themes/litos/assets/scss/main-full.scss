@@ -1,0 +1,968 @@
+// Main SCSS file for Litos theme
+// Ported from Astro MultiLaunch template
+
+
+
+// Import modules
+@import 'variables';
+@import 'mixins';
+@import 'components';
+@import 'prose';
+@import 'posts-list';
+@import 'single-post';
+@import 'logo-animation';
+@import 'about';
+@import 'stack';
+@import 'roll';
+@import 'redirect';
+
+// Variables
+:root {
+  --outer-container-width: 780px;
+  --font-sans: "Open Sans", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+
+  --container-3xl: var(--outer-container-width);
+
+  --color-background: #FAFAFA;
+  --color-foreground: #272727;
+
+  --color-card: #F0F0F0;
+  --color-card-foreground: var(--color-foreground);
+
+  --color-primary: #272727;
+  --color-primary-foreground: #ffffff;
+
+  --color-muted: #a6a6a6;
+  --color-border: #E3E3E3;
+}
+
+.dark {
+  --color-background: #0A0A0A;
+  --color-foreground: #ffffff;
+
+  --color-card: #141414;
+  --color-card-foreground: var(--color-foreground);
+
+  --color-primary: #ffffff;
+  --color-primary-foreground: #0A0A0A;
+
+  --color-muted: #6c6c6c;
+  --color-border: #272727;
+}
+
+// Base styles
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
+
+  // Background pattern - fixed position, moved down
+  background-image: url('data:image/svg+xml,%3Csvg%20width%3D%221197%22%20height%3D%221197%22%20viewBox%3D%220%200%201197%201197%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20opacity%3D%220.4%22%20cx%3D%22598.5%22%20cy%3D%22598.5%22%20r%3D%22597.5%22%20stroke%3D%22%23E3E3E3%22/%3E%3C/svg%3E');
+  background-position: center 8rem;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  &.dark {
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%221197%22%20height%3D%221197%22%20viewBox%3D%220%200%201197%201197%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Ccircle%20opacity%3D%220.3%22%20cx%3D%22598.5%22%20cy%3D%22598.5%22%20r%3D%22597.5%22%20stroke%3D%22%23272727%22/%3E%3C/svg%3E');
+  }
+}
+
+::selection {
+  background-color: #272727 !important;
+  color: #ffffff !important;
+}
+
+::-moz-selection {
+  background-color: #272727 !important;
+  color: #ffffff !important;
+}
+
+.dark ::selection {
+  background-color: #ffffff !important;
+  color: #0a0a0a !important;
+}
+
+.dark ::-moz-selection {
+  background-color: #ffffff !important;
+  color: #0a0a0a !important;
+}
+
+// Layout - Recreating the exact Astro grid structure
+.site-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-columns: minmax(1em, 1fr) minmax(0, var(--outer-container-width)) minmax(1em, 1fr);
+}
+
+// Create continuous vertical borders that extend to viewport top
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--outer-container-width);
+  height: 100vh;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  pointer-events: none;
+  z-index: -1;
+}
+
+// Header styles are now handled by utility classes and corner-effect
+
+.site-main {
+  grid-column-start: 2;
+  background-color: var(--color-background);
+}
+
+.line-container {
+  grid-column-start: 2;
+  position: relative;
+}
+
+.site-footer {
+  grid-column: 1 / -1;
+  background: repeating-linear-gradient(-32deg,
+      transparent 0px,
+      transparent 4px,
+      #f2f2f2 4px,
+      #f2f2f2 8px);
+
+  .dark & {
+    background: repeating-linear-gradient(-32deg,
+        transparent 0px,
+        transparent 4px,
+        #161616 4px,
+        #161616 8px);
+  }
+}
+
+// Footer content styles
+.footer-content {
+  max-width: var(--outer-container-width);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+  flex-wrap: nowrap;
+}
+
+.footer-text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  flex-shrink: 1;
+  min-width: 0;
+  
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.footer-link {
+  @extend .corner-effect;
+  font-size: 0.75rem;
+  text-decoration: none;
+
+  .footer-link-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-radius: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border: 1px solid var(--color-border);
+    min-height: 32px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-foreground);
+    }
+  }
+
+  // Atom和Roll链接使用圆形样式
+  &[title*="Atom"] .footer-link-content,
+  &[title*="atom"] .footer-link-content,
+  &[title*="Roll"] .footer-link-content,
+  &[title*="roll"] .footer-link-content {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    min-height: auto;
+  }
+}
+
+// Corner effect (signature style from original)
+.corner-effect {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+
+  .corner {
+    position: absolute;
+    inset: -4px;
+    --s: 6px;
+    border: 1px solid var(--color-primary);
+    border-radius: 2px;
+    mask: conic-gradient(#000 0 0) content-box,
+      conic-gradient(at var(--s) var(--s), #0000 75%, #000 0) 0 0/calc(100% - var(--s)) calc(100% - var(--s));
+    transition: 0.2s cubic-bezier(.4, 0, .2, 1) all;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  &:hover .corner {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Buttons
+.btn {
+  @extend .corner-effect;
+
+  .btn-content {
+    position: relative;
+    z-index: 10;
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-radius: 0;
+  }
+
+  &.btn-primary .btn-content {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  &.btn-secondary .btn-content {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border: 1px solid var(--color-border);
+  }
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Utility classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.select-none {
+  user-select: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.block {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-7 {
+  gap: 1.75rem;
+}
+
+.rounded-sm {
+  border-radius: 0.125rem;
+}
+
+.bg-card {
+  background-color: var(--color-card);
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.border-x {
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.border-border {
+  border-color: var(--color-border);
+}
+
+.col-start-2 {
+  grid-column-start: 2;
+}
+
+.p-4 {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  max-width: 56rem;
+  margin: 0 auto;
+
+  @media (min-width: 640px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.header-padding {
+  padding: 1rem;
+}
+
+// Basic layout utilities needed for about page
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+// Site header specific styling
+.site-header {
+  padding: 1rem;
+
+  .logo-svg {
+    color: var(--color-foreground);
+    transition: color 0.2s ease;
+  }
+
+  .corner-effect:hover .logo-svg {
+    color: var(--color-primary);
+  }
+}
+
+// Consistent navigation spacing - reduce bottom padding for better visual balance
+header {
+  padding: 1rem 1rem 0.5rem 1rem !important;
+}
+
+// 移除这个规则，因为它会影响posts页面的间距
+
+// 统一所有页面的顶部标题间距
+.site-main>div:first-child {
+  margin: 0.5rem 0 0.5rem 0 !important;
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+// Responsive grid
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+// Header navigation fixes - moved to .nav-section above
+
+// Ensure navigation is always visible
+.site-header {
+  position: relative;
+  z-index: 100;
+
+  nav {
+    position: relative;
+    z-index: 10;
+  }
+
+  .nav-link,
+  .theme-toggle {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+// Cards
+.card {
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+  border-radius: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+}
+
+// Recent Posts Cards - 透明背景，悬停时显示特色图
+.recent-post-card {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: 1.5rem;
+  min-height: 120px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  // 背景图片容器
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    filter: blur(8px) brightness(0.7);
+    transform: scale(1.1);
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+
+  // 只有有图片的卡片才显示背景效果
+  &.has-image:hover::before {
+    opacity: 1;
+  }
+
+
+
+  // 悬停时的边框效果
+  &:hover {
+    border-color: var(--color-primary);
+  }
+}
+
+.recent-post-link {
+  position: relative;
+  z-index: 2;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.recent-post-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+.recent-post-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-foreground);
+  font-weight: 500;
+
+  .recent-post-card:hover & {
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  .title-content {
+    display: inline;
+  }
+}
+
+.recent-post-date {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin-top: auto;
+
+  .recent-post-card:hover & {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+// Recently Watched Movie Cards
+.movie-card {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+}
+
+.movie-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.movie-card-content {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  min-height: 140px;
+}
+
+.movie-poster {
+  flex: 0 0 80px;
+  width: 80px;
+  height: 120px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.movie-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.movie-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-foreground);
+}
+
+.movie-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.movie-stars {
+  color: #fbbf24;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+}
+
+.movie-score {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.movie-comment {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  flex: 1;
+
+  // 限制显示行数
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.movie-watch-time {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: auto;
+}
+
+// Line divider (from original design)
+.line-divider {
+  position: relative;
+  height: 1px;
+  z-index: 1;
+  margin: 0;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: calc((90vw - 100%) / 2);
+    height: 1px;
+    background: linear-gradient(to left, var(--color-border), transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: calc((90vw - 100%) / 2);
+    height: 1px;
+    background: linear-gradient(to right, var(--color-border), transparent);
+  }
+
+  .line-svg {
+    width: 100%;
+    height: 1px;
+    display: block;
+
+    line {
+      stroke: var(--color-border);
+      stroke-dasharray: 8 8;
+    }
+  }
+
+  .line-stars {
+    position: relative;
+    height: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: calc(100% - 1.5px);
+      z-index: 1;
+      margin: auto;
+      width: 4px;
+      height: 4px;
+      transform: rotate(-45deg);
+      background-color: #C8C8C8;
+      box-shadow: 0px 0px 12px 4px rgba(255, 255, 255, 0.16);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(100% - 1.5px);
+      z-index: 1;
+      margin: auto;
+      width: 4px;
+      height: 4px;
+      transform: rotate(-45deg);
+      background-color: #C8C8C8;
+      box-shadow: 0px 0px 12px 4px rgba(255, 255, 255, 0.16);
+    }
+  }
+}
+
+.dark .line-divider .line-stars {
+
+  &::before,
+  &::after {
+    background-color: #ffffff;
+  }
+}
+
+// Simple line separator fallback
+.line-separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 2rem 0;
+}
+
+// Loading states
+body.loading {
+  .corner-effect .corner {
+    transition: none;
+  }
+}
+
+body.loaded {
+  .corner-effect .corner {
+    transition: 0.2s cubic-bezier(.4, 0, .2, 1) all;
+  }
+}
+
+// Focus styles for accessibility
+.corner-effect:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 0.125rem;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 0.125rem;
+}
+
+// Print styles
+@media print {
+
+  .site-header,
+  .site-footer,
+  .theme-toggle,
+  .corner,
+  .post-nav {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .site-main {
+    border: none !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+}

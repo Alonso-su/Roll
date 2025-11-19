@@ -7,7 +7,28 @@
           "name": "清羽飞扬",
           "intro": "柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜",
           "link": "https://blog.liushen.fun/",
-          "avatar": "https://blog.liushen.fun/info/avatar.ico"
+          "avatar": "https://blog.liushen.fun/info/avatar.ico",
+          "feed_url": "https://blog.liushen.fun/index.xml",
+          "feeds": [
+            {
+              "title": "示例文章一：关于写作的碎片",
+              "link": "https://blog.liushen.fun/2025/01/01/example-1/",
+              "published": "2025-01-01T12:00:00",
+              "summary": "这是用于测试的示例文章摘要一。"
+            },
+            {
+              "title": "示例文章二：技术笔记",
+              "link": "https://blog.liushen.fun/2025/02/02/example-2/",
+              "published": "2025-02-02T12:00:00",
+              "summary": "这是用于测试的示例文章摘要二。"
+            },
+            {
+              "title": "示例文章三：读书笔记",
+              "link": "https://blog.liushen.fun/2025/03/03/example-3/",
+              "published": "2025-03-03T12:00:00",
+              "summary": "这是用于测试的示例文章摘要三。"
+            }
+          ]
         },
         {
           "name": "林木木",
