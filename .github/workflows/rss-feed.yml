@@ -1,3 +1,5 @@
+permissions:
+  contents: write
 name: RSS Aggregation
 
 on:
@@ -24,18 +26,21 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install feedparser requests
 
+
       - name: Run aggregator
         run: |
           python scripts/aggregate_rss.py
 
       - name: Commit assets if changed
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/roll.json || true
           if ! git diff --staged --quiet; then
             git commit -m "chore: update roll.json via RSS aggregation" || true
-            git push
+            git push https://x-access-token:${GH_PAT}@github.com/Alonso-su/Roll.git HEAD:main
           else
             echo "no changes to commit"
           fi
