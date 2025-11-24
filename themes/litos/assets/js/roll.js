@@ -114,6 +114,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function setupRssToggle() {
+        const toggleBtn = document.getElementById('rssToggleButton');
+        if (!toggleBtn) return;
+        const friendsGrid = document.getElementById('friendsGrid');
+        const rssSection = document.getElementById('rssTagSection');
+        if (!friendsGrid || !rssSection) return;
+
+        function showRss() {
+            friendsGrid.style.display = 'none';
+            rssSection.style.display = 'block';
+        }
+
+        function showFriends() {
+            friendsGrid.style.display = '';
+            rssSection.style.display = 'none';
+        }
+
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isRssVisible = rssSection.style.display === 'block';
+            if (isRssVisible) {
+                showFriends();
+                if (location.hash === '#rss') {
+                    try { history.replaceState(null, '', location.pathname + location.search); } catch (_) {}
+                }
+            } else {
+                showRss();
+                location.hash = 'rss';
+            }
+        });
+
+        if (location.hash === '#rss') {
+            showRss();
+        }
+    }
+
     // 初始化所有功能
     function init() {
         // 随机排序友链
@@ -130,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 设置搜索功能（可选）
         // setupSearch();
+        setupRssToggle();
     }
 
     // 启动初始化

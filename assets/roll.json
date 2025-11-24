@@ -8,488 +8,239 @@
           "intro": "柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜",
           "link": "https://blog.liushen.fun/",
           "avatar": "https://blog.liushen.fun/info/avatar.ico",
-          "feed_url": "https://blog.liushen.fun/index.xml"
+          "rss": "https://blog.liushen.fun/atom.xml"
         },
         {
           "name": "林木木",
           "intro": "自知之明是最可贵的知识！",
           "link": "https://immmmm.com/",
           "avatar": "https://gravatar.memobbs.app/avatar/ba83fa02fc4b2ba621514941307e21be?s=80",
-          "feeds": [
-            {
-              "title": "Lucky-canvas 抽奖插件折腾记",
-              "link": "https://immmmm.com/lucky-everday/",
-              "published": "2025-05-31T12:02:58",
-              "summary": "<p>基于 <a href=\"https://github.com/buuing/lucky-canvas\" rel=\"noopener nofollow noreferrer\" target=\"_blank\">「Lucky-canvas」</a> 抽奖插件，借助 <a href=\"https://www.trae.ai/\" rel=\"noopener nofollow noreferrer\" target=\"_blank\">字节跳动 trae</a> 做了个大转盘，全屏显示、替换背景、概率设置、一键导入、边框修改等能想到的和需要的功能都已实现，效果远超预期。</p>\n<p>体验地址：<a href=\"https://immmmm.com/dzp/\" rel=\"noopener nofollow noreferrer\" target=\"_blank\">https://immmmm.com/dzp/</a></p>\n<h3 id=\"使用手册-\">使用手册 📚</h3>\n<p>1.打开网址， 右下角“全屏按钮”，右上角是“设置入口”。点击中间开始转动，结束时会弹出中奖内容，并伴有撒花。</p>\n<p>2.右上角点击进入“设置”。首次打开，点击安装字体“Aa 年度最可爱”。</p>\n<p>3.设置分层两列，左侧显示的奖项名称、中奖概率，可以直接修改或删除。说明：某一奖项的数值是这一项中奖率的“分子”，所有数值总和是“分母”。如“棒棒糖”的中奖率设置的 15，则中奖率是</p>\n<p><code>15/（10+10+……+15+10+10+5）</code></p>\n<p>4.左侧奖项列表下方是 4 个按钮。顾名思义，第 1、2、4 项试试就知。说明一下第 3 项“上传配置”，采用了“上传 txt 文件，一行一条内容”的形式，一键导入。如：本地新建了以下内容「姓氏+空格+中奖数值」</p>\n<div class=\"highlight\"><pre tabindex=\"0\"><code class=\"language-js\"><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">张</span> <span style=\"color: #ae81ff;\">1</span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">王</span> <span style=\"color: #ae81ff;\">1</span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">李</span> <span style=\"color: #ae81ff;\">1</span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">田</span> <span style=\"color: #ae81ff;\">1</span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">柳</span> <span style=\"color: #ae81ff;\">1</span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">石</span> <span style=\"color: #ae81ff;\">1</span>\n</span></span></code></pre></div><p>点击“上传配置”，选择 txt 文件，导入即可。所以，如果要换电脑快速导入，只要编辑保存好自己的“奖项.txt”到别的电脑，导入即可。</p>\n<p>5.配置右侧，点击可更改转盘配色、指针、内外层转盘背景。</p>\n<p><em>随心搭配，换着玩儿～</em></p>\n<h3 id=\"致谢\">致谢</h3>\n<p><a href=\"https://taoshu.in/web/lucky-canvas.html#%E8%80%81%E8%99%8E%E6%9C%BA\" rel=\"noopener nofollow noreferrer\" target=\"_blank\">抽奖组件 lucky-canvas 素材大全</a></p>\n<p>🎉</p>"
-            },
-            {
-              "title": "沉迷“吉卜力”中……",
-              "link": "https://immmmm.com/ghiblio-enjoy/",
-              "published": "2025-04-11T23:59:32",
-              "summary": "<p>苦于官方网络、数量、版权等限制，4o 生图只能眼巴巴看别人分享。</p>\n<p>昨天看到 v2ex 上有牛人搞了套壳，免费 3 张，一试，效果极佳，一看定价，立马大会员支持。</p>\n<h3 id=\"邀请链接\">邀请链接</h3>\n<p>当前价位（250412）：¥9.9（共20次）、¥19.9（共60次）、¥49.9（共200次）。</p>\n<p>注：开发大大说，成本太高，涨价在即。我的邀请链接（你付费后，我会得到 10 张额度。）：</p>\n<p><a href=\"https://ghiblio.art/?utm_source=P9ZKx72A8v4z\" rel=\"noopener nofollow noreferrer\" target=\"_blank\">https://ghiblio.art/?utm_source=P9ZKx72A8v4z</a></p>\n<h3 id=\"沉溺其中\">沉溺其中</h3>\n<p>生图小体验：有人，多人，神情或动作丰富；照片本身颜色、层次丰富。</p>\n<p>小朋友自带奶萌奶萌，满满温情爆棚；小姐姐小哥哥立马帅气、魅力十足；中年嘛，装个可爱也不是不行。老年，有种返老还童之感。</p>\n<p><img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-2.webp\" />\n<img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-14.webp\" />\n<img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-4.webp\" /></p>\n<p><img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-8.webp\" /></p>\n<p><img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-3.webp\" />\n<img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-13.webp\" /></p>\n<p><img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-5.webp\" />\n<img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-11.webp\" />\n<img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-6.webp\" /></p>\n<p><img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-9.webp\" />\n<img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-10.webp\" /></p>\n<p><img alt=\"\" src=\"https://r2.immmmm.com/2025/04/gpl-12.webp\" /></p>"
-            },
-            {
-              "title": "懒到现在才安上肥羊 allinone",
-              "link": "https://immmmm.com/iptv-fixed/",
-              "published": "2025-03-08T08:27:31",
-              "summary": "<p>IPTV 直播源年前已废，包括用了很久的 ip6 的源。</p>\n<p>这不，偶尔想起，饭点来个背景音，缺无法播放，一点小难受。</p>\n<p>开干，怎么干其实也知道个大概。</p>\n<p>以下内容，流水记录。</p>\n<h3 id=\"群晖终端-ssh-进后台拉取-docker\">群晖，终端 SSH 进后台拉取 Docker</h3>\n<pre tabindex=\"0\"><code>ssh myid@192.168.0.1 -p 22\nsudo -i\n</code></pre><p>群晖里的注册表已废，加上一通测试可用的镜像代理 <code>image.cloudlayer.icu/</code></p>\n<p>拉下肥羊 allinone 镜像 <code>youshandefeiyang/allinone:latest</code></p>\n<pre tabindex=\"0\"><code>docker pull image.cloudlayer.icu/youshandefeiyang/allinone:latest\n</code></pre><p>访问 <a href=\"https://imgtool.v1.mk/allinone.html\" rel=\"noopener nofollow noreferrer\" target=\"_blank\">https://imgtool.v1.mk/allinone.html</a></p>\n<p>生成密钥，按照提示把这个密钥丢给电报机器人获取 <code>userid</code> <code>token</code> ，填回网页，获取部署命令，如：</p>\n<p>记得把生成的部署命令里的 <code>youshandefeiyang/allinone</code> 前加上镜像代理地址。</p>\n<pre tabindex=\"0\"><code>docker run -d --restart=always --net=host --privileged=true --name allinone image.cloudlayer.icu/youshandefeiyang/allinone -tv=true -aesKey=123123 -userid=123123 -token=123123123\n</code></pre><h3 id=\"路由器添加端口-35455-转发放行\">路由器添加端口 35455 转发，放行</h3>\n<p>略</p>\n<h3 id=\"apple-tv-添加直播源\">Apple TV 添加直播源</h3>\n<p>个人使用的是 「IPTV」 这个 APP</p>\n<pre tabindex=\"0\"><code># IPTV聚合\nhttp://IP:35455/tv.m3u\n# 虎牙一起看\nhttp://IP:35455/huyayqk.m3u\n# BiliBili 生活\nhttp://IP:35455/bililive.m3u\n# 斗鱼一起看\nhttp://IP:35455/douyuyqk.m3u\n# YY轮播\nhttp://IP:35455/yylunbo.m3u\n</code></pre>"
-            }
-          ],
-          "feed_url": "https://immmmm.com/atom.xml"
+          "rss": "https://immmmm.com/atom.xml"
         },
         {
           "name": "雅余",
           "intro": "分享网络安全与科技生活",
           "link": "https://yayu.net/",
-          "avatar": "https://yayu.net/wp-content/themes/yayu/assets/images/logo.png"
+          "avatar": "https://yayu.net/wp-content/themes/yayu/assets/images/logo.png",
+          "rss": "https://yayu.net/feed"
         },
         {
           "name": "归藏",
           "intro": "On the other side of obstacles",
           "link": "https://nuoea.com/",
           "avatar": "https://weavatar.com/avatar/57404184c248351c8c0a91cf8feee8b907581bd98ff2d95a16a1f6c0345c9bad?s=80",
-          "feeds": [
-            {
-              "title": "最近入手的几台心头好",
-              "link": "https://nuoea.com/new-film-camera/",
-              "published": "2024-12-21T09:50:49",
-              "summary": "<h2 id=\"写在前面\">写在前面</h2>\n<p>自从上次青岛之旅使用了胶片相机，被老婆点名表扬之后，就一发不可收拾的进入了胶片这个文艺复兴的大坑。拍摄胶片带给我的直观感受就是：</p>\n<blockquote>\n<p>你无需理会参数，也不用去想后期。只管上卷按快门，剩下的交给胶片。</p>\n</blockquote>\n<p>这真的是一种非常神奇的拍摄体验。在数码化泛滥的今天，人们似乎又开始怀念那种带有温暖感觉的所谓胶片感。也开始从拍摄胶片中去寻找一种久违的轻松愉悦的拍摄体验。</p>\n<p>下面就说说最近新入手的几台胶片相机。</p>\n<h2 id=\"奥林巴斯-pen-eed\">奥林巴斯 PEN-EED</h2>\n<p><img alt=\"PEN-EED\" class=\"lozad\" /></p>\n<p>个人感觉是奥林巴斯整个PEN系列中，颜值最高的一台。这也是主要的入手理由。当然除了长得好看之外，个人最看重的就是：它是一台半格胶片机。</p>\n<blockquote>\n<p>所谓半格胶片机，就是可以将一张胶片一分为二，一卷36张的胶片，可以拍摄72张。</p>\n</blockquote>\n<p>在胶卷价格涨到飞起的当下，半格相机无疑是一个非常好的选择，省钱嘛，一卷就可以拍好久。但是这台PEN-EED有一个对于初学者不太友好的问题，就是它是一台估焦的相机。对于新手而言，它没有所谓对焦系统，因为配备了一颗32mm f1.7的定焦镜头，所以对焦这件事，只能交给拍摄者对于自己和被拍摄者之间距离的把控，简单来说，就是交给感觉。</p>\n<p>而且这台相机的快门速度只有1/15秒，算是一台标准的阳光机。好在它足够好看，也足够轻便，就算不用来拍摄，作为一个拍摄中的道具，也可以算是物尽其用了。</p>\n<h2 id=\"奥林巴斯-pen-f\">奥林巴斯 PEN-F</h2>\n<p><img alt=\"PEN-F\" class=\"lozad\" /></p>\n<p>在奥林巴斯的整个PEN系列中，PEN-F算是最最最经典的一台。由于它拥有完整的机械单反相机结构，又使用了半格的拍摄规格，所以它也因此有了半格之王的称号。个人感觉这台相机标志着奥林巴斯这个品牌，最杰出的制造工艺和水准了。</p>\n<p>全金属的机身，哪怕是过去50多年，握在手里依然感觉非常精致。这台相机最了不起的一点就是，在那个年代奥林巴斯就已经将完整的单反结构塞进了这么小小的一个机器中，所以这台也算是整个相机史上一个里程碑一样的存在了。</p>\n<h2 id=\"尼康-f2\">尼康 F2</h2>\n<p><img alt=\"F2\" class=\"lozad\" /></p>\n<p>尼康对于我来说，一直是白月光一样的存在。从最初的D90，到后来的D7200，再到后面的Z62，Zf。我的每一台尼康，都是我在当时最喜欢带出门的相机。只有用过别的品牌的相机，才知道尼康有多好。</p>\n<p>许多人认为，尼康 Nikon F2 就是有史以来最好的纯机械相机，虽然可能它的技术并不是最先进的，但就综合工艺、质量、可靠性、耐用性上来说，他就是最好的。F2的机械相机王者地位难以动摇。相信没有一个男孩子可以抵抗这种纯机械的快乐。</p>\n<p>入手它还有一个最吸引我的点，就是尼康为它搭配了非常丰富的配件世界。其中就有我非常心水的DW-1腰平取景器。</p>\n<blockquote>\n<p>没有拍过腰平的人，永远感受不到世界真真切切在你眼前定格的浪漫。</p>\n</blockquote>\n<p>腰平的快乐，我相信每一个拍摄胶片的人都体会过。虽然它的这腰平颗取景器没有其他中画幅、大画幅相机那么大，但是那么大的纯光学取景器，还是带给我深深的震撼，以及完全不同的拍摄体验。</p>\n<h2 id=\"最后\">最后</h2>\n<p>胶片值得，虽然它又麻烦、又烧钱，但是拍摄胶片给了我完全不同的拍摄体验。不单单是迷人的色彩和机械的结构。我会用更多时间来思考我真正想记录的画面的真实模样。正如有人说：</p>\n<blockquote>\n<p>审美实际上是对过程的审视。</p>\n</blockquote>\n<p>当你每一次上卷、每一次过片，每一次按下快门，每一次经历漫长过程后拿到成片。每一次拍摄胶片的过程，都是一趟有趣的旅程。</p>\n<p>所以，去拍胶片把。</p>"
-            },
-            {
-              "title": "组了一台 QNAS Mini",
-              "link": "https://nuoea.com/hi-qnas-mini/",
-              "published": "2024-12-12T02:54:14",
-              "summary": "<h2 id=\"写在前面\">写在前面</h2>\n<p>手里的极空间已经稳定的运行了非常久了，但是随着功能的丰富，越来越多的Docker容器，性能慢慢跟不上了。所以就想着自己组一个小的全闪的NAS，自己组的好处在于，一个是性能可以得到保障，再一个就是降低一些预算，毕竟成品的NAS价格居高不下，就算是主打性价比的产品，比自己组装还是要贵了不少。</p>\n<h2 id=\"硬件\">硬件</h2>\n<p>得益于汪汪队射手大佬开源的 <code>QNAS MINI</code> 方案。完美的满足了我的全部需求：</p>\n<ul>\n<li>足够精致好看的设计；</li>\n<li>足够多的解决方案；</li>\n<li>八盘位的扩展性；</li>\n<li>小巧静音；</li>\n</ul>\n<p><img alt=\"QNAS MINI\" class=\"lozad\" /></p>\n<p>外壳是3D打印的，可以根据自己的审美，选择自己喜欢的配色方案，如果自己没有3D打印机，闲鱼上也有提供代打的服务，材质可以选择 <code>PETG</code> 或者 <code>ABS</code> 。这里更建议选择耐高温的 <code>ABS</code> 材质。</p>\n<p><img alt=\"\" class=\"lozad\" /></p>\n<p>芯片部分，选择了 <code>畅网 P5</code> 的解决方案，也就是 <code>N100</code> 这颗处理器。当然针对这台机箱也有一些其他的方案，比如说：4105、5105等，可以根据自己的预算进行选择。</p>\n<p><img alt=\"\" class=\"lozad\" /></p>\n<p>值得一提的是，不同的CPU需要对机箱的尺寸进行相应的调整，<code>QNAS MINI</code> 的原型机是针对<code>畅网P2</code> ，也就是4105这颗CPU设计发布的，而 <code>畅网 P5</code> 发布后，为了满足 <code>N100</code> 的散热需求，网友在原型机的基础上，增加了高度，已达到增加风扇，加强散热的效果。</p>\n<p>以下就是完整的的配件清单：</p>\n<table>\n<thead>\n<tr>\n<th>名称</th>\n<th>价格</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>QNAS MINI 机箱</td>\n<td>120</td>\n</tr>\n<tr>\n<td>QNAS MINI 机箱背板</td>\n<td>195</td>\n</tr>\n<tr>\n<td>畅网 P5 N100主板</td>\n<td>675</td>\n</tr>\n<tr>\n<td>DDR5 16G 内存条</td>\n<td>300</td>\n</tr>\n<tr>\n<td>NVME 转 6 SATA 扩展卡</td>\n<td>65</td>\n</tr>\n<tr>\n<td>1TB 2.5寸固态硬盘</td>\n<td>598</td>\n</tr>\n<tr>\n<td>机箱风扇 x 2</td>\n<td>30</td>\n</tr>\n</tbody>\n</table>\n<h2 id=\"软件\">软件</h2>\n<p>玩NAS的朋友都知道，一台NAS好不好用，其关键就在于软件部分。群晖的溢价那么高，还有那么多人买，其核心就是群晖的系统足够好用。除此之外，近年来，很多国产NAS的系统也取得了令人满意的成绩，比如：极空间、绿联等厂商。</p>\n<p>但这些NAS系统都有一个弊端，那就是闭源。只有购买该厂商的硬件才能够使用，那有没有既好用，又开源的NAS操作系统呢。飞牛私有云给了我们一个答案。</p>\n<p><img alt=\"fnos\" class=\"lozad\" /></p>\n<p>飞牛私有云是一群NAS骨灰级玩家团队倾心打造的NAS操作系统。除了上手简单，影视刮削、照片备份、多端应用等常用功能的完成度都非常高。而且团队目前还提供了免费的内网穿透服务，这对于没有公网IP的同学来说，真的太友好。</p>\n<p>除此之外，飞牛私有云提供的Docker服务，是我在所有NAS操作系统中体验最好的。</p>\n<p><img alt=\"\" class=\"lozad\" /></p>\n<p>整个界面非常直观，不单单是提供了 <code>Docker</code> 容器的管理，还提供了 <code>Docker Compose</code> 的管理界面。而且镜像仓库不需要任何设置就可以正常的拉取镜像，且速度极快。相信玩 <code>Docker</code> 的朋友都知道这里面水有多深。</p>\n<p>截止到今天，整个飞牛私有云的功能还在不断地完善，上个版本才更新了文件外链分享等功能。而这才是一个上线不到半年的产品。相信随着时间，飞牛私有云会给所有玩家更加好的NAS体验。</p>\n<h2 id=\"最后\">最后</h2>\n<p>都说中年男人有三宝，路由器、私有云（NAS）、充电宝。这虽然是网络上的一个梗，但NAS作为家庭数据存储以及家庭媒体中心，目前看，还是有着不可或缺的因素。如果你正好也想要自己组装一台NAS，希望这个方案能够帮助到你。</p>"
-            },
-            {
-              "title": "部署轻量友链朋友圈",
-              "link": "https://nuoea.com/friend-circle-lite/",
-              "published": "2024-12-11T12:17:21",
-              "summary": "<h2 id=\"前言\">前言</h2>\n<p>这两天突然发现，之前使用极简模式部署好的友链朋友圈没法获取到数据了。看了Github仓库才知道原项目已经停止支持了，取而代之的就是这个轻量友链朋友圈。</p>\n<p>不知道是不是因为这个项目是为了 <code>hexo</code> 打造的原因，项目看了很久，愣是没看明白。直到把详细文档研究了一通，才大概明白了运行的原理。</p>\n<p>其实严格来讲，该项目主要分为三个步骤：</p>\n<ul>\n<li>获取朋友圈JSON</li>\n<li>配置 Github Action</li>\n<li>拿到朋友圈文章列表JSON</li>\n</ul>\n<h2 id=\"获取朋友圈json\">获取朋友圈JSON</h2>\n<p>顾名思义，该步骤通过以下代码，将指定页面上的友链信息，直接转换成为一个 <code>friend.json</code> 。</p>\n<p>原代码如下：</p>\n<div class=\"highlight\"><pre tabindex=\"0\"><code class=\"language-JavaScript\"><span style=\"display: flex;\"><span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">YML</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">require</span>(<span style=\"color: #e6db74;\">'yamljs'</span>)\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">fs</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">require</span>(<span style=\"color: #e6db74;\">'fs'</span>)\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #66d9ef;\">let</span> <span style=\"color: #a6e22e;\">friends</span> <span style=\"color: #f92672;\">=</span> [],\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #a6e22e;\">data_f</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">YML</span>.<span style=\"color: #a6e22e;\">parse</span>(<span style=\"color: #a6e22e;\">fs</span>.<span style=\"color: #a6e22e;\">readFileSync</span>(<span style=\"color: #e6db74;\">'source/_data/link.yml'</span>).<span style=\"color: #a6e22e;\">toString</span>().<span style=\"color: #a6e22e;\">replace</span>(<span style=\"color: #e6db74;\">/(?&lt;=rss:)\\s*\\n/g</span>, <span style=\"color: #e6db74;\">' \"\"\\n'</span>));\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">data_f</span>.<span style=\"color: #a6e22e;\">forEach</span>((<span style=\"color: #a6e22e;\">entry</span>, <span style=\"color: #a6e22e;\">index</span>) =&gt; {\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #66d9ef;\">let</span> <span style=\"color: #a6e22e;\">lastIndex</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #ae81ff;\">2</span>;\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #66d9ef;\">if</span> (<span style=\"color: #a6e22e;\">index</span> <span style=\"color: #f92672;\">&lt;</span> <span style=\"color: #a6e22e;\">lastIndex</span>) {\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">filteredLinkList</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">entry</span>.<span style=\"color: #a6e22e;\">link_list</span>.<span style=\"color: #a6e22e;\">filter</span>(<span style=\"color: #a6e22e;\">linkItem</span> =&gt; <span style=\"color: #f92672;\">!</span><span style=\"color: #a6e22e;\">blacklist</span>.<span style=\"color: #a6e22e;\">includes</span>(<span style=\"color: #a6e22e;\">linkItem</span>.<span style=\"color: #a6e22e;\">name</span>));\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #a6e22e;\">friends</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">friends</span>.<span style=\"color: #a6e22e;\">concat</span>(<span style=\"color: #a6e22e;\">filteredLinkList</span>);\n</span></span><span style=\"display: flex;\"><span>    }\n</span></span><span style=\"display: flex;\"><span>});\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 根据规定的格式构建 JSON 数据\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">friendData</span> <span style=\"color: #f92672;\">=</span> {\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #a6e22e;\">friends</span><span style=\"color: #f92672;\">:</span> <span style=\"color: #a6e22e;\">friends</span>.<span style=\"color: #a6e22e;\">map</span>(<span style=\"color: #a6e22e;\">item</span> =&gt; {\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #66d9ef;\">return</span> [<span style=\"color: #a6e22e;\">item</span>.<span style=\"color: #a6e22e;\">name</span>, <span style=\"color: #a6e22e;\">item</span>.<span style=\"color: #a6e22e;\">link</span>, <span style=\"color: #a6e22e;\">item</span>.<span style=\"color: #a6e22e;\">avatar</span>];\n</span></span><span style=\"display: flex;\"><span>    })\n</span></span><span style=\"display: flex;\"><span>};\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 将 JSON 对象转换为字符串\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">friendJSON</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">JSON</span>.<span style=\"color: #a6e22e;\">stringify</span>(<span style=\"color: #a6e22e;\">friendData</span>, <span style=\"color: #66d9ef;\">null</span>, <span style=\"color: #ae81ff;\">2</span>);\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 写入 friend.json 文件\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #a6e22e;\">fs</span>.<span style=\"color: #a6e22e;\">writeFileSync</span>(<span style=\"color: #e6db74;\">'./source/friend.json'</span>, <span style=\"color: #a6e22e;\">friendJSON</span>);\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">console</span>.<span style=\"color: #a6e22e;\">log</span>(<span style=\"color: #e6db74;\">'friend.json 文件已生成。'</span>);\n</span></span></code></pre></div><p>比较遗憾的是，该代码仅适用于 <code>HEXO</code> 博客程序，如果想要用在<code>HUGO</code>中，需要做如下修改：</p>\n<div class=\"highlight\"><pre tabindex=\"0\"><code class=\"language-JavaScript\"><span style=\"display: flex;\"><span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">cheerio</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">require</span>(<span style=\"color: #e6db74;\">'cheerio'</span>);\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">fs</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">require</span>(<span style=\"color: #e6db74;\">'fs'</span>);\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">path</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">require</span>(<span style=\"color: #e6db74;\">'path'</span>);\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 获取项目根目录的路径\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">projectRoot</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">process</span>.<span style=\"color: #a6e22e;\">cwd</span>();\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 读取 HTML 文件内容\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">htmlFilePath</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">path</span>.<span style=\"color: #a6e22e;\">join</span>(<span style=\"color: #a6e22e;\">projectRoot</span>, <span style=\"color: #e6db74;\">'public'</span>, <span style=\"color: #e6db74;\">'links'</span>, <span style=\"color: #e6db74;\">'index.html'</span>);\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">htmlContent</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">fs</span>.<span style=\"color: #a6e22e;\">readFileSync</span>(<span style=\"color: #a6e22e;\">htmlFilePath</span>).<span style=\"color: #a6e22e;\">toString</span>();\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 使用 cheerio 解析 HTML\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">$</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">cheerio</span>.<span style=\"color: #a6e22e;\">load</span>(<span style=\"color: #a6e22e;\">htmlContent</span>);\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 创建一个空的 friends 数组\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #66d9ef;\">let</span> <span style=\"color: #a6e22e;\">friends</span> <span style=\"color: #f92672;\">=</span> [];\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 假设在 HTML 中每个好友信息存储在 &lt;div class=\"friend-item\"&gt; 中，\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 并且每个条目包含 &lt;a class=\"username\"&gt;、&lt;img class=\"avatar\"&gt; 和 &lt;a class=\"link\"&gt;\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #a6e22e;\">$</span>(<span style=\"color: #e6db74;\">'.friend-item'</span>).<span style=\"color: #a6e22e;\">each</span>((<span style=\"color: #a6e22e;\">index</span>, <span style=\"color: #a6e22e;\">element</span>) =&gt; {\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">username</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">$</span>(<span style=\"color: #a6e22e;\">element</span>).<span style=\"color: #a6e22e;\">find</span>(<span style=\"color: #e6db74;\">'.username'</span>).<span style=\"color: #a6e22e;\">text</span>().<span style=\"color: #a6e22e;\">trim</span>();  <span style=\"color: #75715e;\">// 提取用户名\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span>    <span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">link</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">$</span>(<span style=\"color: #a6e22e;\">element</span>).<span style=\"color: #a6e22e;\">find</span>(<span style=\"color: #e6db74;\">'.link'</span>).<span style=\"color: #a6e22e;\">attr</span>(<span style=\"color: #e6db74;\">'href'</span>);  <span style=\"color: #75715e;\">// 提取链接\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span>    <span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">avatar</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">$</span>(<span style=\"color: #a6e22e;\">element</span>).<span style=\"color: #a6e22e;\">find</span>(<span style=\"color: #e6db74;\">'.avatar'</span>).<span style=\"color: #a6e22e;\">attr</span>(<span style=\"color: #e6db74;\">'src'</span>);  <span style=\"color: #75715e;\">// 提取头像\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span>\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #75715e;\">// 如果都存在，添加到 friends 数组\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span>    <span style=\"color: #66d9ef;\">if</span> (<span style=\"color: #a6e22e;\">username</span> <span style=\"color: #f92672;\">&amp;&amp;</span> <span style=\"color: #a6e22e;\">link</span> <span style=\"color: #f92672;\">&amp;&amp;</span> <span style=\"color: #a6e22e;\">avatar</span>) {\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #a6e22e;\">friends</span>.<span style=\"color: #a6e22e;\">push</span>({\n</span></span><span style=\"display: flex;\"><span>            <span style=\"color: #a6e22e;\">name</span><span style=\"color: #f92672;\">:</span> <span style=\"color: #a6e22e;\">username</span>,\n</span></span><span style=\"display: flex;\"><span>            <span style=\"color: #a6e22e;\">link</span><span style=\"color: #f92672;\">:</span> <span style=\"color: #a6e22e;\">link</span>,\n</span></span><span style=\"display: flex;\"><span>            <span style=\"color: #a6e22e;\">avatar</span><span style=\"color: #f92672;\">:</span> <span style=\"color: #a6e22e;\">avatar</span>\n</span></span><span style=\"display: flex;\"><span>        });\n</span></span><span style=\"display: flex;\"><span>    }\n</span></span><span style=\"display: flex;\"><span>});\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 根据规定的格式构建 JSON 数据\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">friendData</span> <span style=\"color: #f92672;\">=</span> {\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #a6e22e;\">friends</span><span style=\"color: #f92672;\">:</span> <span style=\"color: #a6e22e;\">friends</span>.<span style=\"color: #a6e22e;\">map</span>(<span style=\"color: #a6e22e;\">item</span> =&gt; {\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #66d9ef;\">return</span> [<span style=\"color: #a6e22e;\">item</span>.<span style=\"color: #a6e22e;\">name</span>, <span style=\"color: #a6e22e;\">item</span>.<span style=\"color: #a6e22e;\">link</span>, <span style=\"color: #a6e22e;\">item</span>.<span style=\"color: #a6e22e;\">avatar</span>];\n</span></span><span style=\"display: flex;\"><span>    })\n</span></span><span style=\"display: flex;\"><span>};\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 将 JSON 对象转换为字符串\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #66d9ef;\">const</span> <span style=\"color: #a6e22e;\">friendJSON</span> <span style=\"color: #f92672;\">=</span> <span style=\"color: #a6e22e;\">JSON</span>.<span style=\"color: #a6e22e;\">stringify</span>(<span style=\"color: #a6e22e;\">friendData</span>, <span style=\"color: #66d9ef;\">null</span>, <span style=\"color: #ae81ff;\">2</span>);\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\">// 写入 friend.json 文件到根目录\n</span></span></span><span style=\"display: flex;\"><span><span style=\"color: #75715e;\"></span><span style=\"color: #a6e22e;\">fs</span>.<span style=\"color: #a6e22e;\">writeFileSync</span>(<span style=\"color: #a6e22e;\">path</span>.<span style=\"color: #a6e22e;\">join</span>(<span style=\"color: #a6e22e;\">__dirname</span>, <span style=\"color: #e6db74;\">'friend.json'</span>), <span style=\"color: #a6e22e;\">friendJSON</span>);\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #a6e22e;\">console</span>.<span style=\"color: #a6e22e;\">log</span>(<span style=\"color: #e6db74;\">'friend.json 文件已生成。'</span>);\n</span></span></code></pre></div><p>将该代码文件保存在根目录Link.js文件中。运行：</p>\n<pre tabindex=\"0\"><code>node link.js\n</code></pre><p>就可以得到 <code>friend.json</code> 文件。</p>\n<p>需要注意的是，这里需要用到 <code>cheerio</code> 解析 HTML。所以在运行前，需要：</p>\n<pre tabindex=\"0\"><code>npm install cheerio\n</code></pre><p>以下就是JSON格式文件示例：</p>\n<div class=\"highlight\"><pre tabindex=\"0\"><code class=\"language-JSON\"><span style=\"display: flex;\"><span>{\n</span></span><span style=\"display: flex;\"><span>  <span style=\"color: #f92672;\">\"friends\"</span>: [\n</span></span><span style=\"display: flex;\"><span>    [\n</span></span><span style=\"display: flex;\"><span>\t    <span style=\"color: #e6db74;\">\"林木木\"</span>,\n</span></span><span style=\"display: flex;\"><span>\t    <span style=\"color: #e6db74;\">\"https://immmmm.com\"</span>,\n</span></span><span style=\"display: flex;\"><span>\t    <span style=\"color: #e6db74;\">\"https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be.jpeg?s=400\"</span>\n</span></span><span style=\"display: flex;\"><span>    ],\n</span></span><span style=\"display: flex;\"><span>    [\n</span></span><span style=\"display: flex;\"><span>    \n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #e6db74;\">\"山卜方\"</span>,\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #e6db74;\">\"https://novcu.com\"</span>,\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #e6db74;\">\"https://cravatar.cn/avatar/6ebab96f3131621c51c08370d3c996f0.jpeg?s=400\"</span>\n</span></span><span style=\"display: flex;\"><span>    ],\n</span></span><span style=\"display: flex;\"><span>    [\n</span></span><span style=\"display: flex;\"><span>\t\t<span style=\"color: #e6db74;\">\"大大的小蜗牛\"</span>,\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #e6db74;\">\"https://eallion.com\"</span>,\n</span></span><span style=\"display: flex;\"><span>        <span style=\"color: #e6db74;\">\"https://cravatar.cn/avatar/171e4c30959e8c077a6c58b958624b31.jpeg?s=400\"</span>\n</span></span><span style=\"display: flex;\"><span>    ]\n</span></span><span style=\"display: flex;\"><span>\n</span></span><span style=\"display: flex;\"><span><span style=\"color: #960050; background-color: #1e0010;\">}</span> \n</span></span></code></pre></div><h2 id=\"配置-github-action\">配置 Github Action</h2>\n<p>在 fork 了仓库：<a href=\"https://github.com/willow-god/Friend-Circle-Lite\">Friend-Circle-Lite</a> 之后，只需要修改仓库中的 <code>config.yaml</code> 文件</p>\n<div class=\"highlight\"><pre tabindex=\"0\"><code class=\"language-YAML\"><span style=\"display: flex;\"><span><span style=\"color: #f92672;\">spider_settings</span>:\n</span></span><span style=\"display: flex;\"><span>  <span style=\"color: #f92672;\">enable</span>: <span style=\"color: #66d9ef;\">true</span>\n</span></span><span style=\"display: flex;\"><span>  <span style=\"color: #f92672;\">json_url</span>: <span style=\"color: #e6db74;\">\"https://&lt;你的地址&gt;/friend.json\"</span>\n</span></span><span style=\"display: flex;\"><span>  <span style=\"color: #f92672;\">article_count</span>: <span style=\"color: #ae81ff;\">5</span>\n</span></span><span style=\"display: flex;\"><span>  <span style=\"color: #f92672;\">merge_result</span>:\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #f92672;\">enable</span>: <span style=\"color: #66d9ef;\">true</span>\n</span></span><span style=\"display: flex;\"><span>    <span style=\"color: #f92672;\">merge_json_url</span>: <span style=\"color: #e6db74;\">\"&lt;你的地址&gt;\"</span>\n</span></span></code></pre></div><p>如果需要邮件推送功能的，跟随官方文档完成相应配置即可。</p>\n<h2 id=\"拿到朋友圈文章列表json\">拿到朋友圈文章列表JSON</h2>\n<p>在完成所有配置后，就可以手动或者自动的运行 <code>Github Action</code> ，该Action就会根据我们提供的 <code>friend.json</code> 拿到友链中所有朋友更新的文章啦。最后会在page分支中，生成一个 <code>all.json</code> ，通过调用这个文件，就可以做前端渲染了。</p>\n<p>大功告成。</p>"
-            }
-          ],
-          "feed_url": "https://nuoea.com/atom.xml"
+          "rss": "https://nuoea.com/atom.xml"
         },
         {
           "name": "大大的小蜗牛",
           "intro": "机会总是垂青于有准备的人",
           "link": "https://www.eallion.com/",
           "avatar": "https://weavatar.com/avatar/171e4c30959e8c077a6c58b958624b31?s=80",
-          "feeds": [
-            {
-              "title": "Ubuntu 25.10 安装和配置",
-              "link": "https://www.eallion.com/ubuntu2510/",
-              "published": "2025-11-11T08:16:16",
-              "summary": "Ubuntu 25.10 安装及配置经验总结：从安装到优化，包括系统设置、驱动安装、字体配置、输入法设置等。详细介绍了换源、分区方案选择、Grub 美化以及常用软件的安装方法。通过个人实践分享，帮助读者快速上手 Ubuntu 25.10，并提高系统稳定性和易用性。"
-            },
-            {
-              "title": "秋假",
-              "link": "https://www.eallion.com/holiday-in-autumn/",
-              "published": "2025-11-01T00:00:00",
-              "summary": "为期 9 天的「秋假」从昨天下午放学时开始了！秋假其实只有 5 天，但是加上前后两个周末，一共就是 9 天连休。湖北就我们州（市）这 2 个县要放，一个是我们利川市，一个是隔壁咸丰县。公告信息刚出来的时候，好多外地都是羡慕。先别急着羡慕，说出来你们可能不信，我们这里还有传统的 7-10 天春假，已经实行好多年了。印象中小时候也有春假，但那时候叫「农忙假」，农忙假就是农忙时节放假回家帮忙干活。不少老师也要回家帮家里干活。现在不用回家干农活了，春假、秋假就成了旅游的好时机。这个时节景点人少，假期时间长，正适合错峰出行游玩。除了春假、秋假 我们这里还有「州庆」假，春秋假一般是教育系统放假，州庆假是各个单位都会放的。"
-            },
-            {
-              "title": "彩礼",
-              "link": "https://www.eallion.com/bridewealth/",
-              "published": "2025-09-26T14:07:52",
-              "summary": "这几年，关于「彩礼」的热点事件越来越多。当我看到江西「彩礼」38 万 8 时，我心想江西怎么这么富有，江西老表怎么这么幸福。在我的印象中，「彩礼」是需要女方 Double 一下变成「嫁妆」打发回来的。就算不翻个倍，也会加到一个吉利数字再陪嫁回来。比如「彩礼」六万六，娘家加到八万八再在「接亲」的时候返回来的。就算是后来兴起的「男出房，女出车」也是可以接受的。是我浅薄了，我也走南闯北见识过不少风土人情了。连传销的套路我都了解很多，吃过 70 块一桶的泡面，见识过人性极致的恶，但终究还是败在了「捞女」的创业中。但是，我也基本上不会可怜这些被捞的力工。所谓可怜之人必有可恶之处。每个人都有自己的因果。见识和阅历配得上苦难。好在，越来越多的男人开始觉醒。痛了自然就懂了。「彩礼」的本质是：两个原生家庭，帮助两个新人组成一个新生家庭。"
-            }
-          ],
-          "feed_url": "https://www.eallion.com/index.xml"
+          "rss": "https://www.eallion.com/index.xml"
         },
         {
           "name": "粽叶加米",
           "intro": "总有一样是你的激情与动力",
           "link": "https://www.wordpace.com/",
-          "avatar": "https://weavatar.com/avatar/96c423cfaf54d029ba3a08a520f1b548?s=80"
+          "avatar": "https://weavatar.com/avatar/96c423cfaf54d029ba3a08a520f1b548?s=80",
+          "rss": "https://www.wordpace.com/feed/"
         },
         {
           "name": "沉舟侧畔",
           "intro": "沉舟侧畔千帆过，病树前头万木春",
           "link": "https://springwood.me/",
-          "avatar": "https://s2.loli.net/2025/01/23/HrvlnIfPwY251jC.jpg"
+          "avatar": "https://s2.loli.net/2025/01/23/HrvlnIfPwY251jC.jpg",
+          "rss": "https://springwood.me/feed/"
         },
         {
           "name": "且听书吟",
           "intro": "诗与梦想的远方",
           "link": "https://yufan.me/",
           "avatar": "https://yufan.me/logo.svg",
-          "avatar_dark": "https://yufan.me/logo-dark.svg"
+          "avatar_dark": "https://yufan.me/logo-dark.svg",
+          "rss": "https://yufan.me/feed"
         },
         {
           "name": "Aimer Neige",
           "intro": "技术宅拯救世界",
           "link": "https://aimer.aiursoft.cn/",
-          "avatar": "https://s2.loli.net/2025/01/16/ckGsgvnQUuJNB4x.jpg"
+          "avatar": "https://s2.loli.net/2025/01/16/ckGsgvnQUuJNB4x.jpg",
+          "rss": "https://aimer.aiursoft.cn/zh/index.xml"
         },
         {
           "name": "糊涂说",
           "intro": "任抛星汉归园圃，留取乾坤盛酒囊。",
           "link": "https://hutusi.com/",
           "avatar": "https://s2.loli.net/2025/01/23/d7ZL9fyuOqWeUjz.jpg",
-          "feed_url": "https://hutusi.com/feed.xml",
-          "feeds": [
-            {
-              "title": "不确定性世界的生存策略",
-              "link": "https://hutusi.com/articles/taleb-incerto",
-              "published": "2025-11-16T09:17:00",
-              "summary": "近两个月来，一口气读完了塔勒布的四本书《黑天鹅》、《反脆弱》、《非对称风险》和《随机生存的智慧》，加上前年读过的《随机漫步的傻瓜》，一共是五本。而这五本书也被塔勒布本人视为一个系列，命名为 Incerto, Incerto 在意大利语和拉丁语中意为不确定性。不确定性是塔勒布思想的核心，他试图通过该系列来为这个充满不确定性、随机的、极端事件的世界构建一种哲学和行动指南。纳瓦尔也曾经多次推荐过他的书。"
-            },
-            {
-              "title": "好奇心周刊第21期: 推理模型的构建与未来",
-              "link": "https://hutusi.com/weeklies/21",
-              "published": "2025-10-28T13:56:00",
-              "summary": "好奇心周刊第21期: 推理模型的构建与未来"
-            },
-            {
-              "title": "好奇心周刊第20期: 从四个方面了解Palantir",
-              "link": "https://hutusi.com/weeklies/20",
-              "published": "2025-10-06T17:39:00",
-              "summary": "好奇心周刊第20期: 从四个方面了解Palantir"
-            }
-          ]
+          "rss": "https://hutusi.com/feed.xml"
         },
         {
           "name": "荷戟独彷徨",
           "intro": "爱光学，爱生活，爱创造。",
           "link": "https://guanqr.com/",
           "avatar": "https://s2.loli.net/2025/02/13/USpKJ37anA24dBw.png",
-          "feeds": [
-            {
-              "title": "杭州集章特种兵行动",
-              "link": "https://guanqr.com/life/travels/a-one-day-tour-in-hangzhou/",
-              "published": "2024-01-28T10:15:20",
-              "summary": "闲得无聊的时候，总要找点有意思的事去做。这周六我早上五点半起床出发，坐高铁到杭州，在西湖和吴山这一圈走了将近四万步，直到晚上才回来，一路没有吃任何东西，累了个半死。周日晚上的时候，双腿还很酸疼。 缘由 这件事的缘由是这样的。在日本生活的好友在新年寄来了一张明信片。因为我对我住的小区信件收取地址不了解，便……"
-            },
-            {
-              "title": "迎接二〇二四",
-              "link": "https://guanqr.com/life/ideas/summary-of-2023/",
-              "published": "2024-01-01T10:46:56",
-              "summary": "二〇二三年，我认为其最重要的意义是，解除疫情管控后的第一年。人们的生活逐步回归正常，外出不再会被各种奇葩的管控措施困扰。三年时间在历史的长河中虽很短暂，但对于一个人的一生而言，足以改变他的生活习惯，消费观念，甚至三观。这一年中，在国内，我看到了就业变得越来越困难，房地产处在一个很微妙的阶段，官方的媒……"
-            },
-            {
-              "title": "奥本海默",
-              "link": "https://guanqr.com/life/films/oppenheimer/",
-              "published": "2023-09-08T15:52:18",
-              "summary": "诺兰执导的电影《奥本海默》终于在国内上映了。虽然上映的那天是周三，工作日之中，还下着连绵不断的雨，但我仍然很迫切地买了那一晚的电影票去观看。因为我很喜欢诺兰的电影，我也很喜欢主演基里安·墨菲。 这部电影讲述的就是奥本海默从求学到任教，到负责曼哈顿计划，再到被审讯的故事。作为一部人物传记片，注定不会有华……"
-            }
-          ],
-          "feed_url": "https://guanqr.com/atom.xml"
+          "rss": "https://guanqr.com/atom.xml"
         },
         {
           "name": "CWorld Site",
           "intro": "求知若愚，虚怀若谷。",
           "link": "https://cworld0.com/",
           "avatar": "https://weavatar.com/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=80",
-          "feeds": [
-            {
-              "title": "个人向 Nas 折腾记录",
-              "link": "https://cworld0.com/blog/nas-guide",
-              "published": "2025-11-07T00:00:00",
-              "summary": "内含大量纯图一乐的折腾技巧"
-            },
-            {
-              "title": "F1 车队汇总",
-              "link": "https://cworld0.com/blog/f1-teams-2025",
-              "published": "2025-06-22T00:00:00",
-              "summary": "网上很多这样的资料大都有些老旧，部分甚至跟不上时代了"
-            },
-            {
-              "title": "Windows 多余输入法删除",
-              "link": "https://cworld0.com/blog/windows-input-method",
-              "published": "2025-06-17T00:00:00",
-              "summary": "清除多余的输入方式"
-            }
-          ],
-          "feed_url": "https://cworld0.com/rss.xml"
+          "rss": "https://cworld0.com/rss.xml"
         },
         {
           "name": "Heo",
           "intro": "爱折腾的设计师",
           "link": "https://blog.zhheo.com/",
           "avatar": "https://bu.dusays.com/2022/12/28/63ac2812183aa.png",
-          "feeds": [
-            {
-              "title": "Viitor上手：iOS免费的实时翻译字幕，在小窗中看到正在播放视频的中文翻译",
-              "link": "https://blog.zhheo.com/p/a9uudei6.html",
-              "published": "2025-11-14T07:15:18",
-              "summary": "这篇文章介绍了一个名为 ViiTor 的 iOS 应用，它能够免费实现跨应用的实时字幕与翻译功能。文章提到，该软件利用系统的直播和悬浮窗能力，将翻译内容以小窗方式呈现，支持多国语言，并可选择麦克风或系统内部音频作为收音来源。虽然翻译质量不如专业校对或大型语言模型，但已经足够满足观看外语视频时理解大意的需求。作者认为其同声传译等进阶功能也很实用，不过自己目前最常用的仍是实时字幕小窗，且由于免费更显得诚意十足，因此推荐给读者尝试。"
-            },
-            {
-              "title": "Mac上如何将 flac 导入到 Apple Music？使用快捷指令创建格式转换快捷操作",
-              "link": "https://blog.zhheo.com/p/frrneh8b.html",
-              "published": "2025-11-10T09:32:15",
-              "summary": "这篇文章介绍了如何在 macOS 上使用快捷指令结合 shell 命令来进行媒体文件的格式转换。文章首先讲解了安装 Homebrew 和 ffmpeg 的方法，使系统具备音视频处理能力；随后详细介绍了创建快速操作快捷指令的步骤，包括选择媒体类型、添加 shell 脚本、设置参数、创建通知以及修改图标和名称等操作。通过这种方式，用户可以在访达中直接右键执行自定义快捷指令，实现音视频格式转换、压缩或其他文件操作，提高日常工作效率，同时也为学习快捷指令和自动化操作提供了实践案例。"
-            },
-            {
-              "title": "HeoAwards2025：年度我喜欢的博主",
-              "link": "https://blog.zhheo.com/p/5zo43meo.html",
-              "published": "2025-11-04T06:18:33",
-              "summary": "这篇文章介绍了HeoAwards年度推荐博主活动，作者以设计师视角从近千个友链中精选优秀网站，旨在让更多小众但出色的站点被发现并互相学习。推荐的博客如青灯暮雨、CWorld、亦小封、云心怀鹤、CHACAT、kzhik、TEMPLUM.CN、皮普的数字花园、阿杰Jack、唯知笔记、莱姆Lime与手里有只毛毛虫等，都以极简美学、独特交互和深度思考体现设计的温度与理性。HeoAwards强调克制、平衡与原创精神，是一次对网页设计与独立创作的年度致敬。"
-            }
-          ],
-          "feed_url": "https://blog.zhheo.com/atom.xml"
+          "rss": "https://blog.zhheo.com/atom.xml"
         },
         {
           "name": "老孙博客",
           "intro": "资深网民孙先生",
           "link": "https://www.imsun.org/",
-          "avatar": "https://weavatar.com/avatar/2950778b87c48f43c576c08bd67df6b6?s=80"
+          "avatar": "https://weavatar.com/avatar/2950778b87c48f43c576c08bd67df6b6?s=80",
+          "rss": "https://www.imsun.org/feed"
         },
         {
           "name": "东评西就",
           "intro": "小饿，专注科技互联网、社交媒体运营。",
           "link": "https://dongjunke.cn/",
           "avatar": "https://weavatar.com/avatar/42542189ddb33064599dc88a5149bea7?s=80",
-          "feeds": [
-            {
-              "title": "食草堂",
-              "link": "https://dongjunke.cn/posts/2025/10/11/33842.html",
-              "published": "2025-10-11T13:08:56",
-              "summary": "<p>食草堂是当代艺术家牛印合在1997年创立的手工皮具品牌。坐落在我老家鹿泉区的食草堂，与其说是一家食草堂的工厂店，不如是一座艺术园区，因为园区里还有很多工业遗迹，印象中这里最早是个锅炉厂，园区里还有一些艺术家本人策划的艺术展览和艺术馆。</p>\n<p>似乎艺术家对机车情有独钟"
-            },
-            {
-              "title": "苏自栾城，西宅于眉",
-              "link": "https://dongjunke.cn/posts/2025/10/04/58899.html",
-              "published": "2025-10-04T13:35:34",
-              "summary": "<p>人到中年，总会遇到自己的苏东坡。</p>\n<p>苏东坡与栾城的渊源，还要从苏味道说起。唐代文学家苏味道生于栾城，是苏轼的第十一世祖，武则天时期曾三度为相，中宗时，被贬为眉州刺史，又改益州长史，最后死在任上。苏味道归葬故里，留下一子在眉州成家，传到眉山苏氏一支，到了十、十一代"
-            },
-            {
-              "title": "拿到Manus邀请码后，我肝了一个博客站点，耗尽了所有免费积分",
-              "link": "https://dongjunke.cn/posts/2025/04/11/23745.html",
-              "published": "2025-04-11T15:53:40",
-              "summary": "<p>如今的AI爱好者分两种，一种是有Manus邀请码的人，一种是没有Manus邀请码的人。</p>\n<p>经过一个多月漫长的排队等待，我也是有Manus邀请码的人了。</p>\n<p>拿到邀请码后，我就像一个守身如玉多年的处男，内心荡漾，魂不守舍，憧憬着以怎样的姿势迎接自己的初夜"
-            }
-          ],
-          "feed_url": "https://dongjunke.cn/atom.xml"
+          "rss": "https://dongjunke.cn/atom.xml"
         },
         {
           "name": "八咫烏",
           "intro": "万物皆虚、诸行皆允",
           "link": "https://www.vergilisme.com/",
-          "avatar": "https://gravatar.loli.net/avatar/a9c7fa5311650805839788d0cbed597c?s=80"
+          "avatar": "https://gravatar.loli.net/avatar/a9c7fa5311650805839788d0cbed597c?s=80",
+          "rss": "https://www.vergilisme.com/index.php/feed/"
         },
         {
           "name": "Vei Blog",
           "intro": "松窗竹户，万千潇洒",
           "link": "https://blog.veitzn.top",
-          "avatar": "https://cn.cravatar.com/avatar/f89bd3322f43e78d061536d493e80a4d?s=80"
+          "avatar": "https://cn.cravatar.com/avatar/f89bd3322f43e78d061536d493e80a4d?s=80",
+          "rss": "https://blog.veitzn.top/feed"
         },
         {
           "name": "第三边境研究所",
           "intro": "心驰寰宇，不落尘俗",
           "link": "https://szhshp.org/",
           "avatar": "https://szhshp.org/favicon.ico?favicon.e53590be.ico",
-          "feeds": [
-            {
-              "title": "傻瓜都能懂的 AstrBot QQ 机器人集成 MCP 功能实战指南",
-              "link": "https://szhshp.org/post/astroBotMCP",
-              "published": "2025-10-08T00:00:00",
-              "summary": "AI 都生成不出这么傻瓜易懂的教程"
-            },
-            {
-              "title": "《一路云海》(终)",
-              "link": "https://szhshp.org/post/drift-in-the-clouds-5",
-              "published": "2025-07-05T00:00:00",
-              "summary": "反正不会有人连着阅读到这一章的, 那我就随心所欲地放开写了"
-            },
-            {
-              "title": "一杯双皮奶",
-              "link": "https://szhshp.org/post/darkness-behind-the-shadow",
-              "published": "2025-05-07T00:00:00",
-              "summary": "文内所有剧情纯属虚构. 如有雷同, 那么没错就是在说那事儿, 绝非巧合."
-            }
-          ],
-          "feed_url": "https://szhshp.org/rss.xml"
+          "rss": "https://szhshp.org/rss.xml"
         },
         {
           "name": "SSR-FF 摄影",
           "intro": "远赴人间惊鸿宴，一睹人间盛世颜",
           "link": "https://pic.ffnb.top",
-          "avatar": "https://s2.loli.net/2025/03/18/HKSLbGU1cIix4hV.webp"
+          "avatar": "https://s2.loli.net/2025/03/18/HKSLbGU1cIix4hV.webp",
+          "rss": "https://pic.ffnb.top/feed"
         },
         {
           "name": "子夜松声",
           "intro": "一介草民，只为生活！",
           "link": "https://xyzbz.cn/",
-          "avatar": "https://weavatar.com/avatar/120340d1df519f4e28613fe5d404b286?s=80"
+          "avatar": "https://weavatar.com/avatar/120340d1df519f4e28613fe5d404b286?s=80",
+          "rss": "https://xyzbz.cn/feed"
         },
         {
           "name": "L1nSn0w",
-          "intro": "无限进步！🎈",
+          "intro": "无限进步！",
           "link": "https://log.vaaat.com/",
           "avatar": "https://log.vaaat.com/avatar.png",
-          "feeds": [
-            {
-              "title": "“近”况(02)",
-              "link": "https://log.vaaat.com/posts/dailylife/log2/",
-              "published": "2025-05-30T10:40:26",
-              "summary": "<p>哎，好久没写博客了。。。一年的时间真的很长吗？2025年转眼已经过去了一半，直到今天，算上这篇总共才发了两篇，而我能找到的借口也只剩下“忙”了，但是<strong>我真的在坚持写博客吗？</strong> 我也不知道。这次我想记录点近况，但是这不是真的最近，有些内容已经是两三个月的时间跨度了，所以我的标题给近打了双引号，一是<strong>攒了一些水文章的素材</strong>，想记录下来，二是为了<strong>证明我的博客还活着</strong>（）</p>\n<hr />\n<h2 id=\"网站重构\">网站重构</h2>\n<p>是的，我又对网站进行了重构，并且这次对比上次，我进行了更多的修改，同时也有了更多的思考。<br />\n为什么重构呢？一方面是因为我现在拥有了两个新域名，二是因为我的网站数量越来越多了，管理起来比较混乱，所以我选择了重新整理各个域名的分配和作用。\n而原先的<code>linsnow.cn</code>，我选择了抛弃并取消续费，只保留我现在的<code>vaaat.com</code>和<code>soopy.cn</code>，因为从cn换到com会使我每年的续费费用变得更高，而且两个域名已经足够我使用了，抛弃掉一个可以让我省点米，留下的这两个新域名都比抛弃掉的域名更短，而且更容易记忆和输入，我还是更喜欢现在的两个域名（可恶的坏男人，总是喜新厌旧）。<br />\n这次我的重构内容主要是按照<strong>网站的服务对象</strong>进行了划分，分为<strong>个人自用网站</strong>和<strong>项目网站</strong>。\n以下是我的重构后的网站结构：</p>\n<p><strong>个人自用网站：</strong></p>\n<ol>\n<li>主页：vaaat.com</li>\n<li>博客：log.vaaat.com</li>\n<li>说说：memo.vaaat.com</li>\n</ol>\n<p><strong>项目网站：</strong></p>\n<ol>\n<li>项目汇总：soopy.cn</li>\n<li>项目1官网（Ech0）：echo.soopy.cn</li>\n</ol>\n<p>这里面大部分站点我都选择了静态网站，选择静态网站的好处不用多说，重构的博客框架我依然选择了<code>Hugo</code>，而主页和项目汇总官网则使用了<code>Astro</code>（这个框架提供了很多精美的Theme,拿来建站真是又快又好看）。</p>\n<hr />\n<h2 id=\"memos\">Memo(s?)</h2>\n<p>memos是一款强大好用的自主部署web软件，但是这也是我重构网站的一环，我停掉了我之前部署的memos站点，一是现在的memos和我之前刚接触的memos已经越来越不一样了，它已变得<strong>不再是我以前喜欢的样子</strong>，二是对于一款发展壮大的软件，或许<strong>很难去满足每个人的胃口</strong>吧，而我也很少在memos上发布说说，因此我干脆就把memos给停掉了。不过<strong>关掉Memos并不代表停止Memo</strong>，是的，我为自己打造了一款<strong>符合自己设计审美和需求</strong>的软件——<strong>Ech0</strong></p>\n<hr />\n<h2 id=\"echo-but-ech0\">Echo But Ech0</h2>\n<img alt=\"取自官网的Ech0截图\" src=\"https://log.vaaat.com/posts/dailylife/log2/echo.png\" />\n<p>开发Ech0并<strong>不需要很高的技术要求，更多的是对于软件界面设计和功能的权衡</strong>，这花费了大量的精力，期间也重写了整个前端，从Nuxt 和 NuxtUI换到了裸vue3,当然重写前端是非常重要的，相比原先的屎山，重写后的前端对于后续的开发、维护和扩展等都发挥着巨大作用。</p>\n<p>整个开发过程我遵循着<strong>先取悦自己，再服务自己，最后兼顾他人</strong>的原则，具体展开来说，取悦自己首先是我在开发这款产品的过程所带来的快乐，这让我沉迷其中，这也一直是我学计算机的一个主要动力，那就是亲手实现自己的创意和想法！而服务自己则是满足自己的使用需求，这也是最基本的，最后的兼顾他人是与他人交流软件的改进点和看法，尽可能的去满足他人的使用需求，同时不导致软件变成自己的讨厌的模样（比如臃肿等），这里要<strong>非常感谢提供改进建议的群友</strong>，这些建议让Ech0与最初的设计发生了巨变，bug也减少了非常非常多，没有这些建议和反馈，Ech0无法快速的向前推进！<br />\n在我写下这篇文章的时候，Ech0已经趋于稳定并且希望实现的功能也已经大部分完成，在稳定使用了一阵子后，我想把分享出来，希望会有人喜欢，也希望能得到更多的反馈和建议，这对Ech0的改进很重要。</p>\n<p><strong>一些Ech0的Feature：</strong></p>\n<ul>\n<li>☁️ <strong>原子级轻量</strong>：内存占用、可执行文件、镜像大小均不到<strong>30MB</strong>，单SQLite文件存储架构</li>\n<li>🚀 <strong>极速部署</strong>：无需配置，从安装到使用只需1条命令</li>\n<li>✍️ <strong>零干扰写作</strong>：纯净的在线Markdown编辑器，<strong>支持丰富的Markdown插件与预览</strong></li>\n<li>📦 <strong>数据主权</strong>：所有内容存储于本地SQLite文件，支持RSS订阅</li>\n<li>🎉 <strong>永久免费</strong>：MIT协议开源，无追踪/无订阅/无服务依赖</li>\n<li>🌍 <strong>跨端适配</strong>：完美兼容桌面/移动浏览器，支持手机、iPad、PC三端响应式布局</li>\n<li>👾 <strong>WPA适配</strong>：支持作为Web应用安装</li>\n<li>📝 <strong>内置Todo管理</strong>：轻松记录、管理每日待办事项，帮助你高效规划和追踪任务进度</li>\n<li>🔗 <strong>Ech0 Connect</strong>：全新内容聚合与互联功能，支持多实例间互通、内容订阅与同步，打造属于你的去中心化内容网络</li>\n<li>🎵 <strong>无缝音乐集成</strong>: 内置超低资源占用的音乐播放器，支持本地音频流解析，提供沉浸式背景音乐与专注模式</li>\n<li>🎥 <strong>即时视频分享</strong>: 原生支持哔哩哔哩视频智能解析，输入BV号/链接即可自动提取并嵌入</li>\n<li>🃏 <strong>丰富的快捷卡片</strong>：支持网站链接、GitHub项目等多种富媒体内容一键分享，让信息展示更加直观生动</li>\n<li>⚙️ <strong>高级自定义功能</strong>：为高级用户提供便捷自定义样式与脚本，分享更具表现力</li>\n</ul>\n<blockquote>\n<p>开源仓库： <a href=\"https://github.com/lin-snow/Ech0\">lin-snow/Ech0: Ech0 - 开源、自托管、专注思想流动的轻量级发布平台</a><br />\n官网传送门： <a href=\"https://echo.soopy.cn/\">https://echo.soopy.cn/</a><br />\n预览地址： <a href=\"https://memo.vaaat.com/\">L1nSn0w&rsquo;s Ech0</a></p></blockquote>\n<hr />\n<h2 id=\"tika还活着吗\">Tika还活着吗？</h2>\n<img alt=\"No description\" src=\"https://log.vaaat.com/posts/dailylife/log2/todo.png\" />\n<p>在大二上的寒假，我开发了<strong>Tika —— 一款简陋的Todo半成品</strong>，TODO类软件几乎是每个独立开发者都不会绕过的活，我也不例外。在大二下开学后的一段时间里，我确实使用了一阵子Tika,但是我发现，我只是单纯的把很多待办事项罗列了上去，它几乎变成了某种意义上的备忘录，在罗列完待办事项后我几乎就没打开过了，<strong>这里有一个有意思的事情，就是很多事项几乎无法短时间内完成，而短时间内完成的事项在完成后却需要你频繁的去打开软件进行记录和Mark Done</strong>,我不认为这是一个好的Todo软件或者好的使用方式，相反这可能带来一些额外的效率下降。更糟糕的是，对于一个半成品纯网页app，它不能像手机app一样自然的使用，也没有完善的截至日期通知，因此,<strong>我停止了Tika的使用，并对仓库进行了归档</strong>。</p>\n<p>“Tika已死，Tika永生！“  好吧，我想说的是<strong>停止使用Tika并不代表我没有记录Todo的需求</strong>，我在上面的提到Ech0里加入了类似Todo的功能,这一次，我希望尽可能的简单，简单到只能使用纯文本记录最多三条代办事项，仅此而已，没有截至日期，记录下的todo可以删除或者Mark As Done。并且默认展示三条todo中优先级最高的一条于首页，现在它<strong>更多的是备忘</strong>，而最多三条todo的限制使得你不得不考虑当下最该被完成的事情，而不是一股脑全不添加上去，是的，<strong>记录短期的Todo而非长期的</strong>！ <br />\n也许在使用足够长的使用时间后，我<strong>才能验证这种设计对于我是否有效</strong>，这放在我以后的文章里在聊吧（没忘记的话）。</p>\n<hr />\n<h2 id=\"mini-and-mini---mono\">MINI And mini - Mono</h2>\n<img alt=\"No description\" src=\"https://log.vaaat.com/posts/dailylife/log2/mono.png\" />\n<p>博客同样也是我网站重构的一环，这次我依然选择静态网站生成工具 <code>Hugo</code>,而主题则使用了我最新写的<code>Hugo-Theme-Mono</code>。回顾我的Hugo建站历程，从<code>Hugo-Theme-Stack</code>到<code>Hugo-Theme-Xlog</code>,再到<code>Hugo-Theme-Mono</code>，这三次更换都有着共同的特点，就是朝着<strong>精简</strong>的方向前进，而这次我希望一步到位，采用<strong>极致精简的设计</strong>，同时保持文章能够无损适配三款主题随意切换迁移。</p>\n<p>对于Hugo-Theme-Mono这款主题，我只保留了我认为必要的RSS、文章、友链和评论功能，并且评论使用了<strong>基于GitHub Discussion的giscus</strong>,这让评论功能的部署成本变得极低。</p>\n<p>对于任何博客主题，它最重要的服务对象应是markdown形式的文章，不管主题功能如恶化丰富或者花哨，都应该<strong>把文章内容的展示和阅读体验放在首位</strong>，其它只是锦上添花（当然这里的话可能要打双引号）。</p>\n<p>因此在设计Hugo-Theme-Mono的时候，我希望它能够<strong>尽可能地被无感使用，尽可能地让你不去在hugo本身，而是专注于markdown文章的编写与管理</strong>，这是我所希望的。 <br />\n当你阅读这篇博客的时候，是我更换到新主题的第一篇博客，希望你的阅读体验能有所提升（也许）。</p>\n<hr />\n<h2 id=\"内包外包\">内包外包</h2>\n<p>大二上这学期，我在一个<strong>要好的高中朋友</strong>那里接手了一个全栈外包项目，从项目的原型设计到最后的开发和交付上线，全程参与，与我的另一个要好的盆友我们两人一起共同完成，或许外包的能赚到的钱并不算很多，但是对于一个大学生，这也已经达到我的预期了。<br />\n我想，<strong>做外包项目能带来的不止是实际的金钱利益，同时也能够提供一定的实践经验，这是我想要的</strong>。\n外包签了合同，好在最后也是顺利按时完成了交付，这也是我第一次靠自己的技能和双手拿到了人生第一桶金！</p>\n<hr />\n<h2 id=\"我和母亲节\">我和母亲节</h2>\n<p><strong>时间很巧，在母亲节到来的前一天，我刚好也拿到了外包的尾款</strong>，外包全部加起来总共到手1400元！这一次的母亲节，对于我来说，有着不一样的意义！因为这是我第一次能够真正的靠自己赚到钱给母亲发1314的转账，<strong>我知道冰冷的钱或许比不上更加实用的礼物，但是我想更重要的是温暖的亲情！</strong> 或许这就是人们常说的礼轻情意重吧。<br />\n<strong>也许避免“树欲静而风不止，子欲养而亲不待”的最好方式就是从现在开始！</strong></p>\n<hr />\n<h2 id=\"圈钱杯\">圈钱杯</h2>\n<p>蓝桥杯还是那个蓝桥杯，<strong>由于我太菜了，只拿到了省三，没能值回票价</strong>，嗐。但是不管怎样，我还是要吐槽一下圈钱杯的作弊现象，甚至车队都整上了，而且报名了的人也无法退款退赛了，难评&hellip;我只能说耗子尾汁！</p>\n<hr />\n<h2 id=\"r3s软路由\">R3S软路由</h2>\n<img alt=\"No description\" src=\"https://log.vaaat.com/posts/dailylife/log2/wrt.png\" />\n<p>在我的赛博生活03那篇文章里，我成功让路由器AX3000T刷上了ImmortalWRT,但是这依然无法满足我更高的上网需求，原因主要<strong>在于路由器本身的内存太小，导致插件频繁的爆内存死机</strong>，这严重影响使用体验。因此，最终我不得不入手了性能和内存更加强大的R3S！<br />\n<strong>刚拿到R3S后真的很惊艳，小巧的金属外壳机身充满质感</strong>，刷上WRT也非常的轻松，网上有非常多现成的编译好的WRT,比如iStoreOS、LEAN专门适配好的R3S固件和ImmortalWRT官方编译的固件等。<br />\n最终我选择了官方编译的ImmortalWRT 并搭配istoreOS的包，嘎嘎稳定好用！最后晒一晒我R3S的美照！（超级精致好看！！！）</p>\n<p><img alt=\"刚到手的R3S\" src=\"https://log.vaaat.com/posts/dailylife/log2/r3s1.jpg\" />\n\n<img alt=\"稳定运行中的R3S\" src=\"https://log.vaaat.com/posts/dailylife/log2/r3s2.jpg\" />\n</p>\n<hr />\n<h2 id=\"编程字体maple\">编程字体Maple</h2>\n<p>我又又又给我的VSCode换了新的编程字体，这次的编程字体Maple真的是一见钟情，强烈安利给任何人（我们颜狗是这样的）。<br />\n代码虽然写的很烂，但是编辑器一定要搞的漂漂亮亮的！<br />\n这里晒一张刚上手这款字体时拍的美照。</p>\n<img alt=\"No description\" src=\"https://log.vaaat.com/posts/dailylife/log2/maple.png\" />\n<blockquote>\n<p>Maple 开源仓库地址： <a href=\"https://github.com/subframe7536/maple-font\">Maple Font</a></p></blockquote>\n<hr />\n<h2 id=\"给代码拍照\">给代码拍照</h2>\n<p>双喜临门，开发这款编程字体的作者同样开发了一款VSCode代码截图工具，不仅可以给代码截图，也能给终端截图，使用效果可以参考上面发的代码截图！<br />\n代码配上好看的字体，下一步自然是配个好用的代码截图给代码拍美美的照片啦！下面给出插件的开源仓库地址，快去使用吧，觉得好用的话不要忘了给插件开发者点个star!</p>\n<blockquote>\n<p>仓库开源地址： <a href=\"https://github.com/subframe7536/vscode-codeimg\">VSCode-Codeimg</a><br />\n插件安装地址： <a href=\"https://marketplace.visualstudio.com/items?itemName=subframe7536.codeimg\">CodeImg - Visual Studio Marketplace</a></p></blockquote>\n<hr />\n<h2 id=\"给生活拍照\">给生活拍照</h2>\n<p>优美的代码直接被记录分享，生活也是一样，这学期的忙碌使得我很少拿去手机去记录和拍照，但是我依然在闲暇时光里捕捉了一些值得分享的镜头。<br />\n三张图片分别拍摄于：1. 宿舍楼顶 2. 广州珠江附近 3. 校内图书馆附近的草地 4. 教学楼附近的树 5. 傍晚的教学楼楼梯</p>\n<img alt=\"宿舍楼楼顶\" src=\"https://log.vaaat.com/posts/dailylife/log2/sun.jpg\" />\n<p><img alt=\"珠江附近\" src=\"https://log.vaaat.com/posts/dailylife/log2/zhujiang.jpg\" />\n\n<img alt=\"教学楼附近的话\" src=\"https://log.vaaat.com/posts/dailylife/log2/flowers.jpg\" />\n\n<img alt=\"拍摄与校内图书馆附近的草地\" src=\"https://log.vaaat.com/posts/dailylife/log2/flowers&amp;bag.jpg\" />\n\n<img alt=\"No description\" src=\"https://log.vaaat.com/posts/dailylife/log2/upstares.jpg\" />\n</p>\n<hr />\n<h2 id=\"github清理\">GitHub清理</h2>\n<p>以前不懂事，遇到好的仓库就随手点了fork,最后越攒越多，导致Github里有一堆空的仓库和不使用的仓库，看着Github上五十多个仓库总感觉很膈应，于是我清理了一波仓库，把大部分空仓库和没用的仓库给删除了，一些已经停止维护的仓库则进行了归档处理，最终清理了二十多个仓库，爽！</p>\n<hr />\n<h2 id=\"回顾-nas\">回顾-NAS</h2>\n<p>2024年5月20日购买的极空间，到如今已经默默陪伴我整整一年。在这一年的时光里，它始终运行稳定、表现出色。最初装入的那块4T硬盘，如今依然剩余1T可用空间，足以应对未来一段时间里不断增长的照片与视频文件。</p>\n<p>作为一台NAS，我在初购时就希望<strong>它不仅仅是一个简单的文件存储工具，更是我生活与记忆的守护者</strong>。我的日常拍照、旅行记录，它都能够妥善保存。</p>\n<p>如今，这台NAS中已经存储了大量电影与电视剧，成为我与家人共享时光的娱乐中心。同时，我大学两年间的所有照片和视频，也都已妥善备份于此。<strong>这些数据看似冰冷，却承载着我最温热的记忆</strong>——校园的花草、夜晚的星空、努力与青春的痕迹。</p>\n<p>时间从不为谁停留，也许在多年之后，当我再次打开这台NAS，映入眼帘的将是我大学四年一点一滴的生活片段。那一刻，它不仅是一台网络存储设备，更像是一座时光的容器，为我守护着曾经的青春与故事。<strong>这或许就是数字化时代赋予我们的温柔——让记忆得以永久珍藏，让过往得以再次相见。</strong></p>\n<hr />\n<h2 id=\"清澈愚蠢的大学生\">清澈愚蠢的大学生</h2>\n<p>人们常说“清澈愚蠢的大学生”，而我却是那个“愚蠢的大学生”。<br />\n上大学后，我选择了计算机专业。从那时起，我的生活便被宿舍、食堂与教学楼这三点构成了闭环。<strong>没有课程的日子里，我几乎整日待在宿舍电脑前，不是在游戏中消磨时光，就是独自学习、敲代码、看教程。这样的日子虽然规律，却也逐渐让我与外界隔绝。</strong></p>\n<p>我几乎没有参与社团活动，也几乎没有太多社交。在别人热衷于组织、参与、表达自己的时候，我总是默默地坐在一旁，习惯了独处，也慢慢习惯了沉默。久而久之，在与人交谈时，我变得拘谨，词不达意，甚至常常因为紧张而语塞。</p>\n<p><strong>或许这就是大部分程序员宅男的“下场”吧，我也不知道如果一直这样下去，未来的自己会变成什么模样。</strong></p>\n<hr />\n<h2 id=\"思考碎片\">思考碎片</h2>\n<p>最后&hellip;&hellip;好吧，本来想写一些思考碎片，但是,&hellip;&hellip;.</p>\n<blockquote>\n<p>&ldquo;别着急成长为一个完美的人，愿你在缓慢前行的路上，也能坚定地相信自己值得被世界温柔以待。&rdquo;</p></blockquote>"
-            },
-            {
-              "title": "L1nSn0w's Log",
-              "link": "https://log.vaaat.com/",
-              "published": "2025-05-30T10:40:26",
-              "summary": ""
-            },
-            {
-              "title": "我的赛博生活03",
-              "link": "https://log.vaaat.com/posts/cyberlife/03/",
-              "published": "2025-02-10T07:07:26",
-              "summary": "<p>这段时间又折腾了些新玩意，<del>又有素材可以水啦</del>。欢迎来到<strong>L1nSn0wの二进制生活</strong>！😁</p>\n<hr />\n<h2 id=\"博客配图心得\">📷博客配图心得</h2>\n<p>评论区经常有小伙伴问我博客的配图是怎么做的，所以今天就分享一些我的配图小技巧。对于我来说，绝大部分图片都来自<strong>手机拍摄与屏幕截图</strong>，所以当我需要拍一些图片时，我一般都是直接打开手机的第三方软件进行拍摄，原因是使用第三方软件拍摄对比iOS的原相机更方便，大部分软件都能提供<strong>丰富的滤镜</strong>，不管是拍摄物品还是景色，基本上都能够找到心仪的滤镜（或者“胶卷”），对于我这种<strong>又懒又不会调色</strong>的纯小白算是非常实用了，平时写博客的<strong>时间非常少</strong>，自然不能在图片上花费过多的时间，<strong>效率至上</strong>！</p>\n<p>当遇到需要<strong>截屏</strong>的场景时，这种情况也很容易处理，最简单当然是直接使用顺手的截图工具进行截图。不过我一般是截图完之后会<strong>给图片套个壳</strong>，个人认为套上壳之后看起来会更精致些。这里的套壳当然也是借助网站来解决，我个人用得最多最推荐是<a href=\"https://postspark.app/\"><strong>postspark</strong></a> ,这个网站<strong>功能强大丰富</strong>，而且也是<strong>免费</strong>的。</p>\n<p>最后列一些我常用的手机拍摄软件：</p>\n<ul>\n<li>Fimo (超多胶卷)</li>\n<li>极影相机 （免费，功能丰富）</li>\n<li>Leica Lux (徕卡官方App,仅用免费的徕卡滤镜和徕卡水印)</li>\n</ul>\n<p>其中<strong>Fimo</strong>和<strong>极影相机</strong>这两个软件我在之前的文章也有提到过，感兴趣的话也可以去看看☺️</p>\n<hr />\n<h2 id=\"论坛分享\">🙃论坛分享</h2>\n<p>平时各种折腾还得靠论坛大佬的教程和资源保驾护航，所以打算分享几个个人常逛的论坛：</p>\n<ul>\n<li>\n<p><a href=\"https://bbs.pcbeta.com/\"><strong>远景论坛</strong></a>: 相信玩过黑苹果的人都知道这个论坛，这个应该是国内最大的黑苹果论坛了，上面有各种大佬分享<strong>EFI和镜像</strong>，而且黑苹果过程中遇到的问题基本上都能在论坛上找到解决方法，可以说玩黑苹果必备了。不过话又说回来，黑苹果在Apple转向<strong>m系列芯片</strong>之后基本上也走向死亡了，不过我还是想分享一下这个属于黑苹果时代的宝藏论坛！（<strong>黑苹果已死</strong>😭😭😭）</p>\n</li>\n<li>\n<p><a href=\"https://www.right.com.cn/\"><strong>恩山论坛</strong></a>：如果你喜欢折腾各种<strong>路由器和Openwrt</strong>，那么恩山论坛必不能错过，这个论坛上经常会有大佬分享各种编译好的wrt固件，并且论坛上的<strong>帖子非常详细</strong>，像我这样完全没接触过这些领域的<strong>纯小白</strong>靠着论坛上的帖子最后也成功给<strong>AX3000T刷上了ImmortalWRT</strong>😇</p>\n</li>\n</ul>\n<hr />\n<h2 id=\"系统大瘦身\">💻系统大瘦身</h2>\n<p>自从上次给C盘扩容后，我<strong>安装软件的策略</strong>也发生了改变，虽然说C盘变大了，但是对于软件的安装我依然<strong>保持谨慎</strong>，吸取上次的教训，我没有在系统重装完之后安装大量的软件，我只安装了能够最大满足我需求的软件，并且功能重叠较大的软件则<strong>保留下使用最顺手的一款</strong>。对于Adobe家的软件，我没有安装Lr和Pr，只保留了最常用的PS，一方面是我基本上<strong>不剪视频，也不调色</strong>（虽然想学），另一方面则是怕Adobe家的软件在我<strong>系统里到处拉屎</strong>。</p>\n<p>在仔细分析我的开发需求后，我只保留了<strong>VSCode</strong>和Jetbrain 家的<strong>IntelliJ IDEA Ultimate</strong>，这两个软件一个是编辑器，一个是适合Java的IDE，不过已经能够<strong>完全满足我的前后端开发需求</strong>（安装完插件后）。不过这里还是得吐槽一下VSCode的Java开发体验，不夸张的说就算VSCode装好各种插件<strong>体验依然被IDEA甩好几条街</strong>，本来以为可以<strong>All in VScode</strong>的，现在看来是我想多了🤣</p>\n<hr />\n<h2 id=\"ax3000t--immortal\">🛜AX3000T &amp; Immortal</h2>\n<p>没错，我又折腾上了我的路由器，相比于<a href=\"https://log.vaaat.com/posts/cyberlife/log-01/\">我的赛博生活01</a>那篇博客里不同的是，这一次我给AX3000T刷上了自己编译定制的<strong>ImmortalWRT</strong>。</p>\n<p>固件仅支持小米AX3000T v1  !基于hanwckf大佬的<a href=\"https://github.com/hanwckf/immortalwrt-mt798x\">immortalwrt-mt798x</a>进行编译，同样使用h大提供的的<a href=\"https://github.com/hanwckf/bl-mt798x/releases\">mt798x uboot</a>进行刷入引导。</p>\n<p><strong>固件特点：</strong></p>\n<ol>\n<li>内核版本：5.4.284。 Openwrt版本： ImmortalWrt 21.02-SNAPSHOT</li>\n<li>小闪存友好（整个固件仅19.2MB）</li>\n<li>只保留OC用于支持爱国上网</li>\n<li>移除原固件不必要的bootstrap mod主题</li>\n<li>支持Upnp和友好的ipv6-helper</li>\n<li>&hellip;</li>\n</ol>\n<img alt=\"AX3000T &amp;&amp; ImmortalWRT\" src=\"https://log.vaaat.com/posts/cyberlife/03/immortalwrt.webp\" />\n<p>我已经将编译好的固件<strong>分享到了恩山论坛</strong>，原贴地址：<a href=\"https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;tid=8414406&amp;fromuid=921205\">传送门</a></p>\n<hr />\n<h2 id=\"jetbrain续杯啦\">☕JetBrain续杯啦</h2>\n<p>前几天IDEA突然给我弹了个非常陌生的通知，没错，我的IDEA许可证将在<strong>二十几天后过期</strong>，看到这条消息的我愣了一下，毕竟springboot正写的火热，你给我弹这个消息。至从上次学生认证完之后我就再也没有去管过<strong>许可证的到期时间</strong>了，一直以为是可以直接用到毕业，没想到是<strong>每隔一年要续一次</strong>，还好我的学生证还在我身边，学信网的在线验证码也很容易获取，于是我立马提交了续订资料，向之前一样，这次依然走的<strong>人工通道</strong>，效率还行，大概花了三四天左右吧，比上次快了很多。这不，今天就收到了续订成功通知，爽歪歪！😁（IDEA YYDS!）</p>\n<img alt=\"Jetbrain续订成功\" src=\"https://log.vaaat.com/posts/cyberlife/03/jetbrain.webp\" />\n<hr />\n<h2 id=\"tika能用吗\">🦖Tika能用吗</h2>\n<p>为了能<strong>快速学习和巩固新的知识</strong>，我做了个功能非常简陋的Todo Web 应用，技术栈大概如下：</p>\n<ul>\n<li>前端： Vue、Nuxt.js、Nuxt UI、Typescript、Tailwind CSS &hellip;</li>\n<li>后端： Springboot 3、 MyBatis&hellip;</li>\n<li>数据库：MySQL、Redis</li>\n<li>其它：Docker、Nginx&hellip;</li>\n</ul>\n<p>个人感觉目前算是<strong>半成品</strong>吧，但是<strong>基本上能用</strong>，等大二下学期开学我就拿来替换掉我的原先使用的Todoist，先自己用用看。</p>\n<img alt=\"Tika\" src=\"https://log.vaaat.com/posts/cyberlife/03/tika.webp\" />\n<blockquote>\n<p>在线体验地址： <a href=\"https://tika.soopy.cn/\">https://tika.soopy.cn/</a></p>\n<p>Github地址： <a href=\"https://github.com/lin-snow/Tika\">lin-snow/Tika: A simplest TODO App.</a></p></blockquote>\n<hr />\n<h2 id=\"小米手环9用户1\">⌚小米手环9用户+1</h2>\n<p>今年春节淘宝的红包真的很大，总共是薅到了<strong>52.82元的通用红包</strong>，加上<strong>手表国补15%</strong>（补贴36.18）和小米店铺优惠券<strong>5元</strong>，最终以<strong>205元</strong>拿下心心念念已久的<strong>小米手环9 NFC版 银色</strong>！顺丰是真的快，晚上下单完隔天下午就到货。不过因为是国补，所以到货的时候还需要派送员<strong>现场激活拍照</strong>才行，手机还好，手表必须要插电才能开机，所以还是有点小麻烦的。</p>\n<p>目前已经连续带了有好几天了，总体来说体验非常好，<strong>60hz的刷新率</strong>使用起来丝般顺滑，<strong>续航真的顶</strong>，在开启大部分功能的情况下可以撑9天，而且佩戴起来也<strong>非常舒适</strong>，比我之前的华为荣耀手环5NFC版好太多了，各种功能和表盘也很丰富！</p>\n<p>至于心率血氧什么的我也不知道测的准不准，不过无所谓，反正我也不指望一个小手环能有多精确，手环<strong>自带的功能和装饰性</strong>已经能够满足我的需求了。</p>\n<img alt=\"Mi Band 9 NFC\" src=\"https://log.vaaat.com/posts/cyberlife/03/miband9nfc.jpg\" />\n<hr />\n<h2 id=\"最后\">😝最后</h2>\n<p>就先写到这里吧，虽然还有一些其它可以水的，但是时间不早啦（）</p>"
-            }
-          ],
-          "feed_url": "https://log.vaaat.com/index.xml"
+          "rss": "https://log.vaaat.com/index.xml"
         },
         {
           "name": "文案姐笔记",
           "intro": "别为难自己，孤独比将就有趣多了。",
           "link": "https://www.5186a.com/",
-          "avatar": "https://weavatar.com/avatar/858ab0fd89d459c5b8839e47d6697cef7ae6708ba66360f24914f298580ee731?s=80"
+          "avatar": "https://weavatar.com/avatar/858ab0fd89d459c5b8839e47d6697cef7ae6708ba66360f24914f298580ee731?s=80",
+          "rss": "https://5186a.com/feed"
         },
         {
           "name": "咕咚同学",
           "intro": "独立开发者，inBox 笔记作者",
-          "link": "https://gudong.site",
-          "avatar": "https://blog.gudong.site/assets/profile/gudong_2023.png"
+          "link": "https://blog.gudong.site/",
+          "avatar": "https://blog.gudong.site/assets/profile/gudong_2023.png",
+          "rss": "https://blog.gudong.site/static/xml/rss.xml"
         },
         {
           "name": "1900'Blog",
           "intro": "孤独的互联网冲浪大师",
           "link": "https://1900.live/",
           "avatar": "https://weavatar.com/avatar/cc38267b10cc25dfc62209f8ca34589e?s=80",
-          "feeds": [
-            {
-              "title": "散装日常 2",
-              "link": "https://1900.live/san-zhuang-ri-chang-2/",
-              "published": "2025-11-22T06:11:00",
-              "summary": "<p>昨天晚上尝试进卧室以前不把手机带进去，而是放在客厅充电。</p><p>进房间以后终于能专心用电纸书读书了，不过催眠效果很拔群，看了半个小时就有了困意，一看时间已经临近12点，索性关灯睡觉，有着睡意加持，没一会儿就睡着了。</p><p>一觉睡到7点20，很棒的一个夜晚，被昨晚调的手表闹钟叫醒。</p><p>这是特意调的闹钟，本来昨晚的打算是睡醒后去爬半个小时楼梯，再洗个暖和的热水澡，八点就能元气满满出门上班。但是这次会战没能战胜睡意，磨磨蹭蹭到八点才起床，冬季起床真是人生最大的挑战之一。</p><p>起床还有点睁不开眼，迷迷糊糊的去厕所洗漱，温热的洗脸巾擦拭下整个人基本上清醒过来了。</p><p>坐到沙发上，把水壶里罐了一半纯净水，打开了烧水功能，一会水壶便发出了呲呲呲的声响。趁着烧水的间隙，索性再做一次10分钟的简短呼吸冥想，再次调整身心状态，闭眼挺胸端坐，冥想时把注意力集中在五彩斑斓的黑上，同时进行深吸慢呼，感受胸腔的充盈和排空，感受三感，触感、气味、烧水声。</p><p>随后走到窗前，今日已是小雪，略带寒意的微风裹挟着草木的香气扑面而来。</p><p>入冬后楼下的七八颗银杏树已经黄了大半，想来在有些日子便能短暂披上黄金甲，再卸甲于地了。除此之外，还能听到唰唰唰的扫地声，那是做保洁的阿姨在清扫落叶，以及不知道哪一户传来的催促自家孩子吃早餐的愠怒声。</p><p>此刻，活着的感受如此深切。</p><p>延续这个习惯吧，从早上开始，认真活着。</p>"
-            },
-            {
-              "title": "272、小雪",
-              "link": "https://1900.live/272-xiao-xue/",
-              "published": "2025-11-22T05:23:00",
-              "summary": "<p><img src=\"https://cdn.1900.live/assets/2025/11/23retouch_2025112313211720.jpg\" /> null </p><blockquote>小雪至，虹藏不见，天气上腾，地气下降，闭塞成冬；雨凝为雪，然地寒未甚，雪尚未重，故曰「小雪」。<br /><br />宜「早卧晚起，必待日光」，食「三雪三乌」（雪里蕻、雪梨、雪藕；乌骨鸡、乌塌菜、黑芝麻）以养阴润燥，煮小雪酒一壶，炕红薯两枚，栗火慢煨，甜透寒窗。<br /><br />衣选银鼠短袄，白绒护耳；频灸「关元」「命门」二穴，固护真阳。晨练在日出后，面北习「吹」字诀，泄肺寒而补肾精；晡时倚窗曝背，看碎玉敲檐，收一瓶雪水。<br /><br />此时「天地积阴，温则为雨，寒则为雪」，养生当守「藏精」之秘——如小雪封田，涵育来岁；志若初雪，未染尘埃。养得一段清寒，自与琼英相照。<br /><br />一絮一窗皆是小雪。</blockquote>"
-            },
-            {
-              "title": "271、立冬",
-              "link": "https://1900.live/271-li-dong/",
-              "published": "2025-11-07T10:15:09",
-              "summary": "<p><img src=\"https://cdn.1900.live/assets/2025/11/7638a82c5efcacc22817faa8e674852b0_origin(1).jpg\" /> null </p><blockquote>今日立冬，水始冰而镜天，地始冻而裂叶，雉潜大泽化为蜃楼；万籁收声，千山失翠，玉屑未落，朔气先横。<br /><br />宜「早卧晏起，待曦晒背」，食「三黑三白」（黑黍、黑枣、黑芝麻；白薯、白梨、白糯）以润肺肾，酿冬酒一盏，煨芋魁双枚，松火慢炖，香浮雪夜。<br /><br />衣选雪狐轻裘，紫羔暖手；频灸「神阙」「涌泉」二穴，温养元阳。晨练当在辰巳之交，面南习「呵」字诀，泄心火而补水阙；暮时负暄檐下，看冰凌垂檐，收一瓮梅香。<br /><br />此时「天地闭塞，藏而入静」，养生当守「藏志」之度——如冬炉埋炭，微火内照；志若冰鉴，澄澈生明。养得一片冰心，自与寒威相和。<br /><br />一雪一炉皆是冬。</blockquote>"
-            }
-          ],
-          "feed_url": "https://1900.live/rss.xml"
+          "rss": "https://1900.live/rss.xml"
         },
         {
           "name": "耳朵的主人",
           "intro": "耳朵电台，庆幸我们还有耳朵。",
           "link": "https://www.edzbe.com/",
-          "avatar": "https://www.edzbe.com/favicon.ico"
+          "avatar": "https://www.edzbe.com/favicon.ico",
+          "rss": "https://www.edzbe.com/feed"
         },
         {
           "name": "魏叔叔生活志",
           "intro": "用认真生活提升自己",
           "link": "https://vss.plus",
-          "avatar": "https://pic.vss.plus/pianke/touxiang3.jpg"
+          "avatar": "https://pic.vss.plus/pianke/touxiang3.jpg",
+          "rss": "https://vss.plus/feed"
         },
         {
           "name": "ElysiumStack",
           "intro": "不会摄影的设计师不是优秀的旅行家",
           "link": "https://www.elysium-stack.cn/",
           "avatar": "https://www.elysium-stack.cn/upload/ee0757e6-ebb4-46d0-a388-660f648653ea.jpg",
-          "feeds": [
-            {
-              "title": "错位的缘分与现实的诀别",
-              "link": "https://www.elysium-stack.cn/archives/a-love-better-left-behind",
-              "published": "2025-11-03T04:29:00",
-              "summary": "<img alt=\"\" height=\"1\" src=\"https://www.elysium-stack.cn/plugins/feed/assets/telemetry.gif?title=%E9%94%99%E4%BD%8D%E7%9A%84%E7%BC%98%E5%88%86%E4%B8%8E%E7%8E%B0%E5%AE%9E%E7%9A%84%E8%AF%80%E5%88%AB&amp;url=/archives/a-love-better-left-behind\" width=\"1\" />作者与初中同学在彼此有好感的基础上发展出了默契和相似的性格，但因早恋问题与另一个男生产生矛盾。毕业后，作者专注于学业，期间尝试多次恋爱但未果。多年后，两人重新联系，作者对再次靠近她抱有希望，但她在见面后表示仍喜欢前任，并希望作者能找到更好的伴侣。当作者发现她同时喜欢两人时，内心的希望彻底破灭，决定放弃与她的联系，开始追求自我提升。故事表达了作者对真爱的信念，同时也反思了感情中的复杂与痛苦。"
-            },
-            {
-              "title": "[ElysiumMeting]Meting-Api公益服务",
-              "link": "https://www.elysium-stack.cn/archives/elysium-meting",
-              "published": "2025-10-11T10:15:00",
-              "summary": "<img alt=\"\" height=\"1\" src=\"https://www.elysium-stack.cn/plugins/feed/assets/telemetry.gif?title=%5BElysiumMeting%5DMeting-Api%E5%85%AC%E7%9B%8A%E6%9C%8D%E5%8A%A1&amp;url=/archives/elysium-meting\" width=\"1\" />本文介绍了作者基于Meting-API自建的ElysiumMeting音乐API服务，该服务现已公开，仅限学习交流使用，禁止用于商业用途。提供了使用方法和相关资源链接，包括API的基本请求格式及参数说明。同时，作者鼓励博主自行学习并私有化部署相关服务。作者表示如果读者认为API有用，欢迎赞助，赞助费用将用于API和服务器的长期维护。"
-            },
-            {
-              "title": "《空洞骑士：丝之歌》适不适合入手？",
-              "link": "https://www.elysium-stack.cn/archives/hollow-knight-silksong",
-              "published": "2025-09-22T04:24:00",
-              "summary": "<img alt=\"\" height=\"1\" src=\"https://www.elysium-stack.cn/plugins/feed/assets/telemetry.gif?title=%E3%80%8A%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%EF%BC%9A%E4%B8%9D%E4%B9%8B%E6%AD%8C%E3%80%8B%E9%80%82%E4%B8%8D%E9%80%82%E5%90%88%E5%85%A5%E6%89%8B%EF%BC%9F&amp;url=/archives/hollow-knight-silksong\" width=\"1\" />空洞骑士：丝之歌作为正统续作，延续了前作要素，增加了地图和系统，剧情半碎片化，音乐美术出色。游戏难度较高，包含高伤害小怪、跳跳乐地图等。适合平台跳跃或类银河恶魔城游戏高手、通关前作老玩家和操作自信者入手。"
-            }
-          ],
-          "feed_url": "https://www.elysium-stack.cn/feed.xml"
+          "rss": "https://www.elysium-stack.cn/rss.xml"
         },
         {
           "name": "全局变量",
           "intro": "记录生活中的平凡事",
           "link": "https://ilogs.cn/",
-          "avatar": "https://ilogs.cn/images/avatar.jpg"
+          "avatar": "https://ilogs.cn/images/avatar.jpg",
+          "rss": "https://ilogs.cn/feed/"
         },
         {
           "name": "漫川",
           "intro": "即面向位置的世界",
           "link": "https://www.mancs.cn/",
-          "avatar": "https://q.qlogo.cn/headimg_dl?dst_uin=28422961&spec=640&cache-key=720b7de724e373e8fb8092ed4704b494"
+          "avatar": "https://q.qlogo.cn/headimg_dl?dst_uin=28422961&spec=640&cache-key=720b7de724e373e8fb8092ed4704b494",
+          "rss": "https://www.mancs.cn/feed"
         },
         {
           "name": "佬T博客",
           "intro": "法律、科技和生活",
           "link": "https://lawtee.com/",
           "avatar": "https://lawtee.com/links/avatar.jpg",
-          "feeds": [
-            {
-              "title": "给HUGO添加文章搜索功能",
-              "link": "https://lawtee.com/article/add-search-for-hugo/",
-              "published": "2025-11-21T00:50:00",
-              "summary": "<p>之前用 Hugo-theme-stack 主题，自带了搜索功能，我曾以为这种功能是 Hugo 默认就有，后来才知道，是外挂。</p>\n<p>在更换 Bear cub 主题后，之前也没觉得这功能有多重要，但实际使用中发现，有时候记不起来一些事情，还得借助搜索才行。于是研究了下怎么外挂搜索。其实也很简单，只需四步。</p>\n<h3 id=\"在-content-目录下新建-searchmd-页面\">在 <code>content</code> 目录下新建 <code>search.md</code> 页面</h3>\n<p>如果不需要放置在导航栏，内容填入默认信息即可，需要进导航栏的，效仿其他 md 文件设置。</p>\n\n\n\n\n\n<div class=\"highlight\"><pre class=\"chroma\" tabindex=\"0\"><code class=\"language-markdown\"><span class=\"line\"><span class=\"ln\">1</span><span class=\"cl\">---\n</span></span><span class=\"line\"><span class=\"ln\">2</span><span class=\"cl\">title: \"搜索\"\n</span></span><span class=\"line\"><span class=\"ln\">3</span><span class=\"cl\">date: 2025-11-20T00:00:00+08:00\n</span></span><span class=\"line\"><span class=\"ln\">4</span><span class=\"cl\">type: \"search\"\n</span></span><span class=\"line\"><span class=\"ln\">5</span><span class=\"cl\">layout: \"search\"\n</span></span><span class=\"line\"><span class=\"ln\">6</span><span class=\"cl\">---\n</span></span><span class=\"line\"><span class=\"ln\">7</span><span class=\"cl\">在此搜索本博客文章。</span></span></code></pre></div><h3 id=\"在-hugo-配置文件中添加-json-输出\">在 hugo 配置文件中添加 json 输出</h3>\n<p>比如我的hugo配置文件是 toml 格式，内容如下。</p>\n\n\n\n\n\n<div class=\"highlight\"><pre class=\"chroma\" tabindex=\"0\"><code class=\"language-toml\"><span class=\"line\"><span class=\"ln\">1</span><span class=\"cl\"><span class=\"p\">[</span><span class=\"nx\">outputs</span><span class=\"p\">]</span>\n</span></span><span class=\"line\"><span class=\"ln\">2</span><span class=\"cl\"> <span class=\"nx\">home</span> <span class=\"p\">=</span> <span class=\"p\">[</span><span class=\"s2\">\"HTML\"</span><span class=\"p\">,</span> <span class=\"s2\">\"RSS\"</span><span class=\"p\">,</span> <span class=\"s2\">\"JSON\"</span><span class=\"p\">]</span> <span class=\"c\"># 添加 JSON 输出</span>\n</span></span><span class=\"line\"><span class=\"ln\">3</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\">4</span><span class=\"cl\"><span class=\"p\">[</span><span class=\"nx\">outputFormats</span><span class=\"p\">.</span><span class=\"nx\">JSON</span><span class=\"p\">]</span>\n</span></span><span class=\"line\"><span class=\"ln\">5</span><span class=\"cl\"> <span class=\"nx\">baseName</span> <span class=\"p\">=</span> <span class=\"s2\">\"index\"</span>\n</span></span><span class=\"line\"><span class=\"ln\">6</span><span class=\"cl\"> <span class=\"nx\">mediaType</span> <span class=\"p\">=</span> <span class=\"s2\">\"application/json\"</span></span></span></code></pre></div><h3 id=\"在-layouts-目录下新建-searchsinglehtml-模板\">在 <code>layouts</code> 目录下新建 <code>/search/single.html</code> 模板</h3>\n<p>模板内容可以参照其他模板修改，搜索功能可定制精确搜索或模糊搜索，大致内容如下。</p>\n\n\n\n\n\n<div class=\"highlight\"><pre class=\"chroma\" tabindex=\"0\"><code class=\"language-html\"><span class=\"line\"><span class=\"ln\"> 1</span><span class=\"cl\">{{ define \"main\" }}\n</span></span><span class=\"line\"><span class=\"ln\"> 2</span><span class=\"cl\"><span class=\"p\">&lt;</span><span class=\"nt\">content</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 3</span><span class=\"cl\"> <span class=\"p\">&lt;</span><span class=\"nt\">h1</span><span class=\"p\">&gt;</span>{{ .Title }}<span class=\"p\">&lt;/</span><span class=\"nt\">h1</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 4</span><span class=\"cl\"> <span class=\"p\">&lt;</span><span class=\"nt\">div</span> <span class=\"na\">class</span><span class=\"o\">=</span><span class=\"s\">\"search-box\"</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 5</span><span class=\"cl\"> <span class=\"p\">&lt;</span><span class=\"nt\">input</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 6</span><span class=\"cl\"> <span class=\"na\">id</span><span class=\"o\">=</span><span class=\"s\">\"search-input\"</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 7</span><span class=\"cl\"> <span class=\"na\">class</span><span class=\"o\">=</span><span class=\"s\">\"search-input\"</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 8</span><span class=\"cl\"> <span class=\"na\">type</span><span class=\"o\">=</span><span class=\"s\">\"text\"</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 9</span><span class=\"cl\"> <span class=\"na\">placeholder</span><span class=\"o\">=</span><span class=\"s\">\"输入关键词搜索…\"</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 10</span><span class=\"cl\"> <span class=\"na\">autocomplete</span><span class=\"o\">=</span><span class=\"s\">\"off\"</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 11</span><span class=\"cl\"> <span class=\"p\">/&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 12</span><span class=\"cl\"> <span class=\"p\">&lt;/</span><span class=\"nt\">div</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 13</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 14</span><span class=\"cl\"> <span class=\"p\">&lt;</span><span class=\"nt\">ul</span> <span class=\"na\">id</span><span class=\"o\">=</span><span class=\"s\">\"results\"</span> <span class=\"na\">class</span><span class=\"o\">=</span><span class=\"s\">\"search-results\"</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 15</span><span class=\"cl\"> <span class=\"p\">&lt;</span><span class=\"nt\">li</span> <span class=\"na\">style</span><span class=\"o\">=</span><span class=\"s\">\"color:#666\"</span><span class=\"p\">&gt;</span>请输入关键词搜索<span class=\"p\">&lt;/</span><span class=\"nt\">li</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 16</span><span class=\"cl\"> <span class=\"p\">&lt;/</span><span class=\"nt\">ul</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 17</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 18</span><span class=\"cl\"><span class=\"p\">&lt;/</span><span class=\"nt\">content</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 19</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 20</span><span class=\"cl\"><span class=\"p\">&lt;</span><span class=\"nt\">script</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 21</span><span class=\"cl\"><span class=\"c1\">// ========== 工具函数 ==========\n</span></span></span><span class=\"line\"><span class=\"ln\"> 22</span><span class=\"cl\"><span class=\"c1\"></span><span class=\"kd\">function</span> <span class=\"nx\">escapeHtml</span><span class=\"p\">(</span><span class=\"nx\">str</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 23</span><span class=\"cl\"> <span class=\"k\">if</span> <span class=\"p\">(</span><span class=\"o\">!</span><span class=\"nx\">str</span><span class=\"p\">)</span> <span class=\"k\">return</span> <span class=\"s2\">\"\"</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 24</span><span class=\"cl\"> <span class=\"k\">return</span> <span class=\"nx\">str</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 25</span><span class=\"cl\"> <span class=\"p\">.</span><span class=\"nx\">replace</span><span class=\"p\">(</span><span class=\"sr\">/&amp;/g</span><span class=\"p\">,</span> <span class=\"s2\">\"&amp;amp;\"</span><span class=\"p\">)</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 26</span><span class=\"cl\"> <span class=\"p\">.</span><span class=\"nx\">replace</span><span class=\"p\">(</span><span class=\"sr\">/&lt;/g</span><span class=\"p\">,</span> <span class=\"s2\">\"&amp;lt;\"</span><span class=\"p\">)</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 27</span><span class=\"cl\"> <span class=\"p\">.</span><span class=\"nx\">replace</span><span class=\"p\">(</span><span class=\"sr\">/&gt;/g</span><span class=\"p\">,</span> <span class=\"s2\">\"&amp;gt;\"</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 28</span><span class=\"cl\"><span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 29</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 30</span><span class=\"cl\"><span class=\"c1\">// ========== 精确搜索 ==========\n</span></span></span><span class=\"line\"><span class=\"ln\"> 31</span><span class=\"cl\"><span class=\"c1\"></span><span class=\"kd\">function</span> <span class=\"nx\">exactMatch</span><span class=\"p\">(</span><span class=\"nx\">haystack</span><span class=\"p\">,</span> <span class=\"nx\">needle</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 32</span><span class=\"cl\"> <span class=\"k\">if</span> <span class=\"p\">(</span><span class=\"o\">!</span><span class=\"nx\">haystack</span> <span class=\"o\">||</span> <span class=\"o\">!</span><span class=\"nx\">needle</span><span class=\"p\">)</span> <span class=\"k\">return</span> <span class=\"kc\">false</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 33</span><span class=\"cl\"> <span class=\"k\">return</span> <span class=\"nx\">haystack</span><span class=\"p\">.</span><span class=\"nx\">toLowerCase</span><span class=\"p\">().</span><span class=\"nx\">includes</span><span class=\"p\">(</span><span class=\"nx\">needle</span><span class=\"p\">.</span><span class=\"nx\">toLowerCase</span><span class=\"p\">());</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 34</span><span class=\"cl\"><span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 35</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 36</span><span class=\"cl\"><span class=\"c1\">// ========== 渲染结果 ==========\n</span></span></span><span class=\"line\"><span class=\"ln\"> 37</span><span class=\"cl\"><span class=\"c1\"></span><span class=\"kd\">function</span> <span class=\"nx\">renderResults</span><span class=\"p\">(</span><span class=\"nx\">list</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 38</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">resultsEl</span> <span class=\"o\">=</span> <span class=\"nb\">document</span><span class=\"p\">.</span><span class=\"nx\">getElementById</span><span class=\"p\">(</span><span class=\"s2\">\"results\"</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 39</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 40</span><span class=\"cl\"> <span class=\"k\">if</span> <span class=\"p\">(</span><span class=\"o\">!</span><span class=\"nx\">list</span> <span class=\"o\">||</span> <span class=\"nx\">list</span><span class=\"p\">.</span><span class=\"nx\">length</span> <span class=\"o\">===</span> <span class=\"mi\">0</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 41</span><span class=\"cl\"> <span class=\"nx\">resultsEl</span><span class=\"p\">.</span><span class=\"nx\">innerHTML</span> <span class=\"o\">=</span> <span class=\"s1\">'&lt;li style=\"color:#666\"&gt;未找到结果。&lt;/li&gt;'</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 42</span><span class=\"cl\"> <span class=\"k\">return</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 43</span><span class=\"cl\"> <span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 44</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 45</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">itemsHtml</span> <span class=\"o\">=</span> <span class=\"nx\">list</span><span class=\"p\">.</span><span class=\"nx\">map</span><span class=\"p\">(</span><span class=\"nx\">item</span> <span class=\"p\">=&gt;</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 46</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">title</span> <span class=\"o\">=</span> <span class=\"nx\">escapeHtml</span><span class=\"p\">(</span><span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">title</span> <span class=\"o\">||</span> <span class=\"s2\">\"(无标题)\"</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 47</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 48</span><span class=\"cl\"> <span class=\"c1\">// 外链或本地链接\n</span></span></span><span class=\"line\"><span class=\"ln\"> 49</span><span class=\"cl\"><span class=\"c1\"></span> <span class=\"kr\">const</span> <span class=\"nx\">url</span> <span class=\"o\">=</span> <span class=\"nx\">escapeHtml</span><span class=\"p\">(</span><span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">link</span> <span class=\"o\">||</span> <span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">url</span> <span class=\"o\">||</span> <span class=\"s2\">\"#\"</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 50</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">isExternal</span> <span class=\"o\">=</span> <span class=\"o\">!!</span><span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">link</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 51</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 52</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">linkAttrs</span> <span class=\"o\">=</span> <span class=\"nx\">isExternal</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 53</span><span class=\"cl\"> <span class=\"o\">?</span> <span class=\"s1\">' target=\"_blank\" rel=\"noopener noreferrer\"'</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 54</span><span class=\"cl\"> <span class=\"o\">:</span> <span class=\"s2\">\"\"</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 55</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 56</span><span class=\"cl\"> <span class=\"c1\">// 摘要：取 summary 或 content 开头一段\n</span></span></span><span class=\"line\"><span class=\"ln\"> 57</span><span class=\"cl\"><span class=\"c1\"></span> <span class=\"kr\">const</span> <span class=\"nx\">summaryRaw</span> <span class=\"o\">=</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 58</span><span class=\"cl\"> <span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">summary</span> <span class=\"o\">||</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 59</span><span class=\"cl\"> <span class=\"p\">(</span><span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">content</span> <span class=\"o\">?</span> <span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">content</span><span class=\"p\">.</span><span class=\"nx\">slice</span><span class=\"p\">(</span><span class=\"mi\">0</span><span class=\"p\">,</span> <span class=\"mi\">200</span><span class=\"p\">)</span> <span class=\"o\">+</span> <span class=\"s2\">\"…\"</span> <span class=\"o\">:</span> <span class=\"s2\">\"\"</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 60</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 61</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">summary</span> <span class=\"o\">=</span> <span class=\"nx\">escapeHtml</span><span class=\"p\">(</span><span class=\"nx\">summaryRaw</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 62</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 63</span><span class=\"cl\"> <span class=\"k\">return</span> <span class=\"sb\">`\n</span></span></span><span class=\"line\"><span class=\"ln\"> 64</span><span class=\"cl\"><span class=\"sb\"> &lt;li&gt;\n</span></span></span><span class=\"line\"><span class=\"ln\"> 65</span><span class=\"cl\"><span class=\"sb\"> &lt;div class=\"sr-title-col\"&gt;\n</span></span></span><span class=\"line\"><span class=\"ln\"> 66</span><span class=\"cl\"><span class=\"sb\"> &lt;a class=\"sr-title\" href=\"</span><span class=\"si\">${</span><span class=\"nx\">url</span><span class=\"si\">}</span><span class=\"sb\">\"</span><span class=\"si\">${</span><span class=\"nx\">linkAttrs</span><span class=\"si\">}</span><span class=\"sb\">&gt;</span><span class=\"si\">${</span><span class=\"nx\">title</span><span class=\"si\">}</span><span class=\"sb\">&lt;/a&gt;\n</span></span></span><span class=\"line\"><span class=\"ln\"> 67</span><span class=\"cl\"><span class=\"sb\"> &lt;/div&gt;\n</span></span></span><span class=\"line\"><span class=\"ln\"> 68</span><span class=\"cl\"><span class=\"sb\">\n</span></span></span><span class=\"line\"><span class=\"ln\"> 69</span><span class=\"cl\"><span class=\"sb\"> &lt;div class=\"sr-snippet-col\"&gt;\n</span></span></span><span class=\"line\"><span class=\"ln\"> 70</span><span class=\"cl\"><span class=\"sb\"> &lt;div class=\"sr-snippet\"&gt;</span><span class=\"si\">${</span><span class=\"nx\">summary</span><span class=\"si\">}</span><span class=\"sb\">&lt;/div&gt;\n</span></span></span><span class=\"line\"><span class=\"ln\"> 71</span><span class=\"cl\"><span class=\"sb\"> &lt;/div&gt;\n</span></span></span><span class=\"line\"><span class=\"ln\"> 72</span><span class=\"cl\"><span class=\"sb\"> &lt;/li&gt;\n</span></span></span><span class=\"line\"><span class=\"ln\"> 73</span><span class=\"cl\"><span class=\"sb\"> `</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 74</span><span class=\"cl\"> <span class=\"p\">}).</span><span class=\"nx\">join</span><span class=\"p\">(</span><span class=\"s2\">\"\"</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 75</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 76</span><span class=\"cl\"> <span class=\"nx\">resultsEl</span><span class=\"p\">.</span><span class=\"nx\">innerHTML</span> <span class=\"o\">=</span> <span class=\"nx\">itemsHtml</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 77</span><span class=\"cl\"><span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 78</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 79</span><span class=\"cl\"><span class=\"c1\">// ========== 加载 index.json 数据 ==========\n</span></span></span><span class=\"line\"><span class=\"ln\"> 80</span><span class=\"cl\"><span class=\"c1\"></span><span class=\"kr\">async</span> <span class=\"kd\">function</span> <span class=\"nx\">loadIndex</span><span class=\"p\">()</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 81</span><span class=\"cl\"> <span class=\"k\">try</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 82</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">res</span> <span class=\"o\">=</span> <span class=\"kr\">await</span> <span class=\"nx\">fetch</span><span class=\"p\">(</span><span class=\"s2\">\"/index.json\"</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 83</span><span class=\"cl\"> <span class=\"k\">return</span> <span class=\"kr\">await</span> <span class=\"nx\">res</span><span class=\"p\">.</span><span class=\"nx\">json</span><span class=\"p\">();</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 84</span><span class=\"cl\"> <span class=\"p\">}</span> <span class=\"k\">catch</span> <span class=\"p\">(</span><span class=\"nx\">err</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 85</span><span class=\"cl\"> <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nx\">error</span><span class=\"p\">(</span><span class=\"s2\">\"加载 index.json 失败：\"</span><span class=\"p\">,</span> <span class=\"nx\">err</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 86</span><span class=\"cl\"> <span class=\"k\">return</span> <span class=\"p\">[];</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 87</span><span class=\"cl\"> <span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 88</span><span class=\"cl\"><span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 89</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 90</span><span class=\"cl\"><span class=\"c1\">// ========== 主逻辑 ==========\n</span></span></span><span class=\"line\"><span class=\"ln\"> 91</span><span class=\"cl\"><span class=\"c1\"></span><span class=\"p\">(</span><span class=\"kr\">async</span> <span class=\"kd\">function</span> <span class=\"p\">()</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 92</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">data</span> <span class=\"o\">=</span> <span class=\"kr\">await</span> <span class=\"nx\">loadIndex</span><span class=\"p\">();</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 93</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">input</span> <span class=\"o\">=</span> <span class=\"nb\">document</span><span class=\"p\">.</span><span class=\"nx\">getElementById</span><span class=\"p\">(</span><span class=\"s2\">\"search-input\"</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 94</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 95</span><span class=\"cl\"> <span class=\"nx\">input</span><span class=\"p\">.</span><span class=\"nx\">addEventListener</span><span class=\"p\">(</span><span class=\"s2\">\"input\"</span><span class=\"p\">,</span> <span class=\"p\">()</span> <span class=\"p\">=&gt;</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 96</span><span class=\"cl\"> <span class=\"kr\">const</span> <span class=\"nx\">q</span> <span class=\"o\">=</span> <span class=\"nx\">input</span><span class=\"p\">.</span><span class=\"nx\">value</span><span class=\"p\">.</span><span class=\"nx\">trim</span><span class=\"p\">();</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 97</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\"> 98</span><span class=\"cl\"> <span class=\"k\">if</span> <span class=\"p\">(</span><span class=\"o\">!</span><span class=\"nx\">q</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\"> 99</span><span class=\"cl\"> <span class=\"nx\">renderResults</span><span class=\"p\">([]);</span>\n</span></span><span class=\"line\"><span class=\"ln\">100</span><span class=\"cl\"> <span class=\"k\">return</span><span class=\"p\">;</span>\n</span></span><span class=\"line\"><span class=\"ln\">101</span><span class=\"cl\"> <span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\">102</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\">103</span><span class=\"cl\"> <span class=\"c1\">// 精确搜索：title / content / tags 均可匹配\n</span></span></span><span class=\"line\"><span class=\"ln\">104</span><span class=\"cl\"><span class=\"c1\"></span> <span class=\"kr\">const</span> <span class=\"nx\">result</span> <span class=\"o\">=</span> <span class=\"nx\">data</span><span class=\"p\">.</span><span class=\"nx\">filter</span><span class=\"p\">(</span><span class=\"nx\">item</span> <span class=\"p\">=&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\">105</span><span class=\"cl\"> <span class=\"nx\">exactMatch</span><span class=\"p\">(</span><span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">title</span><span class=\"p\">,</span> <span class=\"nx\">q</span><span class=\"p\">)</span> <span class=\"o\">||</span>\n</span></span><span class=\"line\"><span class=\"ln\">106</span><span class=\"cl\"> <span class=\"nx\">exactMatch</span><span class=\"p\">(</span><span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">content</span><span class=\"p\">,</span> <span class=\"nx\">q</span><span class=\"p\">)</span> <span class=\"o\">||</span>\n</span></span><span class=\"line\"><span class=\"ln\">107</span><span class=\"cl\"> <span class=\"p\">(</span><span class=\"nx\">item</span><span class=\"p\">.</span><span class=\"nx\">tags</span> <span class=\"o\">||</span> <span class=\"p\">[]).</span><span class=\"nx\">some</span><span class=\"p\">(</span><span class=\"nx\">t</span> <span class=\"p\">=&gt;</span> <span class=\"nx\">exactMatch</span><span class=\"p\">(</span><span class=\"nx\">t</span><span class=\"p\">,</span> <span class=\"nx\">q</span><span class=\"p\">))</span>\n</span></span><span class=\"line\"><span class=\"ln\">108</span><span class=\"cl\"> <span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\">109</span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\">110</span><span class=\"cl\"> <span class=\"nx\">renderResults</span><span class=\"p\">(</span><span class=\"nx\">result</span><span class=\"p\">);</span>\n</span></span><span class=\"line\"><span class=\"ln\">111</span><span class=\"cl\"> <span class=\"p\">});</span>\n</span></span><span class=\"line\"><span class=\"ln\">112</span><span class=\"cl\"><span class=\"p\">})();</span>\n</span></span><span class=\"line\"><span class=\"ln\">113</span><span class=\"cl\"><span class=\"p\">&lt;/</span><span class=\"nt\">script</span><span class=\"p\">&gt;</span>\n</span></span><span class=\"line\"><span class=\"ln\">114</span><span class=\"cl\">{{ end }}</span></span></code></pre></div><h3 id=\"在-layouts-中新建-indexjson-模板\">在 <code>layouts</code> 中新建 <code>index.json</code> 模板</h3>\n<p>主要就是将整个博客文档内容输出到 <code>index.json</code> 文件，搜索时直接在该文件内搜索，可依照自己需求进行修改，比如只搜索标题、摘要、标签等信息。</p>"
-            },
-            {
-              "title": "双离合变速箱的汽车，必须要学会手动换挡吗？",
-              "link": "https://lawtee.com/article/dct-manual-mode-necessity/",
-              "published": "2025-11-20T05:50:00",
-              "summary": "<p>最近老T在微信视频号上连续刷到几个视频，说在川藏公路上，有一排排的双离合变速箱汽车抛锚在路上，这些视频呼吁，开双离合变速箱汽车的驾驶员要学会用手动档开车。</p>\n<p>由于老T现在开的车就是使用双离合变速箱，而且是双离合变速箱里面相对较差的干式双离合，所以对这个问题格外关注，特地研究一番。</p>\n<p>毕竟，一个自动挡的车，让我回过头去重新用手动挡，这事情，想想都头疼。</p>\n<h2 id=\"双离合变速箱到底怕什么\">双离合变速箱到底怕什么？</h2>\n<p>老T发现网上关于双离合（DCT）“容易坏”“上山下坡必挂了”的论调虽然很多，但很多都没有说清楚一个关键问题：<strong>双离合究竟是在什么工况下容易出事？</strong></p>\n<p>\n \n\n \n\n<figure class=\"custom-image\">\n <img alt=\"张华伟.大众双离合自动变速器常见故障与控制技术.机电工程技术,2020\" src=\"https://lawtee.com/article/dct-manual-mode-necessity/msedge_26jV7DUBYB.webp\" />\n <figcaption class=\"image-caption\">张华伟.大众双离合自动变速器常见故障与控制技术.机电工程技术,2020</figcaption>\n</figure>\n\n</p>\n<p>老T硬着头皮又在知网找了几篇论文，才发现双离合变速箱的弱点其实非常具体。干式结构本身散热差，湿式 DCT 是油冷，散热能力强，而干式 DCT 完全靠空气散热，长时间半联动或者频繁升降挡，会让离合器温度飙升。</p>\n<p>特别是在低速蠕行时，最伤双离合，这一点在多篇技术文章里反复提到。DCT 本质上是“自动化手动挡”，在堵车、坡道蠕行时，电脑会让离合器保持半联动状态，等同于开手动挡一直半踩离合。半联动意味着摩擦、升温，这对干式 DCT 来说非常致命。</p>\n<p>而高海拔、长陡坡会进一步放大散热问题，比如川藏线那种场景。空气稀薄、氧气含量低，发动机扭矩下降，变速箱为了维持动力，频繁降挡、拉高转速，离合器热得更快。这三个因素一叠加，干式双离合在山路极端工况下“罢工”也就不是玄学问题，而是基本物理规律。</p>\n<h2 id=\"为什么有人说要学会手动换挡\">为什么有人说“要学会手动换挡”？</h2>\n<p>老T一开始也以为这只是博人眼球的谬论，直到看到B站上几段维修师傅的 VLOG，才知道原因主要有三个。</p>\n<p>一是手动模式能锁定挡位，减少挡位间反复摩擦。在自动模式下，变速箱 ECU 为了平顺性，经常会拖着 2 挡、3 挡低速走，离合器片会一直打滑，导致持续升温。而切入手动模式后，在遇到长陡坡路段或者长堵车时，可以锁定到 1 挡或 2 挡，让离合器“完全结合”，热量就不会继续堆积。</p>\n<p>二是手动模式能防止变速箱乱变档，一些 DCT 为了降低油耗，当松油门时会主动升挡，这在某些山路上可能非常危险，升挡意味着动力中断，离合器再次半联动，再次升温。而手动模式能锁住挡位，让变速箱老老实实待在低挡位。</p>\n<p>三是手动模式可以避免变速箱程序 BUG，这点也是老T日常开车时体会最深的。我现在开的这辆国产车，已经是第 9 年个年头，其他地方都好，唯一吐槽的就是在有些平路转下坡的路段时，一加油就会出现发动机转速瞬间拉高的情况，究其原因是因为变速箱程序本身有点小bug，在遇到这种工况时，没能及时升档所导致。这时候手动升档一下，即可解决。</p>\n<p>总而言之就一句话，双离合变速箱并不需要像开手动挡一样频繁换挡，而是在特定条件下，偶尔用下手动模式，可以显著延长变速箱寿命，同时避免出现变速箱机故障。</p>\n<h2 id=\"怎么使用手动挡\">怎么使用手动挡？</h2>\n<p>讲起手动挡就不得不提到老T当年学车时悲催的经历。在考驾照时，科目二、科目三都曾因为对手动挡操作不熟练导致挂科。</p>\n<p>最主要就是对离合器和挡位的配合不熟练，科目二在半坡起步时，一脸懵逼的连续三次死火；科目三在直线行驶时，因为前边有大车，挡位也没算准，导致换挡时车辆顿挫，因“车身抖动”不合格。</p>\n<p>在开了10多年自动挡车后，对手动挡这三个字，一看到就有点心理不适。</p>\n<p>但好在，双离合变速箱的手动挡已经简单到极致。最大的优点就是，不用踩离合，右手直接换挡即可。</p>\n<p>\n \n\n \n\n<figure class=\"custom-image\">\n <img alt=\"双离合档把\" src=\"https://lawtee.com/article/dct-manual-mode-necessity/msedge_O6Y1vQP1Xs.webp\" />\n <figcaption class=\"image-caption\">双离合档把</figcaption>\n</figure>\n\n</p>\n<p>具体分为两种情况：</p>\n<ol>\n<li>\n<p>在遇到长陡坡时，把档把往右一拨，就能锁定当前挡位，都不需要考虑换挡的事。当特殊路况消失后，再往左拨回D挡。</p>\n</li>\n<li>\n<p>在遇到堵车时，把挡位往右一拨，然后向后摇（减号方向），确认仪表盘上是锁定在 1 档，接下来堵车过程中全程用 1 档即可，堵车结束后再往左拨回 D 挡。另外，有时候高速上堵车时，走走停停中间速度可能还会比较快，这时候需要手动升档的，仪表盘上都会有提示。</p>\n</li>\n</ol>\n<h2 id=\"还有哪些需要注意的\">还有哪些需要注意的？</h2>\n<p>其实在写这篇文章之前，老T在上下班和接送小孩路上，已经多次尝试全程使用手动挡模式来开车，但毫无疑问，都以失败告终。</p>\n<p>最主要问题是，这双离合的手动挡，日常用起来确实别扭，得比较精准得记得每个挡位所对应的车速，不然仪表盘老是弹警告，提示要升档或降档，很影响心情。</p>\n<p>特别是，在等红灯的，必须降到 1 档，导致连着降四五个挡位时容易出现顿挫。最后也只能心一横，不用这玩意了。毕竟，与堵车时锁定 1 挡相比，这全程用手动换挡完全是两码事。</p>\n<p>讲白了，双离合的手动挡，本就是为了在“极端工况”下临时应急用的，本质上还是个自动挡。</p>\n<p>日常开车完全不需要用到这玩意。</p>"
-            },
-            {
-              "title": "降低带宽，反而能加速？家庭网络的“负优化”实验",
-              "link": "https://lawtee.com/article/optimize-home-network-without-changing-router/",
-              "published": "2025-11-18T10:20:00",
-              "summary": "<p>最近，老T写了一篇《<a href=\"https://lawtee.com/article/why-1000m-bandwith-tesed-300m/\">为何1000M宽带，有时候测速只有300M</a>》的文章，有读者私信老T询问家里网络该怎么优化。老T心想，这网络优化不是网上一查一大把，于是随便搜了几篇微信公众号文章发给他，但很显然这些文章都没有符合他的要求，因为他的目标是优化网盘上传问题，经常传着传着就断了。于是老T只好自己来写这篇文章，刚好自己也在琢磨视频网站压缩升级和静态网站方案的事儿，所以一并讲讲。</p>"
-            }
-          ],
-          "feed_url": "https://lawtee.com/index.xml"
+          "rss": "https://lawtee.com/index.xml"
         },
         {
           "name": "木竹",
           "intro": "喜欢把复杂的图纸变成简洁优雅的造价文件",
           "link": "https://www.laomuzhu.cn/",
-          "avatar": "https://www.laomuzhu.cn/touxiang.png"
+          "avatar": "https://www.laomuzhu.cn/img/touxiang.jpg",
+          "rss": "https://www.laomuzhu.cn/feed/"
         },
         {
           "name": "小十博客",
           "intro": "十分之十的小十",
           "link": "https://www.xiaoten.com/",
           "avatar": "https://www.xiaoten.com/avatar.png",
-          "feeds": [
-            {
-              "title": "基于高德地图实现 Hugo 足迹地图短代码",
-              "link": "https://www.xiaoten.com/posts/2025/11/amap-powered-footprintmap-shortcode/",
-              "published": "2025-11-18T07:45:25",
-              "summary": "<p>依然是受\n<a href=\"https://wangdaodao.com/20251117/amap-track.html\" rel=\"noopener noreferrer\" target=\"_blank\">\n王叨叨：基于高德地图做足迹管理插件\n</a>文章启发，实在眼馋足迹功能，但苦于没有清晰的思路，看到叨叨大神发了这个插件，借助AI，终于抽空完成了这一功能，并融入了一些个人想法：</p>"
-            },
-            {
-              "title": "解决 Hugo 分页器返回空页面的诡异问题：.Paginate 不能被多次调用",
-              "link": "https://www.xiaoten.com/posts/2025/11/fixing-hugo-pagination-paginate-called-multiple-times-issue/",
-              "published": "2025-11-16T11:30:00",
-              "summary": "<h2 id=\"问题背景\">问题背景</h2>\n<p>在将博客的文章列表从 JavaScript 分页迁移到 Hugo 官方分页时，遇到了一个非常诡异的问题：</p>\n<ul>\n<li>✅ Hugo 构建成功，显示生成了 42 个分页页面</li>\n<li>✅ <code>.RegularPages</code> 有 360 篇文章</li>\n<li>✅ 直接 <code>range .RegularPages</code> 可以正常显示文章</li>\n<li>❌ 但是 <code>.Paginator.Pages</code> 始终返回 0</li>\n</ul>\n<div class=\"highlight\"><pre class=\"chroma\" tabindex=\"0\"><code class=\"language-html\"><span class=\"line\"><span class=\"cl\">{{/* 这样可以看到 360 篇文章 */}}\n</span></span><span class=\"line\"><span class=\"cl\">{{ range .RegularPages }}\n</span></span><span class=\"line\"><span class=\"cl\"> {{ .Title }}\n</span></span><span class=\"line\"><span class=\"cl\">{{ end }}\n</span></span><span class=\"line\"><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"cl\">{{/* 但分页器是空的！ */}}\n</span></span><span class=\"line\"><span class=\"cl\">{{ $paginator := .Paginator }}\n</span></span><span class=\"line\"><span class=\"cl\">分页器中的文章数: {{ len $paginator.Pages }} {{/* 输出：0 */}}\n</span></span></code></pre></div><h2 id=\"排查过程\">排查过程</h2>\n<h3 id=\"第一步检查配置\">第一步：检查配置</h3>\n<p>首先怀疑是配置问题。Hugo v0.128+ 的分页配置格式发生了变化：</p>"
-            },
-            {
-              "title": "徐州一日纪行",
-              "link": "https://www.xiaoten.com/posts/2025/11/one-days-in-xuzhou/",
-              "published": "2025-11-16T09:54:00",
-              "summary": "<p>16日早上，从郑州出发，乘坐高铁约一个半小时到达徐州东站。由于交通便利，行程安排为当天往返。</p>\n<p>出行前参考了一些攻略，徐州的几个主要景点相对集中，因此整体行程比较紧凑。</p>"
-            }
-          ],
-          "feed_url": "https://www.xiaoten.com/index.xml"
+          "rss": "https://www.xiaoten.com/index.xml"
+        },
+        {
+          "name": "Lanke's Blog",
+          "intro": "请为一切不真实之物骄傲，因为我们高于这个世界。",
+          "link": "https://blog.blueke.top",
+          "avatar": "https://gcore.jsdelivr.net/gh/Keduoli03/My_img@img/img/头像.jpg",
+          "rss": "https://blog.blueke.top/rss.xml"
+        },
+        {
+          "name": "路明笔记",
+          "intro": "不慌张，不绝望，不狂妄，不投降。",
+          "link": "https://luming.cool",
+          "avatar": "https://cn.cravatar.com/avatar/302380667bdaf4e1390800e62494d4af?s=80",
+          "rss": "https://luming.cool/rss.xml"
         }
       ]
     },
@@ -500,55 +251,13 @@
           "name": "BlogFinder",
           "intro": "聚合优秀的个人博客",
           "link": "https://bf.zzxworld.com/s",
-          "avatar": "https://bf.zzxworld.com/images/favicon.png",
-          "feeds": [
-            {
-              "title": "【与Mondo同行·第三季】10：让花成花，让树成树",
-              "link": "http://www.qncd.com/?p=12257&utm_source=blogfinder",
-              "published": "2025-11-24T02:00:36",
-              "summary": "【与Mondo同行·第三季】10：让花成花，让树成树"
-            },
-            {
-              "title": "理想世界",
-              "link": "https://www.immarcus.com/blog/ideal-world?utm_source=blogfinder",
-              "published": "2025-11-24T00:00:00",
-              "summary": "理想世界"
-            },
-            {
-              "title": "神户胜利船",
-              "link": "https://shuiba.co/vissel-kobe?utm_source=blogfinder",
-              "published": "2025-11-23T23:30:00",
-              "summary": "神户胜利船"
-            }
-          ],
-          "feed_url": "https://bf.zzxworld.com/feed.xml"
+          "avatar": "https://bf.zzxworld.com/images/favicon.png"
         },
         {
           "name": "博友圈",
           "intro": "博客人的朋友圈",
           "link": "https://www.boyouquan.com/",
-          "avatar": "https://www.boyouquan.com/assets/images/sites/logo/logo-small.png",
-          "feeds": [
-            {
-              "title": "云心怀鹤：一条盘山路：把呼吸调成“大明山模式”",
-              "link": "https://www.boyouquan.com/go?from=feed&link=https%3A%2F%2Fbluehe.cn%2Farchives%2Fdamingshan-mode",
-              "published": "2025-11-23T06:12:00",
-              "summary": "这里的“大明山模式”源于在半山坡停靠在一侧的草堆旁，下车时随着风的飘然，我能清晰的闻到草的清甜味，我不断的说，这里草的味道好浓郁，总而言之：呼吸在自然里，这就是“大明山模式”。 2025年11月16日星期天，本该前两周就计划好的行程，终于在今天出发了。早上9点我来到黎同学的家，一起骑着小电驴去取他的车，然后去接他的朋友。开始了自驾路线，我们五人从南宁市区出发，走安吉经都南高速至府城出口下，再转二级路直达大明山景区门口，总行程88公里。 成人票起售价约为95元，自驾车再收5元停车收费凭证，没有自驾就是门票+观光车套票约128元，强烈建议自驾。我已提前做好了攻略，我们需要到游客中心购买元停车收费凭证，黎同学签了入园承诺书，主要内容是景区免责协议，进入景区时限，进入时间规定8:30-17:00，离开时间为17:00之前等。 同时还可以领取地图手册，手册背面的全景地图如上图显示，制作得很精美。随后我们抵达检票口，景区人员一一给我们验票，因为我们在美团上购票便宜了不少，从83-87每个人优惠价都不一样，接着打开后备箱检查物品，确保没有露营准备，同时叮嘱拒绝火源等行为，我们满口答应。 景区位于广西南宁市武鸣区两江镇明山路1号，国家AAAA级景区·国家级自然保护区，亮点是春花、夏瀑、秋云、冬雪，冬雪的意义可太大了，在南方下雪，为数不多可见到的场景之一，也可以有霜，雪白雪白地挂在树枝上。 一条盘山路，弯弯曲曲，只有一条单行道，所以要时不时打着喇叭，我们打开车窗，这含氧量太丰盈了，后排的女生都忍不住想睡觉了，过于惬意，不久便抵达了我们的第一站：鱼跃龙门，黎同学还吐槽我们就是鱼，跳了就变成龙了，可不兴这么干。 这里也有滑翔伞基地，路过时，正好看到一位游人正飞跃而下，短暂，没有来得及拍。 中途在观雪亭停留了一会，欣赏着云层和远处的风景，我们五人话可太密了，说得都停不下来，我吐槽现在的话量是我一周..."
-            },
-            {
-              "title": "瓦匠：昨夜旧影入梦深，今朝清醒人依旧",
-              "link": "https://www.boyouquan.com/go?from=feed&link=https%3A%2F%2Fairy.ink%2Ftimes%2F133",
-              "published": "2025-11-23T07:42:00",
-              "summary": "回来有半个月了，前些天和朋友聊天，聊了聊过去几年在厦门的经历啥的，怎么说呢，好像一直都是日子过着，也确实从来没回头复盘啥的。 自从那天聊完，这两天连续做梦。梦里总有模糊的影子，像是隔着毛玻璃，轮廓熟悉，却始终看不清面容，一度怀疑是这两天css滤镜样式写太多了。 昨夜又梦见那个海边城市。我们赤脚站在沙滩上，潮汐不断拍打着，阳光并不刺眼，辉光照在她的身上，头发被海风撩起几缕，泛着淡淡的金色光晕。侧脸在光里显得格外的柔和，和平时大大咧咧的样子全不一样，我们之间隔着恰到好处的距离，刚好能闻到她最喜欢的洗发水的清香，刚好能听到她哼着我最喜欢的歌。 潮水一遍遍漫上来，又退去。她蹲下在沙子上画着什么，手指划过的地方立刻被细浪抚平。我开口问她在画什么，她转过头来看我，眼睛像被海水清洗过的水晶球，倒影着我的身影，她皱了皱眉，啧了一声，以此表达被我打扰兴致之后的不满。 她用海水洗去手上的细沙，站起身，向前走了几步，裙摆被海水打湿一角，潮水漫过脚踝，却浑然不觉。 “如果有一天”。 望着层层退去的浪，她终于开口，声音轻得像海面上的薄雾。 “如果有一天，你要像这潮水一样退去，记得告诉我”。 话音落进潮声里，我的心跳仿佛漏了一拍，随即和海浪的节拍重叠在一起，突然失去了所有言语。 潮声忽然远了，她沿着水线往前走，每一步都留下转瞬即逝的脚印。我站在原地，看着她的身影在氤氲的水汽中渐渐透明，仿佛随时会融进海天之间那片苍茫的灰白里。 有些过去不是被遗忘了，只是被日子埋得太深。 潮水带不走的，都留在梦里了。"
-            },
-            {
-              "title": "王如飞 Blog：第一次带娃逛公园",
-              "link": "https://www.boyouquan.com/go?from=feed&link=https%3A%2F%2Fwangrufei.com%2Farchives%2F379",
-              "published": "2025-11-22T15:48:00",
-              "summary": "宝宝出生已经六个月了，才第一次带宝宝逛公园，确实时间久，但也在合理之中，有过小宝宝就知道时间的不可控了。电视看的少了，出门吃大餐几乎没有过，之前的生活习惯全变的不一样了，全都在围绕着宝宝转，自己时间真的一点也没有了。不过随着宝宝的长大，大概在出生5个月左右，就感觉娃好带了，我们也越来越轻松了。 [...]"
-            }
-          ],
-          "feed_url": "https://www.boyouquan.com/feed.xml"
+          "avatar": "https://www.boyouquan.com/assets/images/sites/logo/logo-small.png"
         },
         {
           "name": "个站商店",

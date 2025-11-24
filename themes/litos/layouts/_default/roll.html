@@ -1,4 +1,4 @@
-﻿{{ define "main" }}
+{{ define "main" }}
 <div class="roll-container">
     <!-- Page Header -->
     {{ partial "heading.html" (dict "index" "01" "text" .Title) }}
@@ -28,10 +28,23 @@
                     {{ $sectionTitle = .id_name }}
                 {{ end }}
                 
+                {{ if eq $group.id_name "friends" }}
+                <div style="margin: 0.5rem 0;">
+                  {{ partial "line.html" . }}
+                  <h2 style="padding: 1rem; font-size: 0.75rem; text-transform: uppercase; font-family: var(--font-mono); margin: 0; display: flex; align-items: center; justify-content: flex-start; gap: 0.5rem;">
+                    <span><span style="color: var(--color-muted); margin-right: 0.5rem;" aria-hidden="true">{{ $sectionIndex }} /</span>{{ $sectionTitle }}</span>
+                    <a href="#rss" class="rss-button" id="rssToggleButton" aria-label="RSS 标签">
+                      <i class="ri-rss-line" style="font-size: 0.9em;"></i>
+                    </a>
+                  </h2>
+                  {{ partial "line.html" . }}
+                </div>
+                {{ else }}
                 {{ partial "heading.html" (dict "index" $sectionIndex "text" $sectionTitle) }}
+                {{ end }}
                 
                 <section class="p-4">
-                    <div class="friends-grid">
+                    <div class="friends-grid" id="friendsGrid">
                         {{ range .link_list }}
                             <article class="friend-card {{ if eq $group.id_name "Organization" }}org-card{{ else }}friend-card-main{{ end }}">
                                 {{ $isExternal := and (strings.HasPrefix .link "http") (not (strings.Contains .link "suus.me")) }}
@@ -53,21 +66,69 @@
                                         <p class="friend-intro">{{ .intro }}</p>
                                     </div>
                                 </a>
-                                    {{ $feeds := .feeds | default (slice) }}
-                                    {{ if gt (len $feeds) 0 }}
-                                        <div class="friend-feeds">
-                                            {{ range first 3 $feeds }}
-                                                <a href="{{ .link }}" class="feed-item" title="{{ .title }}" target="_blank" rel="noopener noreferrer">
-                                                    <span class="feed-icon">📰</span>
-                                                    <span class="feed-title">{{ .title }}</span>
-                                                    <span class="feed-date">{{ .published }}</span>
-                                                </a>
-                                            {{ end }}
-                                        </div>
-                                    {{ end }}
                             </article>
                         {{ end }}
                     </div>
+                    {{ if eq $group.id_name "friends" }}
+                    <div id="rssTagSection" style="display: none;">
+                        {{ $rssData := resources.Get "rss_friends.json" }}
+                        {{ if $rssData }}
+                            {{ $rssFriends := $rssData | transform.Unmarshal }}
+                            <div class="friends-grid">
+                                {{ range $rssFriends.list }}
+                                    <article class="friend-card friend-card-main">
+                                        <div class="friend-link" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+                                            <div class="friend-info" style="min-width: 0; width: 100%;">
+                                                <h3 class="friend-name" style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                                                    <i class="ri-rss-line" style="color: var(--color-primary);"></i>
+                                                    {{ .name }}
+                                                </h3>
+                                                <p class="friend-intro" style="margin-top: 0.25rem; color: var(--color-muted);">{{ .rss }}</p>
+                                            </div>
+                                            {{ if .items }}
+                                            <div style="display: grid; grid-template-columns: 1fr; gap: 0.25rem; width: 100%;">
+                                                {{ range first 3 .items }}
+                                                <a href="{{ .link }}" target="_blank" rel="noopener" style="font-size: 0.825rem; color: var(--color-foreground); text-decoration: none;">
+                                                    <span style="color: var(--color-muted);">•</span> {{ .title }}
+                                                </a>
+                                                {{ end }}
+                                            </div>
+                                            {{ end }}
+                                            <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
+                                                <a href="{{ .rss }}" target="_blank" rel="noopener" class="corner-effect" style="flex-shrink: 0;">
+                                                    <span class="corner"></span>
+                                                    <span class="btn-content" style="background-color: var(--color-primary); color: var(--color-primary-foreground); border-color: var(--color-primary);">订阅</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                {{ end }}
+                            </div>
+                        {{ else }}
+                            <div class="friends-grid">
+                                {{ range .link_list }}
+                                    {{ if .rss }}
+                                    <article class="friend-card friend-card-main">
+                                        <div class="friend-link" style="justify-content: space-between;">
+                                            <div class="friend-info" style="min-width: 0;">
+                                                <h3 class="friend-name" style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                                                    <i class="ri-rss-line" style="color: var(--color-primary);"></i>
+                                                    {{ .name }}
+                                                </h3>
+                                                <p class="friend-intro" style="margin-top: 0.25rem;">{{ .rss }}</p>
+                                            </div>
+                                            <a href="{{ .rss }}" target="_blank" rel="noopener" class="corner-effect" style="flex-shrink: 0;">
+                                                <span class="corner"></span>
+                                                <span class="btn-content" style="background-color: var(--color-primary); color: var(--color-primary-foreground); border-color: var(--color-primary);">订阅</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                    {{ end }}
+                                {{ end }}
+                            </div>
+                        {{ end }}
+                    </div>
+                    {{ end }}
                 </section>
             {{ end }}
         {{ end }}

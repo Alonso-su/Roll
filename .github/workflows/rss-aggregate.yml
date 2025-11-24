@@ -1,0 +1,38 @@
+name: Aggregate Friends RSS
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */12 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install rss-parser
+
+      - name: Aggregate RSS
+        run: node scripts/rss-aggregate.js
+
+      - name: Commit and push changes
+        run: |
+          if [ -n "$(git status --porcelain assets/rss_friends.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add assets/rss_friends.json
+            git commit -m "chore: update aggregated friends RSS"
+            git push
+          else
+            echo "No changes to commit"
+          fi

@@ -307,6 +307,29 @@
   }
 }
 
+// RSS toggle button near title
+.rss-button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none !important;
+  color: var(--color-muted);
+  cursor: pointer;
+  
+  i {
+    color: var(--color-muted);
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  &:hover {
+    text-decoration: none !important;
+  }
+
+  &:hover i {
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+}
+
 // 友链卡片的特殊效果
 .friend-card {
   position: relative;
@@ -567,32 +590,3 @@
     }
   }
 }
-
-/* RSS feed list styles for friend cards */
-.friend-feeds{
-  border-top:1px solid var(--color-border);
-  padding:.75rem .75rem 1rem .75rem;
-  display:flex;
-  flex-direction:column;
-  gap:.375rem;
-  background:var(--color-background);
-}
-.feed-item{
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.4rem .5rem;
-  font-size:.85rem;
-  text-decoration:none;
-  color:var(--color-foreground);
-  border-radius:.25rem;
-  transition:background-color .15s ease,color .15s ease;
-  overflow:hidden;
-}
-.feed-item:hover{
-  background-color:var(--color-primary-light, rgba(39,39,39,0.06));
-  color:var(--color-primary);
-}
-.feed-icon{flex-shrink:0;font-size:0.95rem}
-.feed-title{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.feed-date{flex-shrink:0;color:var(--color-muted);font-size:.75rem;opacity:.8}
